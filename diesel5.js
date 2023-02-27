@@ -1,4 +1,4 @@
-'use strict';
+'use strict';;
 /** @type {function(!Object): ?} */
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(exclude) {
   return typeof exclude;
