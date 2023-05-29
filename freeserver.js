@@ -25,7 +25,7 @@ setInterval(function() {
 	if(element2Remove.length > 0) element2Remove.parent('div').hide();
 }, 100); //End Interval
 
-setITimeout(function() { 
+setTimeout(function() { 
 /* Опрашиваем Сервер_1 === резервный метод */
 fetch(server_1 + '/echo')												//Проверяем LocalHost
 	.then(response => {
@@ -34,7 +34,7 @@ fetch(server_1 + '/echo')												//Проверяем LocalHost
 	.catch(err => Lampa.Storage.set('FreeServ_1', 'NotFound'))	//если не ответил
 }, 1000)
 
-setITimeout(function() { 
+setTimeout(function() { 
 /* Опрашиваем Сервер_2 === резервный метод */
 fetch(server_2 + '/echo')												//Проверяем LocalHost
 	.then(response => {
@@ -43,7 +43,7 @@ fetch(server_2 + '/echo')												//Проверяем LocalHost
 	.catch(err => Lampa.Storage.set('FreeServ_2', 'NotFound'))	//если не ответил
 }, 5000)
 	
-setITimeout(function() { 
+setTimeout(function() { 
 /* Опрашиваем Сервер_3 === резервный метод */
 fetch(server_3 + '/echo')												//Проверяем LocalHost
 	.then(response => {
@@ -52,7 +52,7 @@ fetch(server_3 + '/echo')												//Проверяем LocalHost
 	.catch(err => Lampa.Storage.set('FreeServ_3', 'NotFound'))	//если не ответил
 }, 10000)
 	
-setITimeout(function() { 
+setTimeout(function() { 
 /* Опрашиваем Сервер_4 === резервный метод */
 fetch(server_4 + '/echo')												//Проверяем LocalHost
 	.then(response => {
@@ -61,7 +61,7 @@ fetch(server_4 + '/echo')												//Проверяем LocalHost
 	.catch(err => Lampa.Storage.set('FreeServ_4', 'NotFound'))	//если не ответил
 }, 15000)
 	
-setITimeout(function() { 
+setTimeout(function() { 
 /* Опрашиваем Сервер_5 === резервный метод */
 fetch(server_5 + '/echo')												//Проверяем LocalHost
 	.then(response => {
@@ -70,7 +70,7 @@ fetch(server_5 + '/echo')												//Проверяем LocalHost
 	.catch(err => Lampa.Storage.set('FreeServ_5', 'NotFound'))	//если не ответил
 }, 20000)
 	
-setITimeout(function() { 
+setTimeout(function() { 
 /* Опрашиваем Сервер_6 === резервный метод */
 fetch(server_6 + '/echo')												//Проверяем LocalHost
 	.then(response => {
@@ -123,7 +123,7 @@ setTimeout(function() { //выставляем таймаут для получ�
 						}, 0);
 					}
 	});
-}, 1000) // end TimeOut
+}, 5000) // end TimeOut
 
 
 
