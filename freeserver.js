@@ -25,94 +25,47 @@ setInterval(function() {
 	if(element2Remove.length > 0) element2Remove.parent('div').hide();
 }, 100); //End Interval
 
-/* Опрашиваем Сервер_1 === резервный метод
-fetch('127.0.0.1:8090/echo')												//Проверяем LocalHost
+/* Опрашиваем Сервер_1 === резервный метод */
+fetch(server_1 + '/echo')												//Проверяем LocalHost
 	.then(response => {
-		Lampa.Storage.set('FreeServ_1', '127.0.0.1') 			//если кандидат ответил на запрос
+		Lampa.Storage.set('FreeServ_1', server_1) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_1', 'NotFound'))	//если не ответил
 
-*/
+/* Опрашиваем Сервер_2 === резервный метод */
+fetch(server_2 + '/echo')												//Проверяем LocalHost
+	.then(response => {
+		Lampa.Storage.set('FreeServ_2', server_2) 			//если кандидат ответил на запрос
+		})		
+	.catch(err => Lampa.Storage.set('FreeServ_2', 'NotFound'))	//если не ответил
 
-/* Функция опроса серверов по шаблону */
-async function checkPort(ip, timeout) {
-  return new Promise((resolve, reject) => {
-    const startTime = new Date();
-    const timer = setTimeout(() => {
-      const endTime = new Date();
-      //reject("Timeout reached (time elapsed: " + (endTime - startTime) + "ms)");
-    }, timeout);
-    const client = new XMLHttpRequest();
-    client.open("HEAD", "http://" + ip + "/echo");
-    client.onload = () => {
-      clearTimeout(timer);
-    // если сервер ответил
-	  resolve("Port открыт на " + ip + " - доступен для подключения!");
-		/* Если 1ое место пустое, заполняем */
-		if (Lampa.Storage.get('FreeServ_1') == 'NotFound') {
-		  Lampa.Storage.set('FreeServ_1', ip)
-		}
-		/* Если 1ое место уже заполнено и 2е пустое, заполняем 2е */
-		if ((Lampa.Storage.get('FreeServ_1') !== 'NotFound')&(Lampa.Storage.get('FreeServ_2') == 'NotFound')) {
-		  Lampa.Storage.set('FreeServ_2', ip)
-		}
-		/* Если 2ое место уже заполнено и 3е пустое, заполняем 3е */
-		if ((Lampa.Storage.get('FreeServ_2') !== 'NotFound')&(Lampa.Storage.get('FreeServ_3') == 'NotFound')) {
-		  Lampa.Storage.set('FreeServ_3', ip)
-		}
-		/* Если 3е место уже заполнено и 4ое пустое, заполняем 4ое */
-		if ((Lampa.Storage.get('FreeServ_3') !== 'NotFound')&(Lampa.Storage.get('FreeServ_4') == 'NotFound')) {
-		  Lampa.Storage.set('FreeServ_4', ip)
-		}
-		/* Если 4ое место уже заполнено и 5ое пустое, заполняем 5ое */
-		if ((Lampa.Storage.get('FreeServ_4') !== 'NotFound')&(Lampa.Storage.get('FreeServ_5') == 'NotFound')) {
-		  Lampa.Storage.set('FreeServ_5', ip)
-		}
-		/* Если 5ое место уже заполнено и 6ое пустое, заполняем 6ое */
-		if ((Lampa.Storage.get('FreeServ_5') !== 'NotFound')&(Lampa.Storage.get('FreeServ_6') == 'NotFound')) {
-		  Lampa.Storage.set('FreeServ_6', ip)
-		}
-    };
-    // если сервер молчит
-	client.onerror = () => {
-      clearTimeout(timer);
-      reject(""); // reject("Port закрыт на " + ip);
-    };
-    client.send();
-  });
-}
+/* Опрашиваем Сервер_3 === резервный метод */
+fetch(server_3 + '/echo')												//Проверяем LocalHost
+	.then(response => {
+		Lampa.Storage.set('FreeServ_2', server_3) 			//если кандидат ответил на запрос
+		})		
+	.catch(err => Lampa.Storage.set('FreeServ_3', 'NotFound'))	//если не ответил
 
+/* Опрашиваем Сервер_4 === резервный метод */
+fetch(server_4 + '/echo')												//Проверяем LocalHost
+	.then(response => {
+		Lampa.Storage.set('FreeServ_2', server_4) 			//если кандидат ответил на запрос
+		})		
+	.catch(err => Lampa.Storage.set('FreeServ_4', 'NotFound'))	//если не ответил
 
-/* Опрос сервера_1 */
-setTimeout(function() {
-	checkPort(server_1, 2000); // ip, port, timeout
-},500)
+/* Опрашиваем Сервер_5 === резервный метод */
+fetch(server_5 + '/echo')												//Проверяем LocalHost
+	.then(response => {
+		Lampa.Storage.set('FreeServ_2', server_5) 			//если кандидат ответил на запрос
+		})		
+	.catch(err => Lampa.Storage.set('FreeServ_5', 'NotFound'))	//если не ответил
 
-/* Опрос сервера_2 */
-setTimeout(function() {
-	checkPort(server_2, 2000); // ip, port, timeout
-},1000)
-
-/* Опрос сервера_3 */
-setTimeout(function() {
-	checkPort(server_3, 2000); // ip, port, timeout
-},1500)
-
-/* Опрос сервера_4 */
-setTimeout(function() {
-	checkPort(server_4, 2000); // ip, port, timeout
-},2000)
-
-/* Опрос сервера_5 */
-setTimeout(function() {
-	checkPort(server_5, 2000); // ip, port, timeout
-},2500)
-
-/* Опрос сервера_6 */
-setTimeout(function() {
-	checkPort(server_6, 2000); // ip, port, timeout
-},3000)
-
+/* Опрашиваем Сервер_6 === резервный метод */
+fetch(server_6 + '/echo')												//Проверяем LocalHost
+	.then(response => {
+		Lampa.Storage.set('FreeServ_2', server_6) 			//если кандидат ответил на запрос
+		})		
+	.catch(err => Lampa.Storage.set('FreeServ_6', 'NotFound))	//если не ответил
 
 
 
