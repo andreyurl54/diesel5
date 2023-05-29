@@ -148,7 +148,7 @@ setTimeout(function() { //выставляем таймаут для получ�
 						if (value == '6') Lampa.Storage.set('torrserver_url_two', server_6);
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						//Lampa.Storage.set('torrserver_use_link', (value == '0') ? 'one' : 'two');
-						//Lampa.Settings.update();
+						Lampa.Settings.update();
 					},
 					onRender: function (item) {
 						setTimeout(function() {
