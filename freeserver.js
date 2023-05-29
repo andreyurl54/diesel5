@@ -88,13 +88,12 @@ setTimeout(function() { //выставляем таймаут для получ�
 						name: 'freetorrserv',
 						type: 'select',
 						values: {
-						   0: 'Не выбран',
-						   1: server_1 + '',
-						   2: server_2 + '', //берём значение из Storage т.к. видимость переменных ограничена
-						   3: server_3 + '',
-						   4: server_4 + '',
-						   5: server_5 + '',
-						   6: server_6 + '',
+						   1: Lampa.Storage.get('FreeServ_1') + '',
+						   2: Lampa.Storage.get('FreeServ_2') + '', //берём значение из Storage т.к. видимость переменных ограничена
+						   3: Lampa.Storage.get('FreeServ_3') + '',
+						   4: Lampa.Storage.get('FreeServ_4') + '',
+						   5: Lampa.Storage.get('FreeServ_5') + '',
+						   6: Lampa.Storage.get('FreeServ_6') + '',
 						},
 						default: 0
 					},
