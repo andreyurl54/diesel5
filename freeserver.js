@@ -65,7 +65,7 @@ fetch(server_6 + '/echo')												//Проверяем LocalHost
 	.then(response => {
 		Lampa.Storage.set('FreeServ_6', server_6) 			//если кандидат ответил на запрос
 		})		
-	.catch(err => Lampa.Storage.set('FreeServ_6', 'NotFound))	//если не ответил
+	.catch(err => Lampa.Storage.set('FreeServ_6', 'NotFound'))	//если не ответил
 
 
 
