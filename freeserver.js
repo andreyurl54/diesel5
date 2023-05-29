@@ -42,28 +42,28 @@ fetch(server_2 + '/echo')												//Проверяем LocalHost
 /* Опрашиваем Сервер_3 === резервный метод */
 fetch(server_3 + '/echo')												//Проверяем LocalHost
 	.then(response => {
-		Lampa.Storage.set('FreeServ_2', server_3) 			//если кандидат ответил на запрос
+		Lampa.Storage.set('FreeServ_3', server_3) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_3', 'NotFound'))	//если не ответил
 
 /* Опрашиваем Сервер_4 === резервный метод */
 fetch(server_4 + '/echo')												//Проверяем LocalHost
 	.then(response => {
-		Lampa.Storage.set('FreeServ_2', server_4) 			//если кандидат ответил на запрос
+		Lampa.Storage.set('FreeServ_4', server_4) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_4', 'NotFound'))	//если не ответил
 
 /* Опрашиваем Сервер_5 === резервный метод */
 fetch(server_5 + '/echo')												//Проверяем LocalHost
 	.then(response => {
-		Lampa.Storage.set('FreeServ_2', server_5) 			//если кандидат ответил на запрос
+		Lampa.Storage.set('FreeServ_5', server_5) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_5', 'NotFound'))	//если не ответил
 
 /* Опрашиваем Сервер_6 === резервный метод */
 fetch(server_6 + '/echo')												//Проверяем LocalHost
 	.then(response => {
-		Lampa.Storage.set('FreeServ_2', server_6) 			//если кандидат ответил на запрос
+		Lampa.Storage.set('FreeServ_6', server_6) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_6', 'NotFound))	//если не ответил
 
