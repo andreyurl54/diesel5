@@ -25,48 +25,59 @@ setInterval(function() {
 	if(element2Remove.length > 0) element2Remove.parent('div').hide();
 }, 100); //End Interval
 
+setITimeout(function() { 
 /* Опрашиваем Сервер_1 === резервный метод */
 fetch(server_1 + '/echo')												//Проверяем LocalHost
 	.then(response => {
 		Lampa.Storage.set('FreeServ_1', server_1) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_1', 'NotFound'))	//если не ответил
+}, 1000)
 
+setITimeout(function() { 
 /* Опрашиваем Сервер_2 === резервный метод */
 fetch(server_2 + '/echo')												//Проверяем LocalHost
 	.then(response => {
 		Lampa.Storage.set('FreeServ_2', server_2) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_2', 'NotFound'))	//если не ответил
-
+}, 5000)
+	
+setITimeout(function() { 
 /* Опрашиваем Сервер_3 === резервный метод */
 fetch(server_3 + '/echo')												//Проверяем LocalHost
 	.then(response => {
 		Lampa.Storage.set('FreeServ_3', server_3) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_3', 'NotFound'))	//если не ответил
-
+}, 10000)
+	
+setITimeout(function() { 
 /* Опрашиваем Сервер_4 === резервный метод */
 fetch(server_4 + '/echo')												//Проверяем LocalHost
 	.then(response => {
 		Lampa.Storage.set('FreeServ_4', server_4) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_4', 'NotFound'))	//если не ответил
-
+}, 15000)
+	
+setITimeout(function() { 
 /* Опрашиваем Сервер_5 === резервный метод */
 fetch(server_5 + '/echo')												//Проверяем LocalHost
 	.then(response => {
 		Lampa.Storage.set('FreeServ_5', server_5) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_5', 'NotFound'))	//если не ответил
-
+}, 20000)
+	
+setITimeout(function() { 
 /* Опрашиваем Сервер_6 === резервный метод */
 fetch(server_6 + '/echo')												//Проверяем LocalHost
 	.then(response => {
 		Lampa.Storage.set('FreeServ_6', server_6) 			//если кандидат ответил на запрос
 		})		
 	.catch(err => Lampa.Storage.set('FreeServ_6', 'NotFound'))	//если не ответил
-
+}, 25000)
 
 
 /* Формируем меню после опроса серверов */
