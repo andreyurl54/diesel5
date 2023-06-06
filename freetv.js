@@ -970,9 +970,9 @@ Lampa.SettingsApi.addParam({
 	if (Lampa.Storage.field('TVmenu') == 'KZ_KZ_MTS')		Lampa.Storage.set('diesel_source', 'playlist.KZ_KZ_MTS.m3u8');
 	if (Lampa.Storage.field('TVmenu') == 'UA_GN')		Lampa.Storage.set('diesel_source', 'playlist.UA_GN.m3u8');
 	if (Lampa.Storage.field('TVmenu') == 'UA_GN_MTS')		Lampa.Storage.set('diesel_source', 'playlist.UA_GN_MTS.m3u8');
-		if (Lampa.Storage.field('TVmenu') == 'OSTHLS')		Lampa.Storage.set('diesel_source', 'playlist.UA_GN_MTS.m3u8'); /* Проверить имена файлов по факту */
-		if (Lampa.Storage.field('TVmenu') == 'KRDHLS')		Lampa.Storage.set('diesel_source', 'playlist.UA_GN_MTS.m3u8'); /* Проверить имена файлов по факту */
-		if (Lampa.Storage.field('TVmenu') == 'BYHLS')		Lampa.Storage.set('diesel_source', 'playlist.UA_GN_MTS.m3u8'); /* Проверить имена файлов по факту */
+		if (Lampa.Storage.field('TVmenu') == 'OSTHLS')		Lampa.Storage.set('diesel_source', 'playlist.OSTHLS.m3u8'); /* Проверить имена файлов по факту */
+		if (Lampa.Storage.field('TVmenu') == 'KRDHLS')		Lampa.Storage.set('diesel_source', 'playlist.KRDHLS.m3u8'); /* Проверить имена файлов по факту */
+		if (Lampa.Storage.field('TVmenu') == 'BYHLS')		Lampa.Storage.set('diesel_source', 'playlist.BYHLS.m3u8'); /* Проверить имена файлов по факту */
 	
 /*
  * Фильтр Категорий
