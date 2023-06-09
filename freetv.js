@@ -889,7 +889,8 @@ Lampa.SettingsApi.addParam({
 /*
  * Копирование плейлиста в буфер
  */
-Lampa.SettingsApi.addParam({
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') !== 'FREETV') {
+	Lampa.SettingsApi.addParam({
 				component: 'diesel_iptv',
 				param: {
 					name: 'PLAYLIST_copy',
@@ -915,6 +916,7 @@ Lampa.SettingsApi.addParam({
 					});
 				}
 			});
+}
 /*
  * Режим отладки
  */
