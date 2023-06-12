@@ -322,7 +322,7 @@ function catchupUrl(url, type, source) {
 Lampa.Keypad.listener.destroy(); /* changeIt */
 function keydown(e) {
 	var code = e.code;
-	if (Lampa.Player.opened() && "namecomponent" == Lampa.Activity.active().component && !$('body.selectbox--open').length) {
+	if (Lampa.Player.opened() && Lampa.Activity.active().component === plugin.component && !$('body.selectbox--open').length) {
 		var playlist = Lampa.PlayerPlaylist.get();
 		if (!isPluginPlaylist(playlist)) return;
 		var isStopEvent = false;
