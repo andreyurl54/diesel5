@@ -1,6 +1,6 @@
 /*
 	Разобраться с иконками в ряд DONE
-	Вернуть ЮзерАгент - сломает выбор плеера на Android ? Lampa.Player.opened() && "namecomponent" == Lampa.Activity.active().component
+	Вернуть ЮзерАгент - сломает выбор плеера на Android ?
 */
 ;(function () {
 'use strict';
@@ -466,7 +466,7 @@ Lampa.SettingsApi.addParam({
 						type: 'select', 			//доступно select,input,trigger,title,static
 						values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
 							FREETV: 'FreeTV',
-							DIESEL: 'Дизель by YOSSO',
+							DIESEL: 'Дизель',
 							TVTEAM: 'Дизель Плюс'
 						},
 						default: 'FREETV'			//Здесь прописываем вариант по-умолчанию, а именно левую часть в VALUES (не значение, а имя параметра - слева!), иначе - undefined
