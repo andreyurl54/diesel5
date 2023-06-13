@@ -74,7 +74,6 @@ function add() {
 					description: 'Если неправильно определился тип устройства' //Комментарий к подпункту
 				},
 				onChange: function (value) { //Действия при изменении подпункта
-					$('#no_bar').remove(); // чтобы не плодить дубликаты стиля
 					if (Lampa.Storage.field('NavyBar') == true)	{
 						Lampa.Template.add('no_bar', '<div id="no_bar"><style>.navigation-bar{display: none!important;}</style></div>');
 						$('body').append(Lampa.Template.get('no_bar', {}, true));
