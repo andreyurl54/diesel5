@@ -54,6 +54,30 @@ function add() {
 		});
 /* End Хранитель Экрана */
 
+
+/* Скрываем панель навигации */
+	Lampa.SettingsApi.addParam({
+			component: 'Multi_Menu_Component',
+			param: {
+				name: 'NavyBar',
+				type: 'trigger', //доступно select,input,trigger,title,static
+				default: false
+			},
+				field: {
+					name: 'Скрыть панель навигации', //Название подпункта меню
+					description: 'Если неправльно определился тип устройства' //Комментарий к подпункту
+				},
+				onChange: function (value) { //Действия при изменении подпункта
+					if (Lampa.Storage.field('NavyBar') == true)	{
+						Lampa.Template.add('no_bar', '<div id="no_bar"><style>.navigation-bar{display: none!important;}</style></div>');
+						$('body').append(Lampa.Template.get('no_bar', {}, true));
+					}
+					if (Lampa.Storage.field('NavyBar') == false)	{
+						$('#no_bar').remove();
+					}
+				}
+	});
+	
 /* Выводим кнопку возврата на экране */
 	Lampa.SettingsApi.addParam({
 			component: 'Multi_Menu_Component',
