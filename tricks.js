@@ -1,3 +1,9 @@
+/* 
+ * Переделать интервалы на стили для уменьшения нагрузки
+ * Добавить сканер
+ * Добавить диагностику в одно окно
+ */
+
 (function () {
     'use strict';
 Lampa.Platform.tv(); 
@@ -68,6 +74,7 @@ function add() {
 					description: 'Если неправильно определился тип устройства' //Комментарий к подпункту
 				},
 				onChange: function (value) { //Действия при изменении подпункта
+					$('#no_bar').remove(); // чтобы не плодить дубликаты стиля
 					if (Lampa.Storage.field('NavyBar') == true)	{
 						Lampa.Template.add('no_bar', '<div id="no_bar"><style>.navigation-bar{display: none!important;}</style></div>');
 						$('body').append(Lampa.Template.get('no_bar', {}, true));
@@ -563,6 +570,16 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 /*
 * ШАБЛОНЫ
 */
+
+/* Стиль скрытия панели навигации при старте */
+			if (Lampa.Storage.field('NavyBar') == true)	{
+				Lampa.Template.add('no_bar', '<div id="no_bar"><style>.navigation-bar{display: none!important;}</style></div>');
+				$('body').append(Lampa.Template.get('no_bar', {}, true));
+			}
+			if (Lampa.Storage.field('NavyBar') == false)	{
+				$('#no_bar').remove();
+			}
+
 /* Стиль в плеере - YouTube при старте*/
 			if(Lampa.Storage.field('YouTubeStyle') == true) {
 				Lampa.Template.add('YOUTUBESTYLE', '<div id="YOUTUBESTYLE" class="hide"><style>div.player-panel__position{background-color: #f00!important;}</style></div>');
