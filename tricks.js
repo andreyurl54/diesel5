@@ -173,20 +173,20 @@ function add() {
 				var green2 = '<div id="greenn_style"><style>.torrent-serial.selector.focus{box-shadow: 0 0 0 0.3em #1aff00!important;}</style></div>';
 				var green3 = '<div id="greennn_style"><style>.torrent-file.selector.focus{box-shadow: 0 0 0 0.3em #1aff00!important;}</style></div>';
 				var green4 = '<div id="greennnn_style"><style>.scroll__body{margin: 5px!important;}</style></div>';
-				var green5 = '<div id="speedd_style"><style>div.value--speed span{opacity: 0%!important;display: none;}</style></div>';
+				//var green5 = '<div id="speedd_style"><style>div.value--speed span{opacity: 0%!important;display: none;}</style></div>';
 				if(Lampa.Storage.field('TORRENT_fix') == true) {
 					$('body').append(green1);
 					$('body').append(green2);
 					$('body').append(green3);
 					$('body').append(green4);
-					$('body').append(green5);
+					//$('body').append(green5);
 				}
 				if(Lampa.Storage.field('TORRENT_fix') == false) {
 					$('#green_style').remove();
 					$('#greenn_style').remove();
 					$('#greennn_style').remove();
 					$('#greennnn_style').remove();
-					$('#speedd_style').remove();
+					//$('#speedd_style').remove();
 				}
 				//Lampa.Settings.update();
 			}
@@ -648,13 +648,13 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 			var green2 = '<div id="greenn_style"><style>.torrent-serial.selector.focus{box-shadow: 0 0 0 0.3em #1aff00!important;}</style></div>';
 			var green3 = '<div id="greennn_style"><style>.torrent-file.selector.focus{box-shadow: 0 0 0 0.3em #1aff00!important;}</style></div>';
 			var green4 = '<div id="greennnn_style"><style>.scroll__body{margin: 5px!important;}</style></div>';
-			var green5 = '<div id="speedd_style"><style>div.value--speed span{opacity: 0%!important;display: none;}</style></div>';
+			//var green5 = '<div id="speedd_style"><style>div.value--speed span{opacity: 0%!important;display: none;}</style></div>';
 			if(Lampa.Storage.field('TORRENT_fix') == true) {
 				$('body').append(green1);
 				$('body').append(green2);
 				$('body').append(green3);
 				$('body').append(green4);
-				$('body').append(green5);
+				//$('body').append(green5);
 			}
 
   		var timerId;
