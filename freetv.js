@@ -613,7 +613,6 @@ Lampa.SettingsApi.addParam({
 					});
 				}
 			});
-	});
 	
 /*
  * Выбор сервера
