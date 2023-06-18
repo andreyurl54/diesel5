@@ -603,12 +603,11 @@ Lampa.SettingsApi.addParam({
 		onRender: function (item) {
 			item.on('hover:enter', function () {
 				$('#diesel_iptv_hide_passwd_style').remove();
-				Lampa.Storage.set('diesel_iptv_hide_passwd', true);
+				Lampa.Storage.set('diesel_iptv_hide_passwd', 'true');
 				Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
 				$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
 				Lampa.Settings.update();
 			});
-			if (Lampa.Storage.set('diesel_iptv_hide_passwd') == true) {document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4)").hide()};
 		}
 	});
 	
@@ -1140,6 +1139,12 @@ $('body').append(Lampa.Template.get('PlayerError', {}, true));
 				}
             }
     });
+
+/* Прячем пароль аккаунта */
+if (Lampa.Storage.set('diesel_iptv_hide_passwd') == true) {
+	Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
+	$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
+};
 
 /* Убираем лишние пункты меню Настроек */
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
