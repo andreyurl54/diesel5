@@ -604,7 +604,7 @@ Lampa.SettingsApi.addParam({
 			item.on('hover:enter', function () {
 				Lampa.Storage.set('diesel_iptv_hide_passwd', true);
 			});
-			if (Lampa.Storage.set('diesel_iptv_hide_passwd') == true) {document.querySelector('div[data-name="diesel_iptv_passwd"]').hide()};
+			if (Lampa.Storage.set('diesel_iptv_hide_passwd') == true) {document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4)").hide()};
 			/*
 			setInterval(function() {
 				if (Lampa.Storage.field('diesel_iptv_hide_passwd')) {
