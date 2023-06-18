@@ -609,6 +609,8 @@ Lampa.SettingsApi.addParam({
 						Lampa.Storage.set('diesel_iptv_hide_passwd', 'true');
 						Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
 						$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
+						Lampa.Template.add('diesel_iptv_hide_passwd_style_1', '<div id="diesel_iptv_hide_passwd_style"><style>div:contains("Скрыть пароль"){opacity: 0%!important;display: none!important;;}</style><div>');
+						$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style_1', {}, true));
 						Lampa.Settings.update();
 					});
 				}
@@ -1147,6 +1149,8 @@ $('body').append(Lampa.Template.get('PlayerError', {}, true));
 if (Lampa.Storage.get('diesel_iptv_hide_passwd') == true) {
 	Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
 	$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
+	Lampa.Template.add('diesel_iptv_hide_passwd_style_1', '<div id="diesel_iptv_hide_passwd_style"><style>div:contains("Скрыть пароль"){opacity: 0%!important;display: none!important;;}</style><div>');
+	$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style_1', {}, true));
 };
 
 /* Убираем лишние пункты меню Настроек */
