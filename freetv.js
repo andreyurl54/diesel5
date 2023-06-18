@@ -604,9 +604,9 @@ Lampa.SettingsApi.addParam({
 			item.on('hover:enter', function () {
 				$('#diesel_iptv_hide_passwd_style').remove();
 				Lampa.Storage.set('diesel_iptv_hide_passwd', true);
-				Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none;}</style><div>');
+				Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
 				$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
-				Lampa.scroll.update();
+				Lampa.Settings.update();
 			});
 			if (Lampa.Storage.set('diesel_iptv_hide_passwd') == true) {document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4)").hide()};
 		}
