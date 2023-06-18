@@ -603,8 +603,11 @@ Lampa.SettingsApi.addParam({
 		onRender: function (item) {
 			setInterval(function() {
 				if (Lampa.Storage.field('diesel_iptv_hide_passwd')) {
-					item.hide();
+					item.show();
 				}
+				else {
+					item.hide();
+					}
 			}, 100);
 		}
 	});
