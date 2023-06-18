@@ -1144,7 +1144,7 @@ $('body').append(Lampa.Template.get('PlayerError', {}, true));
     });
 
 /* Прячем пароль аккаунта */
-if (Lampa.Storage.set('diesel_iptv_hide_passwd') == true) {
+if (Lampa.Storage.get('diesel_iptv_hide_passwd') == true) {
 	Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
 	$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
 };
