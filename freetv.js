@@ -613,6 +613,7 @@ Lampa.SettingsApi.addParam({
 						$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style_1', {}, true));
 						Lampa.Settings.update();
 					});
+				if (Lampa.Storage.get('diesel_iptv_hide_passwd') == 'true') item.hide();
 				}
 			});
 	
