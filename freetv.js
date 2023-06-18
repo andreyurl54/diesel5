@@ -622,7 +622,7 @@ Lampa.SettingsApi.addParam({
 							}
 					}, 100);
 				}
-			});
+			}); 
 	
 /*
  * Выбор сервера
