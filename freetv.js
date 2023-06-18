@@ -592,49 +592,53 @@ Lampa.SettingsApi.addParam({
 /*
  * Скрыть пароль аккаунта
  */
-	addSettings('static', {
-		title: 'Скрыть пароль', 								// Название подпункта
-		name: 'hide_passwd', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
-		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
-		description: 'Скрывает пароль в меню настроек',  // Описание подпункта меню
-		onChange: function (url) {
-			//сообщение и проверка, указаны ли и логин, и пароль?
-		},
-		onRender: function (item) {
-			item.on('hover:enter', function () {
-				$('#diesel_iptv_hide_passwd_style').remove();
-				Lampa.Storage.set('diesel_iptv_hide_passwd', 'true');
-				Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
-				$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
-				Lampa.Settings.update();
+Lampa.SettingsApi.addParam({
+				component: 'diesel_iptv',
+				param: {
+					name: 'diesel_iptv_passwd',
+					type: 'static', //доступно select,input,trigger,title,static
+					default: ''
+				},
+				field: {
+					name: 'Скрыть пароль',
+					description: 'Скрывает пароль в меню настроек'
+				},
+				onRender: function (item) {
+					item.on('hover:enter', function () {
+						$('#diesel_iptv_hide_passwd_style').remove();
+						Lampa.Storage.set('diesel_iptv_hide_passwd', 'true');
+						Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
+						$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
+						Lampa.Settings.update();
+					});
+				}
 			});
-		}
 	});
 	
 /*
  * Выбор сервера
  */
 Lampa.SettingsApi.addParam({
-					component: 'diesel_iptv', //Название компонента
-					param: {
-						name: 'TVmenu', 			//название в Storage
-						type: 'select', 			//доступно select,input,trigger,title,static
-						values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
-							RU_1: 'Россия_RU',
-							RU_1_MTS: 'Россия_RU_MpegTS',
-							RU_KFC: 'Россия_KFC',
-							RU_KFC_MTS: 'Россия_KFC_MpegTS',
-							RU_BN: 'Россия_BN',
-							RU_BN_MTS: 'Россия_BN_MpegTS',
-							DE_DE: 'Германия',
-							DE_DE_MTS: 'Германия_MpegTS',
-							KZ_KZ: 'Kазахстан', 		//Первый символ латинский - баг фильтра зарубежный категорий
-							KZ_KZ_MTS: 'Kазахстан_MpegTS',  //Первый символ латинский - баг фильтра зарубежный категорий
-							UA_GN: 'Польша',
-							UA_GN_MTS: 'Польша_MpegTS', // Ниже новые локации //
-							OSTHLS: 'Россия_OST',
-							KRDHLS: 'Россия_Краснодар',
-							BYHLS: 'Беларусь'
+				component: 'diesel_iptv', //Название компонента
+				param: {
+					name: 'TVmenu', 			//название в Storage
+					type: 'select', 			//доступно select,input,trigger,title,static
+					values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
+					RU_1: 'Россия_RU',
+						RU_1_MTS: 'Россия_RU_MpegTS',
+						RU_KFC: 'Россия_KFC',
+						RU_KFC_MTS: 'Россия_KFC_MpegTS',
+						RU_BN: 'Россия_BN',
+						RU_BN_MTS: 'Россия_BN_MpegTS',
+						DE_DE: 'Германия',
+						DE_DE_MTS: 'Германия_MpegTS',
+						KZ_KZ: 'Kазахстан', 		//Первый символ латинский - баг фильтра зарубежный категорий
+						KZ_KZ_MTS: 'Kазахстан_MpegTS',  //Первый символ латинский - баг фильтра зарубежный категорий
+						UA_GN: 'Польша',
+						UA_GN_MTS: 'Польша_MpegTS', // Ниже новые локации //
+						OSTHLS: 'Россия_OST',
+						KRDHLS: 'Россия_Краснодар',
+						BYHLS: 'Беларусь'
 						},
 						default: 'RU_1'				//Здесь прописываем вариант по-умолчанию, а именно левую часть в VALUES (не значение, а имя параметра - слева!), иначе - undefined
 					},
