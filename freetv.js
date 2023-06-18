@@ -601,6 +601,10 @@ Lampa.SettingsApi.addParam({
 			//сообщение и проверка, указаны ли и логин, и пароль?
 		},
 		onRender: function (item) {
+			item.on('hover:enter', function () {
+				item.hide();
+			});
+			/*
 			setInterval(function() {
 				if (Lampa.Storage.field('diesel_iptv_hide_passwd')) {
 					item.show();
@@ -609,6 +613,7 @@ Lampa.SettingsApi.addParam({
 					item.hide();
 					}
 			}, 100);
+			*/
 		}
 	});
 	
