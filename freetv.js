@@ -621,7 +621,8 @@ Lampa.SettingsApi.addParam({
 							item.show();
 							}
 					}, 100);
-				});
+				}
+			});
 	
 /*
  * Выбор сервера
