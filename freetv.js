@@ -607,8 +607,8 @@ Lampa.SettingsApi.addParam({
 							RU_BN_MTS: 'Россия_BN_MpegTS',
 							DE_DE: 'Германия',
 							DE_DE_MTS: 'Германия_MpegTS',
-							KZ_KZ: 'Казахстан',
-							KZ_KZ_MTS: 'Казахстан_MpegTS',
+							KZ_KZ: 'Kазахстан',
+							KZ_KZ_MTS: 'Kазахстан_MpegTS',
 							UA_GN: 'Польша',
 							UA_GN_MTS: 'Польша_MpegTS', // Ниже новые локации //
 							OSTHLS: 'Россия_OST',
