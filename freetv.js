@@ -589,7 +589,26 @@ Lampa.SettingsApi.addParam({
 	});
 /* end */
 
-
+/*
+ * Скрыть пароль аккаунта
+ */
+	addSettings('static', {
+		title: 'Скрыть пароль', 								// Название подпункта
+		name: 'hide_passwd', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Скрывает пароль в меню настроек',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указаны ли и логин, и пароль?
+		},
+		onRender: function (item) {
+			setInterval(function() {
+				if (Lampa.Storage.field('diesel_iptv_hide_passwd')) {
+					item.hide();
+				}
+			}, 100);
+		}
+	});
+	
 /*
  * Выбор сервера
  */
