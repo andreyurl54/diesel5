@@ -89,6 +89,7 @@ function add() {
 											
 						if (Lampa.Storage.field('NavyBar') == false) {
 							$('#no_bar').remove();
+							$('#searchReturnButton').remove();
 						}
 					}
 				}
