@@ -86,9 +86,8 @@ function add() {
 						        '    </div>\n';
 						$('#app > div.head > div > div.head__actions').append(searchReturnButton);
 						$('#searchReturnButton').on('hover:enter hover:click hover:touch', function() {
-						Lampa.Search.open();
-						
-					}
+						Lampa.Search.open();						
+					});
 					if (Lampa.Storage.field('NavyBar') == false)	{
 						$('#no_bar').remove();
 					}
