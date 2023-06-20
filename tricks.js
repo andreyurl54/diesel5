@@ -84,6 +84,7 @@ function add() {
 						        '            <path d="M20.7768 20.4334L18.2135 17.8701" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>\n' +
 						        '        </svg>\n' +
 						        '    </div>\n';
+						$('#searchReturnButton').remove();
 						$('#app > div.head > div > div.head__actions').append(searchReturnButton);
 						$('#searchReturnButton').on('hover:enter hover:click hover:touch', function() {Lampa.Search.open();});
 					}						
