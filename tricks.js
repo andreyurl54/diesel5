@@ -226,7 +226,7 @@ function add() {
 	    	Lampa.SettingsApi.addParam({
 	    		component: 'Multi_Menu_Component',
 	    		param: {
-	    			name: 'SpeedTest_1',
+	    			name: 'SpeedTest Альтернативный',
 	    			type: 'static', //доступно select,input,trigger,title,static
 	    		},
 	    		field: {
@@ -240,7 +240,7 @@ function add() {
 		  				title: '',
 		  				html: modal,
 		  				size: 'medium',
-		  				mask: true,
+		  				mask: false, //true
 		  				onBack: function onBack() {
 		  					Lampa.Modal.close();
 		  					//Lampa.Controller.toggle(enabled);
