@@ -216,9 +216,9 @@ function add() {
 	    			name: 'SpeedTest',
 	    			description: 'Замер скорости интернет-соединения'
 	    		},
-	    		onRender: function (item) { //http://zamerka.com
+	    		onRender: function (item) {
 	    			item.on('hover:enter', function(){
-	    			Lampa.Iframe.show({url: 'https://speedtest.selectel.ru/',
+	    			Lampa.Iframe.show({url: 'http://zamerka.com/',
 	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
 	            		});});}
 				});
