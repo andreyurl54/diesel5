@@ -243,7 +243,7 @@ function add() {
 		  				mask: true,
 		  				onBack: function onBack() {
 		  					Lampa.Modal.close();
-		  					Lampa.Controller.toggle(enabled);
+		  					//Lampa.Controller.toggle(enabled);
 		  				},
 		  				onSelect: function () {}
   			});});}
