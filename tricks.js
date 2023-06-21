@@ -235,7 +235,7 @@ function add() {
 	    		},
 	    		onRender: function (item) {
 	    			item.on('hover:enter', function(){
-					var modal = $('<!--OST Widget code start--><div style="text-align:right;"><div style="min-height:360px;"><div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;overflow:hidden !important;" src="//openspeedtest.com/speedtest?Run=5"></iframe></div></div>Provided by <a href="https://openspeedtest.com">OpenSpeedtest.com</a></div><!-- OST Widget code end -->');
+					var modal = $('<div style="text-align:right;"><div style="min-height:360px;"><div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;overflow:hidden !important;" src="https://openspeedtest.com/speedtest?Run=5"></iframe></div></div></div>');
 		  			Lampa.Modal.open({
 		  				title: '',
 		  				html: modal,
