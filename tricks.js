@@ -223,7 +223,31 @@ function add() {
 	            		});});}
 				});
 		
-					
+	    	Lampa.SettingsApi.addParam({
+	    		component: 'Multi_Menu_Component',
+	    		param: {
+	    			name: 'SpeedTest_1',
+	    			type: 'static', //доступно select,input,trigger,title,static
+	    		},
+	    		field: {
+	    			name: 'SpeedTest_1',
+	    			description: 'Замер скорости интернет-соединения'
+	    		},
+	    		onRender: function (item) {
+	    			item.on('hover:enter', function(){
+					var modal = $('<!--OST Widget code start--><div style="text-align:right;"><div style="min-height:360px;"><div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;overflow:hidden !important;" src="//openspeedtest.com/speedtest?Run=5"></iframe></div></div>Provided by <a href="https://openspeedtest.com">OpenSpeedtest.com</a></div><!-- OST Widget code end -->');
+		  			Lampa.Modal.open({
+		  				title: title,
+		  				html: modal,
+		  				size: 'medium',
+		  				mask: true,
+		  				onBack: function onBack() {
+		  					Lampa.Modal.close();
+		  					Lampa.Controller.toggle(enabled);
+		  				},
+		  				onSelect: function () {}
+  			});});}
+				});					
 /* End SpeedTest */
 
 
