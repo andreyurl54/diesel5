@@ -240,7 +240,7 @@ function add() {
 		  				title: '',
 		  				html: modal,
 		  				size: 'medium',
-		  				mask: false, //true
+		  				mask: true, 
 		  				onBack: function onBack() {
 		  					Lampa.Modal.close();
 		  					//Lampa.Controller.toggle(enabled);
