@@ -218,14 +218,11 @@ function add() {
 	    		},
 	    		onRender: function (item) {
 	    			item.on('hover:enter', function(){
-	    			Lampa.Iframe.show({
-	              			url: 'http://zamerka.com/',
-	              			onBack: function onBack() {
-	                			Lampa.Controller.toggle('settings_component');
-	              				}
-	            			});
-				)};
-		});
+	    			Lampa.Iframe.show({url: 'http://zamerka.com/',
+	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
+	            		});});}
+				});
+		
 					
 /* End SpeedTest */
 
