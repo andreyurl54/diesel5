@@ -589,6 +589,42 @@ Lampa.SettingsApi.addParam({
 	});
 /* end */
 
+/*
+ * Скрыть пароль аккаунта
+ */
+Lampa.SettingsApi.addParam({
+				component: 'diesel_iptv',
+				param: {
+					name: 'diesel_iptv_passwd',
+					type: 'static', //доступно select,input,trigger,title,static
+					default: ''
+				},
+				field: {
+					name: 'Скрыть пароль',
+					description: 'Скрывает пароль в меню настроек'
+				},
+				onRender: function (item) {
+					item.on('hover:enter', function () {
+						$('#diesel_iptv_hide_passwd_style').remove();
+						Lampa.Storage.set('diesel_iptv_hide_passwd', 'true');
+						Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
+						$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
+						Lampa.Template.add('diesel_iptv_hide_passwd_style_1', '<div id="diesel_iptv_hide_passwd_style_1"><style>div:contains("Скрыть пароль"){opacity: 0%!important;display: none!important;;}</style><div>');
+						$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style_1', {}, true));
+						Lampa.Settings.update();
+					});
+					setInterval(function() {
+						if (Lampa.Storage.get('diesel_iptv_hide_passwd') == 'true') {
+							item.hide();
+						}
+						else {
+							item.show();
+							}
+					}, 100);
+				}
+			}); 
+	
+/*
 
 /*
  * Выбор сервера
@@ -1119,6 +1155,14 @@ $('body').append(Lampa.Template.get('PlayerError', {}, true));
             }
     });
 
+/* Прячем пароль аккаунта */
+if (Lampa.Storage.get('diesel_iptv_hide_passwd') == true) {
+	Lampa.Template.add('diesel_iptv_hide_passwd_style', '<div id="diesel_iptv_hide_passwd_style"><style>div[data-name="diesel_iptv_passwd"]{opacity: 0%!important;display: none!important;;}</style><div>');
+	$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style', {}, true));
+	Lampa.Template.add('diesel_iptv_hide_passwd_style_1', '<div id="diesel_iptv_hide_passwd_style_1"><style>div:contains("Скрыть пароль"){opacity: 0%!important;display: none!important;;}</style><div>');
+	$('body').append(Lampa.Template.get('diesel_iptv_hide_passwd_style_1', {}, true));
+};
+	
 /* Убираем лишние пункты меню Настроек */
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 	Lampa.Template.add('freeTV_settings0', '<div id="freeTV_settings0"><style>div[data-name="DIESEL_AccessVariant"]{opacity: 0%!important;display: none;}</style></div>');
