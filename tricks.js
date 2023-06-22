@@ -632,18 +632,21 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 			if (Lampa.Storage.field('NavyBar') == true)	{
 				Lampa.Template.add('no_bar', '<div id="no_bar"><style>.navigation-bar{display: none!important;}</style></div>');
 				$('body').append(Lampa.Template.get('no_bar', {}, true));
-			};
-			if (Lampa.Storage.field('NavyBar') == false)	{
-				$('#no_bar').remove();
-			};
-			var searchReturnButton = '<div id="searchReturnButton" class="head__action head__settings selector searchReturnButton">\n' +
+				
+				var searchReturnButton = '<div id="searchReturnButton" class="head__action head__settings selector searchReturnButton">\n' +
 			        '        <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
 			        '            <circle cx="9.9964" cy="9.63489" r="8.43556" stroke="currentColor" stroke-width="2.4"></circle>\n' +
 			        '            <path d="M20.7768 20.4334L18.2135 17.8701" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>\n' +
 			        '        </svg>\n' +
 			        '    </div>\n';
-			$('#app > div.head > div > div.head__actions').append(searchReturnButton);
-			$('#searchReturnButton').on('hover:enter hover:click hover:touch', function() {Lampa.Search.open();});
+				$('#app > div.head > div > div.head__actions').append(searchReturnButton);
+				$('#searchReturnButton').on('hover:enter hover:click hover:touch', function() {Lampa.Search.open();});
+			};
+			/*
+			if (Lampa.Storage.field('NavyBar') == false)	{
+				$('#no_bar').remove();
+			};
+   			*/
 
 /* Стиль в плеере - YouTube при старте*/
 			if(Lampa.Storage.field('YouTubeStyle') == true) {
