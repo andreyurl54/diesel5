@@ -246,7 +246,9 @@ function add() {
 		  				mask: true, 
 		  				onBack: function onBack() {
 		  					Lampa.Modal.close();
-		  					//Lampa.Controller.toggle(enabled);
+		  					//var enabled = Lampa.Controller.enabled().name;
+							//Lampa.Controller.toggle(enabled);
+							Lampa.Controller.toggle('settings_component');
 		  				},
 		  				onSelect: function () {}
   			});});}
