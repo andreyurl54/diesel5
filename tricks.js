@@ -29,6 +29,32 @@ function add() {
 	} /* End updateT */
 
 
+/* Скрываем часы на заставке */
+	Lampa.SettingsApi.addParam({
+			component: 'Multi_Menu_Component',
+			param: {
+				name: 'NoTimeNoDate',
+				type: 'trigger', //доступно select,input,trigger,title,static
+				default: false
+			},
+				field: {
+					name: 'Скрыть часы на заставке', //Название подпункта меню
+					description: 'Если переживаете за выгорание экрана OLED' //Комментарий к подпункту
+				},
+				onChange: function (value) { //Действия при изменении подпункта
+					/* Chromecast */
+					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
+						/* Chromecast */
+						var NoTimeNoDateInterval = setInterval(function() {
+							$('[ng-show="!portraitImageUrl"]').remove()
+						}, 300);
+					}						
+					if (Lampa.Storage.field('NoTimeNoDate') == false) {
+						clearInterval(NoTimeNoDateInterval);
+					}
+				}
+	});
+
 /* Хранитель Экрана */
 		Lampa.SettingsApi.addParam({
 			component: 'Multi_Menu_Component',
