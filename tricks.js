@@ -576,6 +576,33 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 		});
 /* End Кнопка RuTube */
 
+/* Кнопка Twitch */
+		Lampa.SettingsApi.addParam({
+			component: 'Multi_Menu_Component',
+			param: {
+				name: 'Twitch',
+				type: 'trigger',
+				//доступно select,input,trigger,title,static
+				default: false
+			},
+			field: {
+				name: 'Раздел Twitch',
+				//Название подпункта меню
+				description: 'Добавляет Twitch в главном меню' //Комментарий к подпункту
+			},
+			onChange: function(value) {
+				//Действия при изменении подпункта
+				if(Lampa.Storage.field('RuTube') == false) {
+					$('#TwitchButton').addClass('hide');
+				}
+				if(Lampa.Storage.field('RuTube') == true) {
+					$('#TwitchButton').removeClass('hide');
+				}
+				//Lampa.Settings.update();
+			}
+		});
+/* End Кнопка Twitch */
+
 /* ТоррСервер */
 		Lampa.SettingsApi.addParam({
 			component: 'Multi_Menu_Component',
