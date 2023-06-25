@@ -46,7 +46,7 @@ function add() {
 					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 						/* Chromecast */
 						setInterval(function() {
-							$('[ng-show="!portraitImageUrl"]').remove()
+							$('[ng-if="isSimpleTopic"]').remove();
 						}, 300);
 					}						
 					if (Lampa.Storage.field('NoTimeNoDate') == false) {
