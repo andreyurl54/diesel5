@@ -592,10 +592,10 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 			},
 			onChange: function(value) {
 				//Действия при изменении подпункта
-				if(Lampa.Storage.field('RuTube') == false) {
+				if(Lampa.Storage.field('Twitch') == false) {
 					$('#TwitchButton').addClass('hide');
 				}
-				if(Lampa.Storage.field('RuTube') == true) {
+				if(Lampa.Storage.field('Twitch') == true) {
 					$('#TwitchButton').removeClass('hide');
 				}
 				//Lampa.Settings.update();
@@ -744,6 +744,34 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 						Android.openYoutube();
 					}
 					else window.open('https://bit.ly/3DnLr2O', '_blank'); //Android.openYoutube(a.id) else YouTube.play(a.id)
+			})
+
+/* Кнопка Twitch */
+			var TwitchSVG = '<svg width="256px" height="256px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="20" height="20"></rect> <g> <style>.st0{fill-rule:evenodd;clip-rule:evenodd;}</style> <path d="M2.7 2L2 4.6v11.8h3.2V18H7l1.8-1.6h2.9l5.7-5.2V2H2.7zM16 10.5l-2.5 2.3h-4l-2.2 2v-2H4.2V3.3H16v7.2zm-2.5-4.6h-1.4v3.9h1.4V5.9zm-4 0H8.1v3.9h1.4V5.9z"></path> </g> </g></svg>'
+			var twitchmenu = $('<li id="TwitchButton"  class="menu__item selector hide"><div class="menu__ico">' + TwitchSVG + '</div><div class="menu__text" >Twitch</div></li>');
+			$('.menu .menu__list').eq(0).append(twitchmenu)
+			if(Lampa.Storage.field('Twitch') == true) {
+				$('#TwitchButton').removeClass('hide');
+			}
+			twitchmenu.on('hover:enter', function() {
+					if (Lampa.Platform.is('webos')) {
+						window.location.href = 'https://webos.tv.twitch.tv'
+					}
+					/*
+					if (Lampa.Platform.is('orsay')) {
+						window.location.href = 'https://orsay.tv.twitch.tv'
+					}
+     					*/
+					if (Lampa.Platform.is('tizen')) {
+						var twitchurl = 'https://tizen.tv.twitch.tv'
+						var e = new tizen.ApplicationControl("https://tizen.org/appcontrol/operation/view", twitchurl);
+						tizen.application.launchAppControl(e, null, function () {}, function (e) {
+						Lampa.Noty.show(e);})						
+					} 
+					if (Lampa.Platform.is('android')) {
+						window.open('https://android.tv.twitch.tv', '_blank'); //Android.openTwitch();
+					}
+					else window.open('https://tv.twitch.tv', '_blank');
 			})
 
 /* Активация торрентов при старте */
