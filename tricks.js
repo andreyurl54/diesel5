@@ -713,7 +713,10 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 						Lampa.Noty.show(e);})						
 						//window.location.href = 'https://bit.ly/3RcgRPq'
 					} 
-					else window.open(url, '_blank'); //Android.openYoutube(a.id) else YouTube.play(a.id)
+					if (Lampa.Platform.is('android')) {
+						Android.openYoutube();
+					}
+					else window.open('https://bit.ly/3DnLr2O', '_blank'); //Android.openYoutube(a.id) else YouTube.play(a.id)
 			})
 
 /* Активация торрентов при старте */
