@@ -45,7 +45,7 @@ function add() {
 					/* Chromecast */
 					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 						/* Chromecast */
-						var NoTimeNoDateInterval = setInterval(function() {
+						NoTimeNoDateInterval = setInterval(function() {
 							$('[ng-show="!portraitImageUrl"]').remove()
 						}, 300);
 					}						
