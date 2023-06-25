@@ -229,7 +229,7 @@ function add() {
 	    	Lampa.SettingsApi.addParam({
 	    		component: 'Multi_Menu_Component',
 	    		param: {
-	    			name: 'SpeedTest Альтернативный',
+	    			name: 'SpeedTest_alt_1',
 	    			type: 'static', //доступно select,input,trigger,title,static
 	    		},
 	    		field: {
@@ -250,7 +250,24 @@ function add() {
 		  				},
 		  				onSelect: function () {}
   			});});}
-				});					
+				});
+	
+	    	Lampa.SettingsApi.addParam({
+	    		component: 'Multi_Menu_Component',
+	    		param: {
+	    			name: 'SpeedTest_2',
+	    			type: 'static', //доступно select,input,trigger,title,static
+	    		},
+	    		field: {
+	    			name: 'SpeedTest_2',
+	    			description: 'Замер скорости интернет-соединения'
+	    		},
+	    		onRender: function (item) {
+	    			item.on('hover:enter', function(){
+	    			Lampa.Iframe.show({url: 'https://openspeedtest.com/speedtest?Run=5/',
+	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
+	            		});});}
+				});
 /* End SpeedTest */
 
 
