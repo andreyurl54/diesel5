@@ -45,12 +45,12 @@ function add() {
 					/* Chromecast */
 					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 						/* Chromecast */
-						NoTimeNoDateInterval = setInterval(function() {
+						setInterval(function() {
 							$('[ng-show="!portraitImageUrl"]').remove()
 						}, 300);
 					}						
 					if (Lampa.Storage.field('NoTimeNoDate') == false) {
-						clearInterval(NoTimeNoDateInterval);
+						//clearInterval(NoTimeNoDateInterval);
 					}
 				}
 	});
