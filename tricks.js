@@ -685,6 +685,14 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 * ШАБЛОНЫ
 */
 
+/* Скрываем часы на заставке Chromecast */
+			if (Lampa.Storage.field('NoTimeNoDate') == true)	{
+				/* Chromecast */
+				var NoTimeNoDateInterval = setInterval(function() {
+					$('[ng-show="!portraitImageUrl"]').remove()
+				}, 300);
+			}
+
 /* Стиль скрытия панели навигации при старте */
 			if (Lampa.Storage.field('NavyBar') == true)	{
 				Lampa.Template.add('no_bar', '<div id="no_bar"><style>.navigation-bar{display: none!important;}</style></div>');
