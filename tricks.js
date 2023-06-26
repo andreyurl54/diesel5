@@ -693,8 +693,11 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				/* Chromecast */
 				
 				var NoTimeNoDateInterval = setInterval(function() {
-					$("body > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(1)").remove()
-					$('[ng-show="!portraitImageUrl"]').remove();
+					var head = jQuery(".screensaver-chrome").contents().find("head");
+					var css = '<style type="text/css">' +
+          				'[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;} ' +
+          				'</style>';
+					jQuery(head).append(css);
 					console.log('Chromecast', 'NoTimeNoDate at start 6s');
 				}, 6000);
 			}
