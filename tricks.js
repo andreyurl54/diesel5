@@ -692,14 +692,11 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 			if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 				/* Chromecast */
 				
-				var NoTimeNoDateInterval = setInterval(function() {
-					var head = $(".screensaver-chrome").contents().find("head");
-					var css = '<style type="text/css">' +
-          				'[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;} ' +
-          				'</style>';
-					$(head).append(css);
-					console.log('Chromecast', 'NoTimeNoDate at start 6s');
-				}, 6000);
+				$(".screensaver-chrome").on("load", () => {
+    					let iframeHead = $(".screensaver-chrome").contents().find("head");
+    					let iframeCSS = "<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>";
+    					$(iframeHead).append(iframeCSS);
+				});;
 			}
 
 /* Стиль скрытия панели навигации при старте */
