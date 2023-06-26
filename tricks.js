@@ -46,7 +46,7 @@ function add() {
 					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 						/* Chromecast */
 						console.log ('Chromecast', 'NoTimeNoDate activated via menu')
-						NoTimeNoDateInterval = setInterval(function() {
+						var NoTimeNoDateInterval = setInterval(function() {
 							$('[ng-if="isSimpleTopic"]').remove();
 						}, 3000);
 					}						
@@ -690,7 +690,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 			if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 				/* Chromecast */
 				console.log('Chromecast', 'NoTimeNoDate at start');
-				NoTimeNoDateInterval = setInterval(function() {
+				var NoTimeNoDateInterval = setInterval(function() {
 					$('[ng-show="!portraitImageUrl"]').remove()
 				}, 6000);
 			}
