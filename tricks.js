@@ -47,7 +47,7 @@ function add() {
 						/* Chromecast */
 						
 						var NoTimeNoDateInterval = setInterval(function() {
-							document.querySelector("body > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(1)").remove()
+							$("body > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(1)").remove()
 							$('[ng-if="isSimpleTopic"]').remove();
 							console.log ('Chromecast', 'NoTimeNoDate activated via menu 3s')
 						}, 3000);
@@ -693,7 +693,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				/* Chromecast */
 				
 				var NoTimeNoDateInterval = setInterval(function() {
-					document.querySelector("body > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(1)").remove()
+					$("body > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(1)").remove()
 					$('[ng-show="!portraitImageUrl"]').remove();
 					console.log('Chromecast', 'NoTimeNoDate at start 6s');
 				}, 6000);
