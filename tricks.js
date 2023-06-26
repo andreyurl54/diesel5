@@ -45,9 +45,10 @@ function add() {
 					/* Chromecast */
 					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 						/* Chromecast */
-						console.log ('Chromecast', 'NoTimeNoDate activated via menu')
+						
 						var NoTimeNoDateInterval = setInterval(function() {
 							$('[ng-if="isSimpleTopic"]').remove();
+							console.log ('Chromecast', 'NoTimeNoDate activated via menu 3s')
 						}, 3000);
 					}						
 					if (Lampa.Storage.field('NoTimeNoDate') == false) {
@@ -689,9 +690,10 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 /* Скрываем часы на заставке Chromecast */
 			if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 				/* Chromecast */
-				console.log('Chromecast', 'NoTimeNoDate at start');
+				
 				var NoTimeNoDateInterval = setInterval(function() {
-					$('[ng-show="!portraitImageUrl"]').remove()
+					$('[ng-show="!portraitImageUrl"]').remove();
+					console.log('Chromecast', 'NoTimeNoDate at start 6s');
 				}, 6000);
 			}
 
