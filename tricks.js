@@ -45,12 +45,13 @@ function add() {
 					/* Chromecast */
 					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 						/* Chromecast */
-						setInterval(function() {
+						console.log ('Chromecast', 'NoTimeNoDate activated via menu')
+						NoTimeNoDateInterval = setInterval(function() {
 							$('[ng-if="isSimpleTopic"]').remove();
-						}, 300);
+						}, 3000);
 					}						
 					if (Lampa.Storage.field('NoTimeNoDate') == false) {
-						//clearInterval(NoTimeNoDateInterval);
+						clearInterval(NoTimeNoDateInterval);
 					}
 				}
 	});
@@ -688,9 +689,10 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 /* Скрываем часы на заставке Chromecast */
 			if (Lampa.Storage.field('NoTimeNoDate') == true)	{
 				/* Chromecast */
-				var NoTimeNoDateInterval = setInterval(function() {
+				console.log('Chromecast', 'NoTimeNoDate at start');
+				NoTimeNoDateInterval = setInterval(function() {
 					$('[ng-show="!portraitImageUrl"]').remove()
-				}, 300);
+				}, 6000);
 			}
 
 /* Стиль скрытия панели навигации при старте */
