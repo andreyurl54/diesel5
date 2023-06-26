@@ -789,7 +789,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 			}
 			twitchmenu.on('hover:enter', function() {
 					if (Lampa.Platform.is('webos')) {
-						window.location.href = 'https://webos.tv.twitch.tv'
+						window.location.href = 'https://android.tv.twitch.tv'
 					}
 					/*
 					if (Lampa.Platform.is('orsay')) {
