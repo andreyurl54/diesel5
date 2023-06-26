@@ -698,6 +698,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 					let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");
     					let iframeCSS = '<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>';
     					$(iframeHead).append(iframeCSS);
+					frames[0].document.head.appendChild(iframeCSS);
 				});;
 			}
 
