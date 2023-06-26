@@ -695,7 +695,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				$(".screensaver-chrome").on("load", () => {
     					//var deco = window.atob("aHR0cDovL2xhbXBhdHYuc2l0ZS9waWNzL2FscGhhY2hhbm5lbC5wbmc");
 					//var diesel_playlist = deco;
-					let iframeHead = $(".screensaver-chrome").contents().find("head");
+					let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");
     					let iframeCSS = '<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>';
     					$(iframeHead).append(iframeCSS);
 				});;
