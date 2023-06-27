@@ -812,7 +812,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 						tizen.application.launchAppControl(e, null, function () {}, function (e) {
 						Lampa.Noty.show(e);})						
 						*/
-						var twitchurl = https://fgl27.github.io/SmartTwitchTV/release/index.html
+						var twitchurl = 'https://fgl27.github.io/SmartTwitchTV/release/index.html'
 						window.open(twitchurl, '_blank');
      					} 
 					if (Lampa.Platform.is('android')) {
