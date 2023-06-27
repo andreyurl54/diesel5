@@ -818,7 +818,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 					if (Lampa.Platform.is('android')) {
 						window.open('https://android.tv.twitch.tv', '_blank'); //Android.openTwitch();
 					}
-					else window.open('https://tv.twitch.tv', '_blank');
+					else window.open('https://twitch.tv', '_blank');
 			})
 
 /* Активация торрентов при старте */
