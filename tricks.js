@@ -805,7 +805,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 						window.open('https://tv.twitch.tv', '_blank'); //window.location.href = 'https://orsay.tv.twitch.tv'
 					}
      					*/
-					if (Lampa.Platform.is('tizen')) {
+					if (Lampa.Storage.field('platform') == 'tizen') /* (Lampa.Platform.is('tizen')) */ {
 						/*
 						var twitchurl = 'https://tizen.tv.twitch.tv'
 						var e = new tizen.ApplicationControl("https://tizen.org/appcontrol/operation/view", twitchurl);
