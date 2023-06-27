@@ -798,13 +798,13 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 			}
 			twitchmenu.on('hover:enter', function() {
 					if (Lampa.Platform.is('webos')) {
-						window.open('https://webos.tv.twitch.tv', '_blank'); //window.location.href = 'https://android.tv.twitch.tv'
+						window.open('https://webos.tv.twitch.tv', '_blank');
 					}
-					/*
+					
 					if (Lampa.Platform.is('orsay')) {
-						window.open('https://tv.twitch.tv', '_blank'); //window.location.href = 'https://orsay.tv.twitch.tv'
+						window.open('https://fgl27.github.io/SmartTwitchTV/release/index.html', '_blank');
 					}
-     					*/
+     					
 					if (Lampa.Platform.is('tizen')) {
 						
 						var twitchurl = 'https://tizen.tv.twitch.tv'
