@@ -819,6 +819,9 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 					if (Lampa.Platform.is('android')) {
 						window.open('https://android.tv.twitch.tv', '_blank'); //Android.openTwitch();
 					}
+					if (Lampa.Platform.is('browser')) {
+						window.open('https://twitch.tv', '_blank'); //Android.openTwitch();
+					}
 					//else window.open('https://fgl27.github.io/SmartTwitchTV/release/index.html', '_blank');
 			})
 
