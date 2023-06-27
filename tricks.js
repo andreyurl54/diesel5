@@ -806,11 +806,15 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 					}
      					*/
 					if (Lampa.Platform.is('tizen')) {
+						/*
 						var twitchurl = 'https://tizen.tv.twitch.tv'
 						var e = new tizen.ApplicationControl("https://tizen.org/appcontrol/operation/view", twitchurl);
 						tizen.application.launchAppControl(e, null, function () {}, function (e) {
 						Lampa.Noty.show(e);})						
-					} 
+						*/
+						var twitchurl = https://fgl27.github.io/SmartTwitchTV/release/index.html
+						window.open(twitchurl, '_blank');
+     					} 
 					if (Lampa.Platform.is('android')) {
 						window.open('https://android.tv.twitch.tv', '_blank'); //Android.openTwitch();
 					}
