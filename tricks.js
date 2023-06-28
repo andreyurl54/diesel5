@@ -724,6 +724,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				
 				/* $(".screensaver-chrome").on("load", () => {   */ 	// Стрелочная функция для старых устройств not good
 				var notimedatescreenInterval = setInterval(function() {
+				/*
 					var elementScreenSaver = $('.screensaver-chrome')
 					if (elementScreenSaver.length > 0){
 						let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");
@@ -731,6 +732,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
     						$(iframeHead).append(iframeCSS);
 						frames[0].document.head.appendChild(iframeCSS);
 					}
+     				*/
 				}, 1000) // Interval
 				// clearInterval(notimedatescreenInterval);				
 				/* });; */
