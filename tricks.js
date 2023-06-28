@@ -29,6 +29,28 @@ function add() {
 	} /* End updateT */
 
 
+/* TEST */
+	Lampa.SettingsApi.addParam({
+				component: 'Multi_Menu_Component',
+				param: {
+					name: 'TEST',
+					type: 'static', //доступно select,input,trigger,title,static
+					default: ''
+				},
+				field: {
+					name: 'TEST',
+					description: 'redirect'
+				},
+				onRender: function (item) {
+					item.show();
+					item.on('hover:enter', function () {
+  					window.open('http://lampa.mx', '_blank');
+					});
+				}
+			});
+/* End TEST */
+
+	
 /* Скрываем часы на заставке */
 	Lampa.SettingsApi.addParam({
 			component: 'Multi_Menu_Component',
