@@ -730,9 +730,9 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
     						let iframeCSS = '<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>';
     						$(iframeHead).append(iframeCSS);
 						frames[0].document.head.appendChild(iframeCSS);
-					};
-				}, 100) // Interval
-				clearInterval(notimedatescreenInterval);				
+					}
+				}, 1000) // Interval
+				// clearInterval(notimedatescreenInterval);				
 				/* });; */
 			}
 
