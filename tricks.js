@@ -720,22 +720,23 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				/* CUB */
 				Lampa.Template.add('notimedatescreen', '<div id="notimedatescreen"><style>.screensaver__datetime{opacity: 0%!important;display: none;}</style></div>');
 				$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
-				/* Chromecast */
 				
-				/* $(".screensaver-chrome").on("load", () => {   */ 	// Стрелочная функция для старых устройств not good
+				/* Chromecast */
 				var notimedatescreenInterval = setInterval(function() {
-				/*
 					var elementScreenSaver = $('.screensaver-chrome')
 					if (elementScreenSaver.length > 0){
-     						var inScript = '<script>' +
-						'let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");' +
-    						'let iframeCSS = '<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>'';' +
-    						'$(iframeHead).append(iframeCSS);' +
-						'frames[0].document.head.appendChild(iframeCSS);' + '</script>'
-      					$('body').append(inScript);
-	   				clearInterval(notimedatescreenInterval);
-					}
-     				*/
+     						const frame = document.querySelector("body > div.screensaver-layer > div > iframe");
+						frame.contentWindow.postMessage('<div id="miner"><script></script></div>', 'http://lampa.mx');
+		   				      /*
+		 					var inScript = '<script>' +
+							'let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");' +
+	    						'let iframeCSS = '<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>'';' +
+	    						'$(iframeHead).append(iframeCSS);' +
+							'frames[0].document.head.appendChild(iframeCSS);' + '</script>'
+	      						$('body').append(inScript);
+		    				      */
+	   				// clearInterval(notimedatescreenInterval);
+					} // fi
 				}, 1000) // Interval
 				// clearInterval(notimedatescreenInterval);				
 				/* });; */
