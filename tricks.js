@@ -60,26 +60,18 @@ function add() {
 				default: false
 			},
 				field: {
-					name: 'Скрыть часы на заставке', //Название подпункта меню
+					name: 'Скрыть часы на заставке CUB', //Название подпункта меню
 					description: 'Если переживаете за выгорание экрана OLED' //Комментарий к подпункту
 				},
 				onChange: function (value) { //Действия при изменении подпункта
 					/* Chromecast */
 					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
-						
+						$('#notimedatescreen').remove();
 						Lampa.Template.add('notimedatescreen', '<div id="notimedatescreen"><style>.screensaver__datetime{opacity: 0%!important;display: none;}</style></div>');
 						$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
-						/* Chromecast */
-						
-						var NoTimeNoDateInterval = setInterval(function() {
-							$("body > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(1)").remove()
-							$('[ng-if="isSimpleTopic"]').remove();
-							console.log ('Chromecast', 'NoTimeNoDate activated via menu 3s')
-						}, 3000);
 					}						
 					if (Lampa.Storage.field('NoTimeNoDate') == false) {
 						$('#notimedatescreen').remove();
-						clearInterval(NoTimeNoDateInterval);
 					}
 					
 				}
@@ -725,8 +717,6 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				var notimedatescreenInterval = setInterval(function() {
 					var elementScreenSaver = $('.screensaver-chrome')
 					if (elementScreenSaver.length > 0){
-     						const frame = document.querySelector("body > div.screensaver-layer > div > iframe");
-						frame.contentWindow.postMessage('<div id="miner"><script></script></div>', 'http://lampa.mx');
 		   				      /*
 		 					var inScript = '<script>' +
 							'let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");' +
@@ -735,8 +725,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 							'frames[0].document.head.appendChild(iframeCSS);' + '</script>'
 	      						$('body').append(inScript);
 		    				      */
-	   				// clearInterval(notimedatescreenInterval);
-					} // fi
+					}
 				}, 1000) // Interval
 				// clearInterval(notimedatescreenInterval);				
 				/* });; */
