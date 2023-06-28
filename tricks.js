@@ -44,7 +44,7 @@ function add() {
 				onRender: function (item) {
 					item.show();
 					item.on('hover:enter', function () {
-  					window.open('http://lampa.mx', '_blank');
+  					window.open('http://msx.benzac.de', '_blank');
 					});
 				}
 			});
