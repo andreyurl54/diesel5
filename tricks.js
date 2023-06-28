@@ -60,12 +60,15 @@ function add() {
 				default: false
 			},
 				field: {
-					name: 'Скрыть часы на заставке Chromecast', //Название подпункта меню
+					name: 'Скрыть часы на заставке', //Название подпункта меню
 					description: 'Если переживаете за выгорание экрана OLED' //Комментарий к подпункту
 				},
 				onChange: function (value) { //Действия при изменении подпункта
 					/* Chromecast */
 					if (Lampa.Storage.field('NoTimeNoDate') == true)	{
+						
+						Lampa.Template.add('notimedatescreen', '<div id="notimedatescreen"><style>.screensaver__datetime{opacity: 0%!important;display: none;}</style></div>');
+						$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
 						/* Chromecast */
 						
 						var NoTimeNoDateInterval = setInterval(function() {
@@ -75,8 +78,10 @@ function add() {
 						}, 3000);
 					}						
 					if (Lampa.Storage.field('NoTimeNoDate') == false) {
+						$('#notimedatescreen').remove();
 						clearInterval(NoTimeNoDateInterval);
 					}
+					
 				}
 	});
 
@@ -710,18 +715,25 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 * ШАБЛОНЫ
 */
 
-/* Скрываем часы на заставке Chromecast */
-			if (Lampa.Storage.field('NoTimeNoDate') == true)	{
+/* Скрываем часы на заставке CUB и Chromecast */
+			if (Lampa.Storage.field('NoTimeNoDate') == true) {
+				/* CUB */
+				Lampa.Template.add('notimedatescreen', '<div id="notimedatescreen"><style>.screensaver__datetime{opacity: 0%!important;display: none;}</style></div>');
+				$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
 				/* Chromecast */
 				
-				$(".screensaver-chrome").on("load", () => {
-    					//var deco = window.atob("aHR0cDovL2xhbXBhdHYuc2l0ZS9waWNzL2FscGhhY2hhbm5lbC5wbmc");
-					//var diesel_playlist = deco;
-					let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");
-    					let iframeCSS = '<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>';
-    					$(iframeHead).append(iframeCSS);
-					frames[0].document.head.appendChild(iframeCSS);
-				});;
+				/* $(".screensaver-chrome").on("load", () => {   */ 	// Стрелочная функция для старых устройств not good
+				var notimedatescreenInterval = setInterval(function() {
+					var elementScreenSaver = $('.screensaver-chrome')
+					if (elementCHlang.length > 0){
+						let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");
+    						let iframeCSS = '<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>';
+    						$(iframeHead).append(iframeCSS);
+						frames[0].document.head.appendChild(iframeCSS);
+					};
+				}, 100) // Interval
+				clearInterval(notimedatescreenInterval);				
+				/* });; */
 			}
 
 /* Стиль скрытия панели навигации при старте */
