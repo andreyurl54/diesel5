@@ -724,6 +724,7 @@ Lampa.SettingsApi.addParam({
 					item.on('hover:enter', function () {
 						Lampa.Noty.show('Настройки плагина сброшены!');
 						setTimeout(function() {
+							localStorage.removeItem('diesel_iptv_hide_passwd');
 							location.reload();
 						},4000)
 					/* Storage */
