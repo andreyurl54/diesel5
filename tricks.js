@@ -725,7 +725,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				/* $(".screensaver-chrome").on("load", () => {   */ 	// Стрелочная функция для старых устройств not good
 				var notimedatescreenInterval = setInterval(function() {
 					var elementScreenSaver = $('.screensaver-chrome')
-					if (elementCHlang.length > 0){
+					if (elementScreenSaver.length > 0){
 						let iframeHead = $("body > div.screensaver-layer > div > iframe").contents().find("head");
     						let iframeCSS = '<style>[ng-if="isSimpleTopic"]{opacity: 0%!important;display: none;}</style>';
     						$(iframeHead).append(iframeCSS);
