@@ -44,28 +44,40 @@ function add() {
 				onRender: function (item) {
 					item.show();
 					item.on('hover:enter', function () {
-	  					var plugins = Lampa.Plugins.get();
-						var pluginToRemoveUrl = "http://lampa.stream/modss";
-						        var pluginRemoved = false;
-						        plugins.forEach(function (plugin, index) {
-									if (plugin.url == pluginToRemoveUrl) {
-										plugins.splice(index, 1);
-										pluginRemoved = true;
-									}
-								});
+						var plugins = Lampa.Plugins.get();
+						var pluginRemoved = false;
+						var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
+						// Преобразуем строку в объект
+							var pluginsArray = JSON.parse(plugins);
+						// Удаляем элемент, содержащий указанную строку в url
+							pluginsArray = pluginsArray.filter(function(item) {
+  								return item.url !== pluginToRemoveUrl;
+							});
+							pluginRemoved = true;
 						
-						        if (pluginRemoved) {
-									Lampa.Plugins.set(plugins);
-									Lampa.Plugins.save();
-									Lampa.Settings.update();
-									Lampa.Noty.show("Плагин Modss успешно удален");
-								} else {
-									Lampa.Noty.show("Плагин не найден или уже был удален");
-						        	}
+						if (pluginRemoved) {
+							Lampa.Settings.update();
+							Lampa.Noty.show("Плагин успешно удален");
+						} else {
+							Lampa.Noty.show("Плагин не найден или уже был удален");
+						}
+						
+					/* Добавляем новый элемент
+						pluginsArray.push({
+		  					"url": "http://lampatv.site/n.js?=21",
+		  					"status": 1
+						}); 
+      					*/
+					
+						// Преобразуем объект обратно в строку
+						var updatedPlugins = JSON.stringify(pluginsArray);
+						Lampa.Storage.set('plugins', updatedPlugins);
+						
 						//window.open('http://msx.benzac.de', '_blank');  
 					});
 				}
-			});
+			})
+
 /* End TEST */
 
 	
