@@ -62,7 +62,7 @@ function add() {
 								} else {
 									Lampa.Noty.show("Плагин не найден или уже был удален");
 						        	}
-						//window.open('http://msx.benzac.de', '_blank');
+						//window.open('http://msx.benzac.de', '_blank'); 
 					});
 				}
 			});
