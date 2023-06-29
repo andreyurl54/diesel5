@@ -44,7 +44,25 @@ function add() {
 				onRender: function (item) {
 					item.show();
 					item.on('hover:enter', function () {
-  					window.open('http://msx.benzac.de', '_blank');
+	  					var plugins = Lampa.Plugins.get();
+						var pluginToRemoveUrl = "http://lampa.stream/modss";
+						        var pluginRemoved = false;
+						        plugins.forEach(function (plugin, index) {
+									if (plugin.url == pluginToRemoveUrl) {
+										plugins.splice(index, 1);
+										pluginRemoved = true;
+									}
+								});
+						
+						        if (pluginRemoved) {
+									Lampa.Plugins.set(plugins);
+									Lampa.Plugins.save();
+									Lampa.Settings.update();
+									Lampa.Noty.show("Плагин Modss успешно удален");
+								} else {
+									Lampa.Noty.show("Плагин не найден или уже был удален");
+						        	}
+						//window.open('http://msx.benzac.de', '_blank');
 					});
 				}
 			});
