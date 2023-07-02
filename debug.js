@@ -95,7 +95,7 @@ Lampa.SettingsApi.addComponent({
 						if (value == '2') {
 							var plugins = Lampa.Plugins.get();
 							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
-							pluginsArray = pluginsArray.filter(function(item) {
+							var pluginsArray = pluginsArray.filter(function(item) {
   								return item.url !== pluginToRemoveUrl;
 							});
 							var updatedPlugins = JSON.stringify(pluginsArray);
