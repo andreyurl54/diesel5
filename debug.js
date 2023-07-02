@@ -29,7 +29,7 @@ function hideInstall() {
 function deletePlugin(pluginToRemoveUrl) {
 	var plugins = Lampa.Plugins.get();
 	// Удаляем элемент, содержащий указанную строку в url
-		pluginsArray = pluginsArray.filter(function(item) {
+		var pluginsArray = pluginsArray.filter(function(item) {
 			return item.url !== pluginToRemoveUrl;
 		});
 	// Преобразуем объект обратно в строку
