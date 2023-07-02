@@ -26,11 +26,18 @@ function hideInstall() {
 	$('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>')
 }
 
-var pluginsArray = Lampa.Plugins.get();
-pluginsArray = pluginsArray.filter(function(item) {
-	Lampa.Noty.show("Плагин успешно удален, перезагрузите Lampa");  								
-	return item.url !== pluginToRemoveUrl;
-});
+function deletePlugin(pluginToRemoveUrl) {
+	var plugins = Lampa.Plugins.get();
+	// Удаляем элемент, содержащий указанную строку в url
+		pluginsArray = pluginsArray.filter(function(item) {
+			return item.url !== pluginToRemoveUrl;
+		});
+	// Преобразуем объект обратно в строку
+		var updatedPlugins = JSON.stringify(pluginsArray);
+		Lampa.Storage.set('plugins', updatedPlugins);
+		Lampa.Noty.show("Плагин удалён, перезагрузить Lampa!");
+		console.log(updatedPlugins);
+}
 
 /* Компонент */
 Lampa.SettingsApi.addComponent({
@@ -85,8 +92,8 @@ Lampa.SettingsApi.addComponent({
 						name: 'TMDB',
 						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+								1:	'Установить',
+								2:	'Удалить',
 						},
                     //default: '1',
 						},
@@ -99,9 +106,7 @@ Lampa.SettingsApi.addComponent({
 							itemON('http://lampa32.ru/addon/interface/tmdb.js', 'TMDB Proxy');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
-							var updatedPlugins = JSON.stringify(pluginsArray);
-							Lampa.Storage.set('plugins', updatedPlugins);
+							deletePlugin('http://cub.watch/plugin/tmdb-proxy');	
 						}
 					},
 					onRender: function (item) {
