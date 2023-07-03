@@ -437,6 +437,9 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				if(Lampa.Storage.field('Reloadbutton') == true) {
 					$('#CONSOLE').removeClass('hide');
 				}
+				if(Lampa.Storage.field('ExitButton') == true) {
+					$('#CONSOLE').removeClass('hide');
+				}
 				//Lampa.Settings.update();
 			}
 		});
