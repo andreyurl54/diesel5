@@ -437,8 +437,11 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				if(Lampa.Storage.field('Reloadbutton') == true) {
 					$('#CONSOLE').removeClass('hide');
 				}
-				if(Lampa.Storage.field('ExitButton') == true) {
-					$('#CONSOLE').removeClass('hide');
+				if(Lampa.Storage.field('Reloadbutton') == false) {
+					$('#ExitButton').addClass('hide');
+				}				
+				if(Lampa.Storage.field('Reloadbutton') == true) {
+					$('#ExitButton').removeClass('hide');
 				}
 				//Lampa.Settings.update();
 			}
@@ -472,7 +475,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				$('#CONSOLE').removeClass('hide');
 		}		
 	/* Кнопка Выхода в верхнем баре */
-		var my_top_exit = '<div id="ExitButton" class="head__action selector exit-screen hide"><svg viewBox="0 0 24 24" fill="#ffffff"  xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z" stroke="#000000" stroke-width="2"></path> <path d="M9 9L15 15M15 9L9 15" stroke="#000000" stroke-width="2" stroke-linecap="round" ></path> </g></svg></div>';
+		var my_top_exit = <div id="my_top_exit" class="head__action selector exit-screen hide"><svg fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="0.4800000000000001"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M4,12a1,1,0,0,1-2,0A9.983,9.983,0,0,1,18.242,4.206V2.758a1,1,0,1,1,2,0v4a1,1,0,0,1-1,1h-4a1,1,0,0,1,0-2h1.743A7.986,7.986,0,0,0,4,12Zm17-1a1,1,0,0,0-1,1A7.986,7.986,0,0,1,7.015,18.242H8.757a1,1,0,1,0,0-2h-4a1,1,0,0,0-1,1v4a1,1,0,0,0,2,0V19.794A9.984,9.984,0,0,0,22,12,1,1,0,0,0,21,11Z" fill="currentColor"></path></g></svg></div>';
 		$('#app > div.head > div > div.head__actions').append(my_top_exit);
 
 		$('#my_top_exit').on('hover:enter hover:click hover:touch', function() {
