@@ -26,6 +26,13 @@ function hideInstall() {
 	$('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>')
 }
 
+function deletePlugin(pluginToRemoveUrl) {
+	const plugins = Lampa.Storage.get('plugins');
+	var updatedPlugins = plugins.filter(function(obj) {return obj.url !== pluginToRemoveUrl});
+	Lampa.Storage.set('plugins', updatedPlugins);
+	Lampa.Noty.show("Плагин успешно удален, перезагрузите Lampa"); 
+};
+	
 /* Компонент */
 Lampa.SettingsApi.addComponent({
             component: 'add_plugin',
@@ -79,10 +86,10 @@ Lampa.SettingsApi.addComponent({
 						name: 'TMDB',
 						type: 'select',
 						values: {
-								1:	'Установить',
-								2:	'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
-                    //default: '1',
+                    			//default: '1',
 						},
 					field: {
 						name: 'TMDB Proxy',
@@ -93,14 +100,8 @@ Lampa.SettingsApi.addComponent({
 							itemON('http://lampa32.ru/addon/interface/tmdb.js', 'TMDB Proxy');
 						}
 						if (value == '2') {
-							var plugins = Lampa.Plugins.get();
 							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
-							var pluginsArray = pluginsArray.filter(function(item) {
-  								return item.url !== pluginToRemoveUrl;
-							});
-							var updatedPlugins = JSON.stringify(pluginsArray);
-							Lampa.Storage.set('plugins', updatedPlugins);	
-							Lampa.Noty.show("Плагин удалён, перезагрузите Lampa для применения!");
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {
@@ -110,11 +111,11 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
-								name: 'Feedback',
-								type: 'select',
+						name: 'Feedback',
+						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 					default: '1',
 						},
@@ -126,6 +127,10 @@ Lampa.SettingsApi.addComponent({
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/interface/feedback.js', 'Отзывы');
 						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://newtv.mail66.org/o.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
 		});
@@ -133,46 +138,54 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
-								name: 'Tricks',
-								type: 'select',
+						name: 'Tricks',
+						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 					default: '1',
 						},
 					field: {
-								name: 'Tricks',
-								description: 'Приятные мелочи (разные скринсейверы, стилизация кнопок, стиль плеера, часы в плеере и т.п.)'
+						name: 'Tricks',
+						description: 'Приятные мелочи (разные скринсейверы, стилизация кнопок, стиль плеера, часы в плеере и т.п.)'
 					},
 					onChange: function(value) {
-							if (value == '1') {
-								itemON('http://lampa32.ru/addon/interface/tricks.js', 'Tricks');
-							}	
-						},
+						if (value == '1') {
+							itemON('http://lampa32.ru/addon/interface/tricks.js', 'Tricks');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://lampatv.site/tricks.js";
+							deletePlugin(pluginToRemoveUrl);
+						}	
+					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900');  hideInstall()}
 		});
 		
 		Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
-								name: 'Rating',
-								type: 'select',
+						name: 'Rating',
+						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 					default: '1',
 						},
 					field: {
-								name: 'Рейтинг КиноПоиск и IMDB',
-								description: 'Показ рейтинга КиноПоиск и IMDB в карточке. Функционал аналогичен части из MODSs, так что их не следует использовать вместе'
+						name: 'Рейтинг КиноПоиск и IMDB',
+						description: 'Показ рейтинга КиноПоиск и IMDB в карточке. Функционал аналогичен части из MODSs, так что их не следует использовать вместе'
 					},
 					onChange: function(value) {
-							if (value == '1') {
-								itemON('http://lampa32.ru/addon/interface/rating.js', 'Рейтинг КиноПоиск и IMDB');
-							}
-						},
+						if (value == '1') {
+							itemON('http://lampa32.ru/addon/interface/rating.js', 'Рейтинг КиноПоиск и IMDB');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://nb557.github.io/plugins/rating.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
 		});
 
@@ -188,10 +201,10 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
 					param: {
-                                name: 'add_management_plugin',
-                                type: 'static',
-                                default: true
-                        },
+						name: 'add_management_plugin',
+      		                        	type: 'static',
+						default: true
+                        		},
 					field: {
                                 name: icon_add_management_plugin
                         },
@@ -208,11 +221,11 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
-                               name: 'Exit_Menu',
+                               		name: 'Exit_Menu',
 						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 					default: '1',
 						},
@@ -224,6 +237,10 @@ Lampa.SettingsApi.addComponent({
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/management/exit_menu.js', '');
 						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://tsynik.github.io/lampa/e.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
 		});
@@ -231,12 +248,12 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
-								name: 'New_Version',
-								type: 'select',																																		
+						name: 'New_Version',
+						type: 'select',																																		
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
-								},
+							1:	'Установить',
+							2:	'Удалить',
+						},
 					default: '1',
 						},
 					field: {
@@ -246,6 +263,10 @@ Lampa.SettingsApi.addComponent({
 					onChange: function(value) {
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/management/new_version.js', 'Проверка Новой Версии');
+							}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://nemiroff.github.io/lampa/updater.js";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -254,21 +275,25 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
-                               name: 'Hot_Buttons',
+                               			name: 'Hot_Buttons',
 						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 					default: '1',
 					},
-                            field: {
-                                    name: 'Горячие кнопки',
-                                    description: 'Плагин вызывает меню плеера лампы по кнопкам пульта: 5 - плейлист, 8 - аудиодорожки, 0 - субтитры, channel+/- следующий/предыдущий файл в плейлисте'
-                            },
+                            		field: {
+                                    		name: 'Горячие кнопки',
+                                    		description: 'Плагин вызывает меню плеера лампы по кнопкам пульта: 5 - плейлист, 8 - аудиодорожки, 0 - субтитры, channel+/- следующий/предыдущий файл в плейлисте'
+                            		},
 					onChange: function(value) {
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/management/hot_buttons.js', 'Горячие Кнопки');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://nnmdd.github.io/lampa_hotkeys/hotkeys.js";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -280,18 +305,22 @@ Lampa.SettingsApi.addComponent({
 						name: 'DLNA',
 						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 					default: '1',
 						},
 					field: {
-                                    name: 'DLNA (Tizen,Orsay)',
-                                    description: 'Плагин работает на устройстве Orsay, для Tizen необходимо обновить виджет до версии 1.9.1'
+                                    		name: 'DLNA (Tizen,Orsay)',
+                                    		description: 'Плагин работает на устройстве Orsay, для Tizen необходимо обновить виджет до версии 1.9.1'
 					},
 					onChange: function(value) {
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/management/dlna.js', 'DLNA');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://cub.watch/plugin/dlna";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -312,10 +341,10 @@ Lampa.SettingsApi.addComponent({
 						name: 'add_online_plugin',
 						type: 'static',
 						default: true
-                          },
+                          		},
 					field: {
 						name: icon_add_online_plugin
-                          },
+                          		},
 					onRender: function(item) {
 						item.on('hover:enter', function () {
 							Lampa.Settings.create('add_online_plugin');
@@ -332,7 +361,8 @@ Lampa.SettingsApi.addComponent({
 						name: 'Modss',
 						type: 'select',
 					values: {
-						1:        'Установить',
+						1:	'Установить',
+						2:	'Удалить',
 					},
 					default: '1',
 					},
@@ -344,28 +374,9 @@ Lampa.SettingsApi.addComponent({
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/online/modss.js', 'Modss');
 						}
-					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
-        });
-        
-		Lampa.SettingsApi.addParam({
-					component: 'add_online_plugin',
-					param: {
-                                name: 'Online_Mod',
-					type: 'select',
-					values: {
-								1:   'Установить',
-								2:	 'Удалить',
-					},
-					default: '1',
-              },
-					field: {
-						name: 'Online_Mod',
-						description: 'Плагин позволяет смотреть фильмы и сериалы в онлайн. На выбор доступно 7 балансеров'
-					},
-					onChange: function(value) {
-						if (value == '1') {
-							itemON('http://lampa32.ru/addon/online/onlinemod.js', 'Online Mod');
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://lampa.stream/modss";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -374,11 +385,38 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_online_plugin',
 					param: {
-                                name: 'Онлайн_Prestige',
-					type: 'select',
-					values: {
-								1:   'Установить',
-								2:	 'Удалить',
+                                		name: 'Online_Mod',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+					},
+					default: '1',
+              				},
+					field: {
+						name: 'Online_Mod',
+						description: 'Плагин позволяет смотреть фильмы и сериалы в онлайн. На выбор доступно 7 балансеров'
+					},
+					onChange: function(value) {
+						if (value == '1') {
+							itemON('http://lampa32.ru/addon/online/onlinemod.js', 'Online Mod');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://nb557.github.io/plugins/online_mod.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+        });
+        
+		Lampa.SettingsApi.addParam({
+					component: 'add_online_plugin',
+					param: {
+                                		name: 'Онлайн_Prestige',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
 					},
 					default: '1',
 					},
@@ -390,6 +428,10 @@ Lampa.SettingsApi.addComponent({
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/online/prestige.js', 'Онлайн Prestige');
 						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://jin.energy/newonline.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
                },
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
         });
@@ -397,21 +439,25 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_online_plugin',
 					param: {
-                                name: 'Онлайн',
-                   type: 'select',
-                   values: {
-								1:   'Установить',
-								2:	 'Удалить',
-                   },
+                               			name: 'Онлайн',
+                   				type: 'select',
+                   				values: {
+							1:	'Установить',
+							2:	'Удалить',
+                   				},
 					default: '1',
-               },
+               				},
 					field: {
-                                  name: 'Онлайн',
-                                  description: 'Плагин для просмотра фильмов и сериалов в онлайн от разработчика приложения Lampa'
+                                  		name: 'Онлайн',
+                                  		description: 'Плагин для просмотра фильмов и сериалов в онлайн от разработчика приложения Lampa'
 					},
-                           onChange: function(value) {
+                           		onChange: function(value) {
 					if (value == '1') {
 						itemON('http://lampa32.ru/addon/online/online.js', 'Онлайн');
+					}
+					if (value == '2') {
+						var pluginToRemoveUrl = "http://jin.energy/online.js";
+						deletePlugin(pluginToRemoveUrl);
 					}
                 },
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -420,22 +466,26 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_online_plugin',
 					param: {
-                                 name: 'Ebuland',
-                       type: 'select',
-                       values: {
-								1:   'Установить',
-								2:	 'Удалить',
-                       },
+                                 		name: 'Ebuland',
+                       				type: 'select',
+                       				values: {
+							1:	'Установить',
+							2:	'Удалить',
+                       			},
 					default: '1',
-                   },
+                   			},
 					field: {
 						name: 'Ebu.land',
 						description: 'Плагин для просмотра фильмов и сериалов в высоком разрешении 4К, который доступен по подписке. Подробнее о подключении на сайте http://ebu.land'
 					},
 					onChange: function(value) {
-                        if (value == '1') {
-                          itemON('http://lampa32.ru/addon/online/ebuland.js', 'Ebu.land');
-                        }
+                        			if (value == '1') {
+                          			itemON('http://lampa32.ru/addon/online/ebuland.js', 'Ebu.land');
+                        			}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://ebu.land/online.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
 		});
@@ -452,13 +502,13 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
 					param: {
-                                   name: 'add_torrent_plugin',
-                                   type: 'static',
-                                   default: true
-                           },
+                                   		name: 'add_torrent_plugin',
+                                   		type: 'static',
+                                   		default: true
+                           		},
 					field: {
-                                   name: icon_add_torrent_plugin
-                           },
+                                   		name: icon_add_torrent_plugin
+                           		},
 					onRender: function(item) {
 						item.on('hover:enter', function () {
 							Lampa.Settings.create('add_torrent_plugin');
@@ -475,11 +525,11 @@ Lampa.SettingsApi.addComponent({
 						name: 'Switch_Parser',
 						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 					default: '1',
-                  },
+                  			},
 					field: {
 						name: 'Переключение между парсерами',
 						description: 'Плагин позволяет переключаться между парсерами jackett из списка с уже забитыми правильными параметрами. В настройках парсера появится пункт со списком общедоступных jacketts'
@@ -487,6 +537,10 @@ Lampa.SettingsApi.addComponent({
 					onChange: function(value) {
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/torrent/switch_parser.js', 'Переключение парсеров');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://lampa32.ru/jackett.js";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -497,10 +551,10 @@ Lampa.SettingsApi.addComponent({
 					param: {
 						name: 'Tracks',
 						type: 'select',
-					values: {
-								1:   'Установить',
-								2:	 'Удалить',
-					},
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
 					default: '1',
 					},
 					field: {
@@ -510,6 +564,10 @@ Lampa.SettingsApi.addComponent({
 					onChange: function(value) {
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/torrent/tracks.js', 'Tracks');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://cub.watch/plugin/tracks";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -549,10 +607,10 @@ Lampa.SettingsApi.addComponent({
 					param: {
 						name: 'Diesel',
 						type: 'select',
-					values: {
-								1:   'Установить',
-								2:	 'Удалить',
-					},
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
 					default: '1',
 					},
 					field: {
@@ -563,6 +621,10 @@ Lampa.SettingsApi.addComponent({
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/tv/diesel.js', 'Дизель ТВ');
 						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://andreyurl54.github.io/diesel5/diesel.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
 		});
@@ -571,11 +633,11 @@ Lampa.SettingsApi.addComponent({
 					component: 'add_tv_plugin',
 					param: {
 						name: 'Kulik',
-                        type: 'select',
-                        values: {
-								1:   'Установить',
-								2:	 'Удалить',
-                        },
+                        			type: 'select',
+                        			values: {
+							1:	'Установить',
+							2:	'Удалить',
+                        		},
 					default: '1',
 					},
 					field: {
@@ -585,6 +647,10 @@ Lampa.SettingsApi.addComponent({
 					onChange: function(value) {
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/tv/kulik.js', 'Kulik TV');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://cdn.kulik.uz/cors";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -596,8 +662,8 @@ Lampa.SettingsApi.addComponent({
 						name: 'IPTV',
 						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 					default: '1',
 					},
@@ -608,6 +674,10 @@ Lampa.SettingsApi.addComponent({
 					onChange: function(value) {
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/tv/iptv.js', 'IPTV');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://cub.watch/plugin/iptv";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
@@ -628,10 +698,10 @@ Lampa.SettingsApi.addComponent({
 						name: 'add_radio_plugin',
 						type: 'static',
 					default: true
-                         },
+                         		},
 					field: {
 						name: icon_add_radio_plugin
-                         },
+                         		},
 					onRender: function(item) {
 						item.on('hover:enter', function () {
 							Lampa.Settings.create('add_radio_plugin');
@@ -646,11 +716,11 @@ Lampa.SettingsApi.addComponent({
 					component: 'add_radio_plugin',
 					param: {
 						name: 'Record',
-                        type: 'select',
-                        values: {
-								1:   'Установить',
-								2:	 'Удалить',
-                        },
+                        			type: 'select',
+                        			values: {
+							1:	'Установить',
+							2:	'Удалить',
+                        			},
 					default: '1',
 					},
 					field: {
@@ -661,6 +731,10 @@ Lampa.SettingsApi.addComponent({
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/radio/record.js', 'Радио Record');
 						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://cub.watch/plugin/radio";
+							deletePlugin(pluginToRemoveUrl);
+						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
 		});
@@ -669,11 +743,11 @@ Lampa.SettingsApi.addComponent({
 					component: 'add_radio_plugin',
 					param: {
 						name: 'Record_Mod',
-                        type: 'select',
-                        values: {
-								1:   'Установить',
-								2:	 'Удалить',
-                        },
+       				                type: 'select',
+                       				values: {
+							1:	'Установить',
+							2:	'Удалить',
+                        			},
 					default: '1',
 					},
 					field: {
@@ -681,9 +755,13 @@ Lampa.SettingsApi.addComponent({
 						description: 'Всё тот же плагин Радио Record, но с качеством потока в 320kbp/s и единым списком станций без разделения на жанры'
 					},
 					onChange: function(value) {
-                        if (value == '1') {
+                        			if (value == '1') {
 							itemON('http://lampa32.ru/addon/radio/record_mod.js', 'Радио Record Mod');
-                        }
+                     				}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://nemiroff.github.io/lampa/rr.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
                     },
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
 		});
@@ -723,8 +801,8 @@ Lampa.SettingsApi.addComponent({
 						name: 'Sisi',
 						type: 'select',
 						values: {
-								1:   'Установить',
-								2:	 'Удалить',
+							1:	'Установить',
+							2:	'Удалить',
 						},
 						default: '1',
 					},
@@ -735,6 +813,10 @@ Lampa.SettingsApi.addComponent({
 					onChange: function(value) {
 						if (value == '1') {
 							itemON('http://lampa32.ru/addon/18+/sisi.js', 'Клубничка');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://sisi.am/nyam.js";
+							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
