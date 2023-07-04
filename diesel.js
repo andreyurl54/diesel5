@@ -482,35 +482,28 @@ Lampa.SettingsApi.addParam({
 							if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
 							if (document.querySelector("#freeTV_settings1")) document.querySelector("#freeTV_settings1").remove();
 							if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
-							if (document.querySelector("#freeTV_settings3")) document.querySelector("#freeTV_settings3").remove();
 							Lampa.Template.add('freeTV_settings0', '<div id="freeTV_settings0"><style>div[data-name="DIESEL_AccessVariant"]{opacity: 0%!important;display: none;}</style></div>');
 							Lampa.Template.add('freeTV_settings1', '<div id="freeTV_settings1"><style>div[data-name="TVmenu"]{opacity: 0%!important;display: none;}</style></div>');
 							Lampa.Template.add('freeTV_settings2', '<div id="freeTV_settings2"><style>div[data-name="HidenCategories"]{opacity: 0%!important;display: none;}</style></div>');
-							Lampa.Template.add('freeTV_settings3', '<div id="freeTV_settings3"><style>div[data-name="HidenCategories_UA"]{opacity: 0%!important;display: none;}</style></div>');
 							$('body').append(Lampa.Template.get('freeTV_settings0', {}, true));
 							$('body').append(Lampa.Template.get('freeTV_settings1', {}, true));
 							$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
-							$('body').append(Lampa.Template.get('freeTV_settings3', {}, true));
 						};
 						if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL') {
 							if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
 							if (document.querySelector("#freeTV_settings1")) document.querySelector("#freeTV_settings1").remove();
 							if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
-							if (document.querySelector("#freeTV_settings3")) document.querySelector("#freeTV_settings3").remove();
 						};
 						if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 							if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
 							if (document.querySelector("#freeTV_settings1")) document.querySelector("#freeTV_settings1").remove();
 							if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
-							if (document.querySelector("#freeTV_settings3")) document.querySelector("#freeTV_settings3").remove();
 							Lampa.Template.add('freeTV_settings0', '<div id="freeTV_settings0"><style>div[data-name="DIESEL_AccessVariant"]{opacity: 0%!important;display: none;}</style></div>');
 							Lampa.Template.add('freeTV_settings1', '<div id="freeTV_settings1"><style>div[data-name="TVmenu"]{opacity: 0%!important;display: none;}</style></div>');
 							Lampa.Template.add('freeTV_settings2', '<div id="freeTV_settings2"><style>div[data-name="HidenCategories"]{opacity: 0%!important;display: none;}</style></div>');
-							Lampa.Template.add('freeTV_settings3', '<div id="freeTV_settings3"><style>div[data-name="HidenCategories_UA"]{opacity: 0%!important;display: none;}</style></div>');
 							$('body').append(Lampa.Template.get('freeTV_settings0', {}, true));
 							$('body').append(Lampa.Template.get('freeTV_settings1', {}, true));
 							$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
-							$('body').append(Lampa.Template.get('freeTV_settings3', {}, true));
 							if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
 						};
 						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!");
@@ -773,34 +766,6 @@ Lampa.SettingsApi.addParam({
 				}
 	});		
 /* End Прячем зарубежные каналы в списке категорий */
-
-/* Прячем каналы СНГ в списке категорий */ 
-	Lampa.SettingsApi.addParam({
-			component: 'diesel_iptv',
-			param: {
-				name: 'HidenCategories_UA',
-				type: 'trigger', //доступно select,input,trigger,title,static
-				default: false
-			},
-				field: {
-					name: 'Скрыть категории стран СНГ', //Название подпункта меню
-					description: 'Каналы Украины и Беларуссии' //Комментарий к подпункту
-				},
-				onChange: function (value) { //Действия при изменении подпункта
-					if (Lampa.Storage.field('HidenCategories_UA') == true){
-						setInterval(function() {
-							var elementUA = $('.selectbox-item.selector > div:contains("UA")');
-							var elementBY = $('.selectbox-item.selector > div:contains("BY")');
-							if(elementUA.length > 0) elementUA.parent('div').hide();
-							if(elementBY.length > 0) elementBY.parent('div').hide();
-						}, 1000); //End Interval
-					}
-					if (Lampa.Storage.field('HidenCategories_UA') == false){
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
-					}
-				}
-	});		
-/* End Прячем каналы СНГ в списке категорий */
 
 /* Прячем Эротику */
 	Lampa.SettingsApi.addParam({
@@ -1065,18 +1030,6 @@ Lampa.SettingsApi.addParam({
 			if(elementBT.length > 0) elementBT.parent('div').hide();
 		}, 1000); //End Interval
 	}
-	//СНГ
-	if (Lampa.Storage.field('HidenCategories_UA') == true){
-		setInterval(function() {
-			var elementUA = $('.selectbox-item.selector > div:contains("UA")');
-			var elementBY = $('.selectbox-item.selector > div:contains("BY")');
-			if(elementUA.length > 0) elementUA.parent('div').hide();
-			if(elementBY.length > 0) elementBY.parent('div').hide();
-		}, 1000); //End Interval
-	}
-	if (Lampa.Storage.field('HidenCategories_UA') == false){
-		Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
-	}	
 	//Эротика
 	if (Lampa.Storage.field('HidenErotic') == true){
 		setInterval(function() {
@@ -1216,11 +1169,9 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 	Lampa.Template.add('freeTV_settings0', '<div id="freeTV_settings0"><style>div[data-name="DIESEL_AccessVariant"]{opacity: 0%!important;display: none;}</style></div>');
 	Lampa.Template.add('freeTV_settings1', '<div id="freeTV_settings1"><style>div[data-name="TVmenu"]{opacity: 0%!important;display: none;}</style></div>');
 	Lampa.Template.add('freeTV_settings2', '<div id="freeTV_settings2"><style>div[data-name="HidenCategories"]{opacity: 0%!important;display: none;}</style></div>');
-	Lampa.Template.add('freeTV_settings3', '<div id="freeTV_settings3"><style>div[data-name="HidenCategories_UA"]{opacity: 0%!important;display: none;}</style></div>');
 	$('body').append(Lampa.Template.get('freeTV_settings0', {}, true));
 	$('body').append(Lampa.Template.get('freeTV_settings1', {}, true));
 	$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
-	$('body').append(Lampa.Template.get('freeTV_settings3', {}, true));
 };
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL') {
 	if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
@@ -1234,11 +1185,9 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 	Lampa.Template.add('freeTV_settings0', '<div id="freeTV_settings0"><style>div[data-name="DIESEL_AccessVariant"]{opacity: 0%!important;display: none;}</style></div>');
 	Lampa.Template.add('freeTV_settings1', '<div id="freeTV_settings1"><style>div[data-name="TVmenu"]{opacity: 0%!important;display: none;}</style></div>');
 	Lampa.Template.add('freeTV_settings2', '<div id="freeTV_settings2"><style>div[data-name="HidenCategories"]{opacity: 0%!important;display: none;}</style></div>');
-	Lampa.Template.add('freeTV_settings3', '<div id="freeTV_settings3"><style>div[data-name="HidenCategories_UA"]{opacity: 0%!important;display: none;}</style></div>');
 	$('body').append(Lampa.Template.get('freeTV_settings0', {}, true));
 	$('body').append(Lampa.Template.get('freeTV_settings1', {}, true));
 	$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
-	$('body').append(Lampa.Template.get('freeTV_settings3', {}, true));
 	if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
 };
 
