@@ -756,6 +756,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 
 /* Скрываем баннер Трейлеров на Главной */
 	if (Lampa.Storage.field('NoTrailerMainPage') == true) {
+		setTimeout(function() {
 			/* Мы на Главной? */
 			if (Lampa.Activity.active().component == 'main' && Lampa.Activity.active().source == 'cub') {
 				$('#NoTrailerMainPage').remove();
@@ -773,7 +774,8 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				var banner = 'div.activity__body > div > div > div > div > div:nth-child(1)'
 				Lampa.Template.add('notimedatescreen', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
 				$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
-			} 
+			}
+		}, 2000);
 	}
 
 /* Скрываем часы на заставке CUB и Chromecast */
