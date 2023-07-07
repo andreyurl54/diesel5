@@ -29,8 +29,10 @@ function add() {
 	} /* End updateT */
 
 
+	
+	
 /* TEST */
-	Lampa.SettingsApi.addParam({
+/*	Lampa.SettingsApi.addParam({
 				component: 'Multi_Menu_Component',
 				param: {
 					name: 'TEST',
@@ -79,7 +81,37 @@ function add() {
 			})
 
 /* End TEST */
+*/
 
+/* Скрываем ленту трейлеров на Главной */
+	Lampa.SettingsApi.addParam({
+			component: 'Multi_Menu_Component',
+			param: {
+				name: 'NoTrailerMainPage',
+				type: 'trigger', //доступно select,input,trigger,title,static
+				default: false
+			},
+				field: {
+					name: 'Скрыть Трейлеры-новинки', //Название подпункта меню
+					description: 'Скрывает баннерную ленту на главной странице' //Комментарий к подпункту
+				},
+				onChange: function (value) { //Действия при изменении подпункта
+/*
+				     Lampa.Storage.listener.follow('change', function (event) {
+				            if (event.name == 'activity' && Lampa.Activity.active().component == 'main' && Lampa.Activity.active().source == 'cub') {
+									if (Lampa.Storage.field('NoTrailerMainPage') == true)	{
+										var banner = 'div.activity__body > div > div > div > div > div:nth-child(1)'
+										Lampa.Template.add('notimedatescreen', '<div id="NoTrailerMainPage"><style>' + banner + {opacity: 0%!important;display: none;}</style></div>');
+										$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
+									}						
+									if (Lampa.Storage.field('NoTrailerMainPage') == false) {
+										$('#NoTrailerMainPage').remove();
+									}
+				            };
+				    });
+*/
+				}
+	});	
 	
 /* Скрываем часы на заставке */
 	Lampa.SettingsApi.addParam({
