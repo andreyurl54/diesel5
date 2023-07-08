@@ -41,7 +41,8 @@ function add() {
 					description: 'Скрывает баннерную ленту на главной странице' //Комментарий к подпункту
 				},
 				onChange: function (value) { //Действия при изменении подпункта
-							setInterval(function() {
+						var intervalID
+							intervalID = setInterval(function() {
 								/* Включили */
 								if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 										/* Мы на Главной? */
@@ -66,6 +67,7 @@ function add() {
 								/* Выключили */
 								if (Lampa.Storage.field('NoTrailerMainPage') == false) {
 									$('#NoTrailerMainPage').remove()
+									clearInterval(intervalID)
 								}
 							}, 500);
 				}
