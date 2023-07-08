@@ -59,7 +59,7 @@ function add() {
 										/* Мы в разделе Фильмы? */
 										if (Lampa.Activity.active().component == 'category' && Lampa.Activity.active().url == 'movie' && Lampa.Activity.active().source == 'cub') {
 											$('#NoTrailerMainPage').remove();
-											var banner = 'div.activity__body > div > div > div > div > div:nth-child(3)'
+											var banner = 'div.activity__body > div > div > div > div > div:nth-child(2)'
 											Lampa.Template.add('NoTrailerMainPage', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
 											$('body').append(Lampa.Template.get('NoTrailerMainPage', {}, true));
 										} 
@@ -775,7 +775,7 @@ if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 			/* Мы в разделе Фильмы? */
 			if (Lampa.Activity.active().component == 'category' && Lampa.Activity.active().url == 'movie' && Lampa.Activity.active().source == 'cub') {
 				$('#NoTrailerMainPage').remove();
-				var banner = 'div.activity__body > div > div > div > div > div:nth-child(3)'
+				var banner = 'div.activity__body > div > div > div > div > div:nth-child(2)'
 				Lampa.Template.add('NoTrailerMainPage', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
 				$('body').append(Lampa.Template.get('NoTrailerMainPage', {}, true));
 			}
