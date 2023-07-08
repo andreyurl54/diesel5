@@ -779,10 +779,10 @@ if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 				Lampa.Template.add('NoTrailerMainPage', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
 				$('body').append(Lampa.Template.get('NoTrailerMainPage', {}, true));
 			}
+			if (Lampa.Storage.field('NoTrailerMainPage') == false) {
+				clearInterval(intervalID)
+			}			
 		}, 500)
-		if (Lampa.Storage.field('NoTrailerMainPage') == false) {
-			clearInterval(intervalID)
-		}
 	}, 1000);
 }
 
