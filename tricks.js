@@ -755,8 +755,9 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 */
 
 /* Скрываем баннер Трейлеров на Главной */
-	if (Lampa.Storage.field('NoTrailerMainPage') == true) {
-		setTimeout(function() {
+if (Lampa.Storage.field('NoTrailerMainPage') == true) {
+	setTimeout(function() {
+		setInterval(function() {
 			$('#NoTrailerMainPage').remove();
 			/* Мы на Главной? */
 			if (Lampa.Activity.active().component == 'main' && Lampa.Activity.active().source == 'cub') {
@@ -766,9 +767,9 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
 			} 
 			/* Вышли из Главной */
-			if (Lampa.Activity.active().component !== 'main') {
-				$('#NoTrailerMainPage').remove()
-			}
+				if (Lampa.Activity.active().component !== 'main') {
+					$('#NoTrailerMainPage').remove()
+				}
 			/* Мы в разделе Фильмы? */
 			if (Lampa.Activity.active().component == 'category' && Lampa.Activity.active().url == 'movie' && Lampa.Activity.active().source == 'cub') {
 				//$('#NoTrailerMainPage').remove();
@@ -776,8 +777,9 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 				Lampa.Template.add('notimedatescreen', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
 				$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
 			}
-		}, 2000);
-	}
+		}, 500)
+	}, 2000);
+}
 
 /* Скрываем часы на заставке CUB и Chromecast */
 			if (Lampa.Storage.field('NoTimeNoDate') == true) {
