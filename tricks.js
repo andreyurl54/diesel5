@@ -49,8 +49,8 @@ function add() {
 										if (Lampa.Activity.active().component == 'main' && Lampa.Activity.active().source == 'cub') {
 											$('#NoTrailerMainPage').remove();
 											var banner = 'div.activity__body > div > div > div > div > div:nth-child(1)'
-											Lampa.Template.add('notimedatescreen', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
-											$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
+											Lampa.Template.add('NoTrailerMainPage', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
+											$('body').append(Lampa.Template.get('NoTrailerMainPage', {}, true));
 										} 
 										/* Вышли из Главной */
 										if (Lampa.Activity.active().component !== 'main') {
@@ -60,8 +60,8 @@ function add() {
 										if (Lampa.Activity.active().component == 'category' && Lampa.Activity.active().url == 'movie' && Lampa.Activity.active().source == 'cub') {
 											$('#NoTrailerMainPage').remove();
 											var banner = 'div.activity__body > div > div > div > div > div:nth-child(1)'
-											Lampa.Template.add('notimedatescreen', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
-											$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
+											Lampa.Template.add('NoTrailerMainPage', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
+											$('body').append(Lampa.Template.get('NoTrailerMainPage', {}, true));
 										} 
 								}
 								/* Выключили */
@@ -765,8 +765,8 @@ if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 			if (Lampa.Activity.active().component == 'main' && Lampa.Activity.active().source == 'cub') {
 				$('#NoTrailerMainPage').remove();
 				var banner = 'div.activity__body > div > div > div > div > div:nth-child(1)'
-				Lampa.Template.add('notimedatescreen', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
-				$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
+				Lampa.Template.add('NoTrailerMainPage', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
+				$('body').append(Lampa.Template.get('NoTrailerMainPage', {}, true));
 			} 
 			/* Вышли из Главной */
 				if (Lampa.Activity.active().component !== 'main') {
@@ -776,14 +776,14 @@ if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 			if (Lampa.Activity.active().component == 'category' && Lampa.Activity.active().url == 'movie' && Lampa.Activity.active().source == 'cub') {
 				$('#NoTrailerMainPage').remove();
 				var banner = 'div.activity__body > div > div > div > div > div:nth-child(1)'
-				Lampa.Template.add('notimedatescreen', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
-				$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
+				Lampa.Template.add('NoTrailerMainPage', '<div id="NoTrailerMainPage"><style>' + banner + '{opacity: 0%!important;display: none;}</style></div>');
+				$('body').append(Lampa.Template.get('NoTrailerMainPage', {}, true));
 			}
 		}, 500)
 		if (Lampa.Storage.field('NoTrailerMainPage') == false) {
 			clearInterval(intervalID)
 		}
-	}, 2000);
+	}, 1000);
 }
 
 /* Скрываем часы на заставке CUB и Chromecast */
