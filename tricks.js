@@ -757,7 +757,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 /* Скрываем баннер Трейлеров на Главной */
 if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 	setTimeout(function() {
-		setInterval(function() {
+		var noTrailer = setInterval(function() {
 			$('#NoTrailerMainPage').remove();
 			/* Мы на Главной? */
 			if (Lampa.Activity.active().component == 'main' && Lampa.Activity.active().source == 'cub') {
@@ -778,6 +778,9 @@ if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 				$('body').append(Lampa.Template.get('notimedatescreen', {}, true));
 			}
 		}, 500)
+		if (Lampa.Storage.field('NoTrailerMainPage') == false) {
+			clearInterval(noTrailer)
+		}
 	}, 2000);
 }
 
