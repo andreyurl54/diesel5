@@ -32,6 +32,14 @@ function deletePlugin(pluginToRemoveUrl) {
 	Lampa.Storage.set('plugins', updatedPlugins);
 	Lampa.Noty.show("Плагин успешно удален, перезагрузите Lampa"); 
 };
+
+function checkPlugin(pluginToCheck) {
+	const plugins = Lampa.Storage.get('plugins');
+	var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
+	//if (checkResult == pluginToCheck) {console.log('search', checkResult)}
+	console.log('search', 'checkResult: ' + checkResult);
+	console.log('search', 'pluginToCheck: ' + pluginToCheck);
+};
 	
 /* Компонент */
 Lampa.SettingsApi.addComponent({
@@ -105,7 +113,8 @@ Lampa.SettingsApi.addComponent({
 						}
 					},
 					onRender: function (item) {
-						$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						checkPlugin('http://cub.watch/plugin/tmdb-proxy')}
 		});
        
 		Lampa.SettingsApi.addParam({
