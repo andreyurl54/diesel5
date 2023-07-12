@@ -30,6 +30,7 @@ function deletePlugin(pluginToRemoveUrl) {
 	const plugins = Lampa.Storage.get('plugins');
 	var updatedPlugins = plugins.filter(function(obj) {return obj.url !== pluginToRemoveUrl});
 	Lampa.Storage.set('plugins', updatedPlugins);
+	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален, перезагрузите Lampa"); 
 };
 
@@ -128,8 +129,7 @@ Lampa.SettingsApi.addComponent({
 							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
 								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
-							}
-							if (!myResult) {
+							} else {
 								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);
