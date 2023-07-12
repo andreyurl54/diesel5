@@ -37,7 +37,7 @@ function checkPlugin(pluginToCheck) {
 	const plugins = Lampa.Storage.get('plugins');
 	var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
 	//if (checkResult == pluginToCheck) {console.log('search', checkResult)}
-	console.log('search', 'checkResult: ' + checkResult);
+	console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
 	console.log('search', 'pluginToCheck: ' + pluginToCheck);
 };
 	
