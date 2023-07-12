@@ -17,8 +17,10 @@ function itemON(sourceURL, sourceName) {
                    var script = document.createElement ('script');
                    script.src = sourceURL;
                    document.getElementsByTagName ('head')[0].appendChild (script);
-                   Lampa.Settings.update();
-                   Lampa.Noty.show("Плагин " + sourceName + " успешно установлен");
+                   //Lampa.Settings.update();
+                   setTimeout(function() {
+		   Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")}, 1000)
+	Lampa.Settings.update();
 };
 
 function hideInstall() {
@@ -37,10 +39,8 @@ function deletePlugin(pluginToRemoveUrl) {
 function checkPlugin(pluginToCheck) {
 	const plugins = Lampa.Storage.get('plugins');
 	var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
-	//if (checkResult == pluginToCheck) {console.log('search', checkResult)}
 	console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
 	console.log('search', 'pluginToCheck: ' + pluginToCheck);
-	//if (JSON.stringify(checkResult) !== '[]') {console.log('search', 'Плагин найден!')} else {console.log('search', 'НЕ найден!')}
 	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
 };
 	
@@ -124,7 +124,8 @@ Lampa.SettingsApi.addComponent({
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
 						//checkPlugin('http://cub.watch/plugin/tmdb-proxy');
 						var myResult = checkPlugin('http://cub.watch/plugin/tmdb-proxy')
-						//console.log('search', myResult); Lampa.Noty.show('1');
+						//console.log('search', myResult); 
+						Lampa.Noty.show('1');
 						setTimeout(function() {	
 							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
