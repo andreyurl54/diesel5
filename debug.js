@@ -118,7 +118,9 @@ Lampa.SettingsApi.addComponent({
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
 						//checkPlugin('http://cub.watch/plugin/tmdb-proxy');
 						var myResult = checkPlugin('http://cub.watch/plugin/tmdb-proxy')
-						console.log('search', myResult)
+						console.log('search', myResult);
+						if (myResult) {$('div[data-name="TMDB"]').addClass('active')}
+						
 						//if (checkPlugin) {console.log('search', 'Плагин найден!')} else {console.log('search', 'НЕ найден!')} 
 					}
 		});
