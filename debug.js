@@ -117,7 +117,7 @@ Lampa.SettingsApi.addComponent({
 					onRender: function (item) {
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
 						checkPlugin('http://cub.watch/plugin/tmdb-proxy');
-						if (myResult) console.log('search', 'Плагин найден!') }
+						if (checkPlugin) console.log('search', 'Плагин найден!') }
 		});
        
 		Lampa.SettingsApi.addParam({
