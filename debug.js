@@ -40,7 +40,7 @@ function checkPlugin(pluginToCheck) {
 	console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
 	console.log('search', 'pluginToCheck: ' + pluginToCheck);
 	//if (JSON.stringify(checkResult) !== '[]') {console.log('search', 'Плагин найден!')} else {console.log('search', 'НЕ найден!')}
-	if (JSON.stringify(checkResult) !== '[]') {return true} else {console.log('search', 'НЕ найден!')}
+	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
 };
 	
 /* Компонент */
@@ -117,7 +117,8 @@ Lampa.SettingsApi.addComponent({
 					onRender: function (item) {
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
 						checkPlugin('http://cub.watch/plugin/tmdb-proxy');
-						if (checkPlugin) console.log('search', 'Плагин найден!') }
+						if (checkPlugin) {console.log('search', 'Плагин найден!')} else {console.log('search', 'НЕ найден!')} 
+					}
 		});
        
 		Lampa.SettingsApi.addParam({
