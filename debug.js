@@ -112,6 +112,11 @@ Lampa.SettingsApi.addComponent({
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
 							deletePlugin(pluginToRemoveUrl);
+							/*
+							if (!myResult) {
+								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+       								*/
 						}
 					},
 					onRender: function (item) {
@@ -119,9 +124,15 @@ Lampa.SettingsApi.addComponent({
 						//checkPlugin('http://cub.watch/plugin/tmdb-proxy');
 						var myResult = checkPlugin('http://cub.watch/plugin/tmdb-proxy')
 						//console.log('search', myResult); Lampa.Noty.show('1');
-						if (myResult) {
-							$('div[data-name="TMDB"]').append('<div class="settings-param__status one active"></div>')
-						}
+						setTimeout(function() {	
+							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							}
+							if (!myResult) {
+								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
 						//if (myResult) $('[data-name="TMDB"]').append('<div class="settings-param__status one"></div>').find('.settings-param__status').removeClass('active error wait').addClass('active')
 						//if (myResult) $('[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 						//if (checkPlugin) {console.log('search', 'Плагин найден!')} else {console.log('search', 'НЕ найден!')} 
