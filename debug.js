@@ -119,8 +119,8 @@ Lampa.SettingsApi.addComponent({
 						//checkPlugin('http://cub.watch/plugin/tmdb-proxy');
 						var myResult = checkPlugin('http://cub.watch/plugin/tmdb-proxy')
 						console.log('search', myResult);
-						//if (myResult) {$('div[data-name="TMDB"]').addClass('active')}
-						if (myResult) $('[data-name="TMDB"]').append('<div class="settings-param__status one"></div>').find('.settings-param__status').removeClass('active error wait').addClass('active')
+						if (myResult) {$('div[data-name="TMDB"]').append('<div class="settings-param__status one active"></div>')}
+						//if (myResult) $('[data-name="TMDB"]').append('<div class="settings-param__status one"></div>').find('.settings-param__status').removeClass('active error wait').addClass('active')
 						//if (myResult) $('[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 						//if (checkPlugin) {console.log('search', 'Плагин найден!')} else {console.log('search', 'НЕ найден!')} 
 					}
