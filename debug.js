@@ -39,6 +39,7 @@ function checkPlugin(pluginToCheck) {
 	//if (checkResult == pluginToCheck) {console.log('search', checkResult)}
 	console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
 	console.log('search', 'pluginToCheck: ' + pluginToCheck);
+	if (JSON.stringify(checkResult) !== '') {console.log('search', 'Плагин найден!')} else {console.log('search', 'НЕ найден!')}
 };
 	
 /* Компонент */
