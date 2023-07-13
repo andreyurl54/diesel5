@@ -24,7 +24,7 @@
         var plugins_push = []
 
         plugins.push(plugin_add)
-
+        Lampa.Storage.set('plugins', plugins);
 
         Lampa.Utils.putScript('http://cub.watch/plugin/tmdb-proxy',function(){},function(){},function(){},true);
 
