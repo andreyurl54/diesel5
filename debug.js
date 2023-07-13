@@ -108,7 +108,7 @@ Lampa.SettingsApi.addComponent({
                             },
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/interface/tmdb.js', 'TMDB Proxy');
+							itemON('https://andreyurl54.github.io/diesel5/tmdb.js', 'TMDB Proxy');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
@@ -146,7 +146,7 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/interface/feedback.js', 'Отзывы');
+							itemON('https://andreyurl54.github.io/diesel5/feedback.js', 'Отзывы');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://newtv.mail66.org/o.js";
@@ -220,7 +220,7 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/interface/rating.js', 'Рейтинг КиноПоиск и IMDB');
+							itemON('https://andreyurl54.github.io/diesel5/rating.js', 'Рейтинг КиноПоиск и IMDB');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "https://nb557.github.io/plugins/rating.js";
