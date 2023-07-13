@@ -19,8 +19,8 @@ function itemON(sourceURL, sourceName) {
                    document.getElementsByTagName ('head')[0].appendChild (script);
                    //Lampa.Settings.update();
                    setTimeout(function() {
-		   Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")}, 1000)
-	Lampa.Settings.update();
+		   Lampa.Settings.update();
+		   Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")}, 2000)
 };
 
 function hideInstall() {
