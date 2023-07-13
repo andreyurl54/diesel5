@@ -36,7 +36,7 @@ function itemON_Alt(sourceURL, sourceName) {
 	// Преобразуем объект обратно в строку
 		var updatedPlugins = JSON.stringify(pluginsArray);
 	// Внедряем изменённый список в лампу
-		Lampa.Storage.set('plugins', updatedPlugins);
+		Lampa.Storage.set('plugins', pluginsArray); // Lampa.Storage.set('plugins', updatedPlugins);
 	// Делаем инъекцию скрипта для немедленной работы
 		var script = document.createElement ('script');
 		script.src = sourceURL;
