@@ -12,7 +12,7 @@
 
         var plugins = Lampa.Storage.get('plugins');
 
-        var plugin_add = '{"url": "http://cub.watch/plugin/tmdb-proxy","status": 1,"name": "TMDB Proxy","author": "@lampa"}';
+        var plugin_add = JSON.stringify('{"url": "http://cub.watch/plugin/tmdb-proxy","status": 1,"name": "TMDB Proxy","author": "@lampa"}')
 
         plugins.push(plugin_add)
         Lampa.Storage.set('plugins', plugins);
