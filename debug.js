@@ -27,28 +27,27 @@ function itemON(sourceURL, sourceName) {
 --> */
 
 function itemON(sourceURL, sourceName) {
-	// Если перезагрузки не требуется
+	// Если перезагрузки не требуется - контроль после удаления плагинов
    if (Lampa.Storage.get('needReboot') == false) {
 	// Получаем список плагинов
-		var pluginsArray = Lampa.Storage.get('plugins'); // Lampa.Plugins.get();
+		var pluginsArray = Lampa.Storage.get('plugins');
 	// Добавляем новый элемент к списку
 		pluginsArray.push({
-			"url": sourceURL, //sourceURL
+			"url": sourceURL,
 			"status": 1
 		});
 	// Внедряем изменённый список в лампу
-		Lampa.Storage.set('plugins', pluginsArray); // Lampa.Storage.set('plugins', updatedPlugins);
-		//Lampa.Plugins.save();
+		Lampa.Storage.set('plugins', pluginsArray);
 		Lampa.Settings.update();
 	// Делаем инъекцию скрипта для немедленной работы
 		var script = document.createElement ('script');
 		script.src = sourceURL;
 		document.getElementsByTagName ('head')[0].appendChild (script);
 		setTimeout(function() {
-		Lampa.Settings.update();
+			Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 		}, 300);
-   } else {Lampa.Noty.show("Перед установкой плагина перезагрузите Lampa!")}
+   } else {Lampa.Noty.show("ОШИБКА: Перед установкой плагина перезагрузите Lampa!")}
 };
 	
 function hideInstall() {
@@ -61,7 +60,6 @@ function deletePlugin(pluginToRemoveUrl) {
 	var updatedPlugins = plugins.filter(function(obj) {return obj.url !== pluginToRemoveUrl});
 	Lampa.Storage.set('plugins', updatedPlugins);
 	Lampa.Storage.set('needReboot', true);
-	//Lampa.Plugins.save();
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален, перезагрузите Lampa"); 
 };
