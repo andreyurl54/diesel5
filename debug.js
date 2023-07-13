@@ -38,7 +38,6 @@ function itemON(sourceURL, sourceName) {
 		});
 	// Внедряем изменённый список в лампу
 		Lampa.Storage.set('plugins', pluginsArray);
-		Lampa.Settings.update();
 	// Делаем инъекцию скрипта для немедленной работы
 		var script = document.createElement ('script');
 		script.src = sourceURL;
