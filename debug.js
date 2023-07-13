@@ -41,7 +41,14 @@ function checkPlugin(pluginToCheck) {
 	var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
 	console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
 	console.log('search', 'pluginToCheck: ' + pluginToCheck);
-	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
+	//if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
+
+	$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
+	if (JSON.stringify(checkResult) !== '[]') {
+		$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+	} else {
+		$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+	}
 };
 	
 /* Компонент */
@@ -113,19 +120,14 @@ Lampa.SettingsApi.addComponent({
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
 							deletePlugin(pluginToRemoveUrl);
-							/*
-							if (!myResult) {
-								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
-							}
-       								*/
 						}
 					},
 					onRender: function (item) {
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						//checkPlugin('http://cub.watch/plugin/tmdb-proxy');
-						var myResult = checkPlugin('http://cub.watch/plugin/tmdb-proxy')
-						//console.log('search', myResult); 
+						//var myResult = checkPlugin('http://cub.watch/plugin/tmdb-proxy')
+						checkPlugin('http://cub.watch/plugin/tmdb-proxy')
 						Lampa.Noty.show('1');
+						/*
 						setTimeout(function() {	
 							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -134,9 +136,7 @@ Lampa.SettingsApi.addComponent({
 								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);
-						//if (myResult) $('[data-name="TMDB"]').append('<div class="settings-param__status one"></div>').find('.settings-param__status').removeClass('active error wait').addClass('active')
-						//if (myResult) $('[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
-						//if (checkPlugin) {console.log('search', 'Плагин найден!')} else {console.log('search', 'НЕ найден!')} 
+						*/
 					}
 		});
        
