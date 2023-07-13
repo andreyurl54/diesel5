@@ -28,7 +28,7 @@ function itemON(sourceURL, sourceName) {
 
 function itemON(sourceURL, sourceName) {
 	// Если перезагрузки не требуется - контроль после удаления плагинов
-   if (Lampa.Storage.get('needReboot') == false) {
+   if (!Lampa.Storage.get('needReboot')) {
 	// Получаем список плагинов
 		var pluginsArray = Lampa.Storage.get('plugins');
 	// Добавляем новый элемент к списку
