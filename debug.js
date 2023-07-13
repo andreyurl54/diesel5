@@ -28,9 +28,8 @@ function itemON(sourceURL, sourceName) {
 
 function itemON(sourceURL, sourceName) {
 	// Если перезагрузки не требуется
-   if (!Lampa.Storage.get('needReboot')) {
+   if (Lampa.Storage.get('needReboot') == false) {
 	// Получаем список плагинов
-		var pluginsArray = ""
 		var pluginsArray = Lampa.Storage.get('plugins'); // Lampa.Plugins.get();
 	// Добавляем новый элемент к списку
 		pluginsArray.push({
@@ -39,8 +38,8 @@ function itemON(sourceURL, sourceName) {
 		});
 	// Внедряем изменённый список в лампу
 		Lampa.Storage.set('plugins', pluginsArray); // Lampa.Storage.set('plugins', updatedPlugins);
-		Lampa.Plugins.save();
-		//Lampa.Settings.update();
+		//Lampa.Plugins.save();
+		Lampa.Settings.update();
 	// Делаем инъекцию скрипта для немедленной работы
 		var script = document.createElement ('script');
 		script.src = sourceURL;
@@ -62,7 +61,7 @@ function deletePlugin(pluginToRemoveUrl) {
 	var updatedPlugins = plugins.filter(function(obj) {return obj.url !== pluginToRemoveUrl});
 	Lampa.Storage.set('plugins', updatedPlugins);
 	Lampa.Storage.set('needReboot', true);
-	Lampa.Plugins.save();
+	//Lampa.Plugins.save();
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален, перезагрузите Lampa"); 
 };
