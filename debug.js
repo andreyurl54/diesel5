@@ -42,14 +42,6 @@ function checkPlugin(pluginToCheck) {
 	console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
 	console.log('search', 'pluginToCheck: ' + pluginToCheck);
 	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
-/*
-	$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
-	if (JSON.stringify(checkResult) !== '[]') {
-		$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
-	} else {
-		$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
-	}
- */
 };
 	
 /* Компонент */
@@ -126,8 +118,6 @@ Lampa.SettingsApi.addComponent({
 					onRender: function (item) {
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
 						var myResult = checkPlugin('http://cub.watch/plugin/tmdb-proxy')
-						Lampa.Noty.show('1');
-						
 						setTimeout(function() {	
 							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -136,7 +126,6 @@ Lampa.SettingsApi.addComponent({
 								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);
-						
 					}
 		});
        
@@ -164,7 +153,17 @@ Lampa.SettingsApi.addComponent({
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
+						var myResult = checkPlugin('http://newtv.mail66.org/o.js')
+						setTimeout(function() {	
+							$('div[data-name="Feedback"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
        
 		Lampa.SettingsApi.addParam({
@@ -218,7 +217,17 @@ Lampa.SettingsApi.addComponent({
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
+						var myResult = checkPlugin('http://newtv.mail66.org/o.js')
+						setTimeout(function() {	
+							$('div[data-name="Feedback"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
 
         Lampa.Settings.listener.follow('open', function (e) {
