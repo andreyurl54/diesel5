@@ -17,10 +17,8 @@ function itemON(sourceURL, sourceName) {
                    var script = document.createElement ('script');
                    script.src = sourceURL;
                    document.getElementsByTagName ('head')[0].appendChild (script);
-                   //Lampa.Settings.update();
-                   setTimeout(function() {
 		   Lampa.Settings.update();
-		   Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")}, 2000)
+		   Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 };
 
 function hideInstall() {
