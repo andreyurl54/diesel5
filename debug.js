@@ -186,12 +186,12 @@ Lampa.SettingsApi.addComponent({
 							itemON('http://lampa32.ru/addon/interface/tricks.js', 'Tricks');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://lampa32.ru/addon/interface/tricks.js";
+							var pluginToRemoveUrl = "http://lampatv.site/tricks.js";
 							deletePlugin(pluginToRemoveUrl);
 						}	
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900');  hideInstall()
-						var myResult = checkPlugin('http://lampa32.ru/addon/interface/tricks.js')
+						var myResult = checkPlugin('http://lampatv.site/tricks.js')
 						setTimeout(function() {	
 							$('div[data-name="Tricks"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
