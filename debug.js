@@ -23,6 +23,30 @@ function itemON(sourceURL, sourceName) {
 			}, 300);
 };
 
+function itemON_Alt(sourceURL, sourceName) {
+	// Получаем список плагинов
+		var plugins = Lampa.Plugins.get();
+	// Преобразуем строку в объект
+		var pluginsArray = JSON.parse(plugins);
+	// Добавляем новый элемент к списку
+		pluginsArray.push({
+			"url": "http://cub.watch/plugin/tmdb-proxy", //sourceURL
+			"status": 1
+		});
+	// Преобразуем объект обратно в строку
+		var updatedPlugins = JSON.stringify(pluginsArray);
+	// Внедряем изменённый список в лампу
+		Lampa.Storage.set('plugins', updatedPlugins);
+	// Делаем инъекцию скрипта для немедленной работы
+		var script = document.createElement ('script');
+		script.src = sourceURL;
+		document.getElementsByTagName ('head')[0].appendChild (script);
+		setTimeout(function() {
+		Lampa.Settings.update();
+			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
+		}, 300);
+};
+	
 function hideInstall() {
 	$("#hideInstall").remove();
 	$('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>')
@@ -108,7 +132,7 @@ Lampa.SettingsApi.addComponent({
                             },
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://andreyurl54.github.io/diesel5/tmdb.js', 'TMDB Proxy');
+							itemON_Alt('http://cub.watch/plugin/tmdb-proxy', 'TMDB Proxy');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
