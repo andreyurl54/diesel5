@@ -36,7 +36,7 @@ function itemON(sourceURL, sourceName) {
 			"status": 1
 		});
 	// Внедряем изменённый список в лампу
-		Lampa.Storage.set('plugins', pluginsArray); // Lampa.Storage.set('plugins', updatedPlugins);
+		//Lampa.Storage.set('plugins', pluginsArray); // Lampa.Storage.set('plugins', updatedPlugins);
 		Lampa.Plugins.save();
 		//Lampa.Settings.update();
 	// Делаем инъекцию скрипта для немедленной работы
