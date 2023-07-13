@@ -44,6 +44,7 @@ function itemON(sourceURL, sourceName) {
 		Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 		}, 300);
+	return
 };
 	
 function hideInstall() {
