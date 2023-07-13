@@ -186,11 +186,21 @@ Lampa.SettingsApi.addComponent({
 							itemON('http://lampa32.ru/addon/interface/tricks.js', 'Tricks');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://lampatv.site/tricks.js";
+							var pluginToRemoveUrl = "http://lampa32.ru/addon/interface/tricks.js";
 							deletePlugin(pluginToRemoveUrl);
 						}	
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900');  hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900');  hideInstall()
+						var myResult = checkPlugin('http://newtv.mail66.org/o.js')
+						setTimeout(function() {	
+							$('div[data-name="Tricks"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Tricks"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Tricks"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);			  
+					}
 		});
 		
 		Lampa.SettingsApi.addParam({
@@ -218,13 +228,13 @@ Lampa.SettingsApi.addComponent({
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('http://newtv.mail66.org/o.js')
+						var myResult = checkPlugin('https://nb557.github.io/plugins/rating.js')
 						setTimeout(function() {	
-							$('div[data-name="Feedback"]').append('<div class="settings-param__status one"></div>')
+							$('div[data-name="Rating"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
-								$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								$('div[data-name="Rating"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 							} else {
-								$('div[data-name="Feedback"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								$('div[data-name="Rating"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);
 					}
