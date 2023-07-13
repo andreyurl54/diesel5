@@ -12,7 +12,7 @@
 
         var plugins = Lampa.Storage.get('plugins');
 
-        var plugins_add = [
+        var plugin_add = [
             {
                 "url": "http://cub.watch/plugin/tmdb-proxy",
                 "status": 1,
