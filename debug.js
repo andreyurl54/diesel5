@@ -18,6 +18,7 @@ function itemON(sourceURL, sourceName) {
                    script.src = sourceURL;
                    document.getElementsByTagName ('head')[0].appendChild (script);
 			setTimeout(function() {
+			   Lampa.Plugins.save()
 			   Lampa.Settings.update();
 			   Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 			}, 300);
