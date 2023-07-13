@@ -28,6 +28,7 @@ function itemON(sourceURL, sourceName) {
 
 function itemON(sourceURL, sourceName) {
 	// Получаем список плагинов
+		var pluginsArray = ""
 		var pluginsArray = Lampa.Storage.get('plugins'); // Lampa.Plugins.get();
 	// Добавляем новый элемент к списку
 		pluginsArray.push({
