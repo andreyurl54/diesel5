@@ -25,16 +25,12 @@ function itemON(sourceURL, sourceName) {
 
 function itemON_Alt(sourceURL, sourceName) {
 	// Получаем список плагинов
-		var plugins = Lampa.Plugins.get();
-	// Преобразуем строку в объект
-		var pluginsArray = plugins // JSON.parse(plugins);
+		var pluginsArray = Lampa.Plugins.get();
 	// Добавляем новый элемент к списку
 		pluginsArray.push({
-			"url": "http://cub.watch/plugin/tmdb-proxy", //sourceURL
+			"url": sourceURL, //sourceURL
 			"status": 1
 		});
-	// Преобразуем объект обратно в строку
-		var updatedPlugins = JSON.stringify(pluginsArray);
 	// Внедряем изменённый список в лампу
 		Lampa.Storage.set('plugins', pluginsArray); // Lampa.Storage.set('plugins', updatedPlugins);
 	// Делаем инъекцию скрипта для немедленной работы
