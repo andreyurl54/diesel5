@@ -189,7 +189,7 @@ Lampa.SettingsApi.addComponent({
 						}	
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900');  hideInstall()
-						var myResult = checkPlugin('http://newtv.mail66.org/o.js')
+						var myResult = checkPlugin('http://lampa32.ru/addon/interface/tricks.js')
 						setTimeout(function() {	
 							$('div[data-name="Tricks"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
