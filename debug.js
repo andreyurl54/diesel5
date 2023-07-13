@@ -41,7 +41,7 @@ function checkPlugin(pluginToCheck) {
 	var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
 	console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
 	console.log('search', 'pluginToCheck: ' + pluginToCheck);
-	//if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
+	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
 /*
 	$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
 	if (JSON.stringify(checkResult) !== '[]') {
