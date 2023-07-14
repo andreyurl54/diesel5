@@ -313,14 +313,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/management/exit_menu.js', '');
+							itemON('https://tsynik.github.io/lampa/e.js', '');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "https://tsynik.github.io/lampa/e.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('https://tsynik.github.io/lampa/e.js')
+						setTimeout(function() {	
+							$('div[data-name="Exit_Menu"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Exit_Menu"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Exit_Menu"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
        
 		Lampa.SettingsApi.addParam({
@@ -340,14 +350,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/management/new_version.js', 'Проверка Новой Версии');
+							itemON('https://nemiroff.github.io/lampa/updater.js', 'Проверка Новой Версии');
 							}
 						if (value == '2') {
 							var pluginToRemoveUrl = "https://nemiroff.github.io/lampa/updater.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('https://nemiroff.github.io/lampa/updater.js')
+						setTimeout(function() {	
+							$('div[data-name="New_Version"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="New_Version"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="New_Version"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
        
 		Lampa.SettingsApi.addParam({
@@ -367,14 +387,24 @@ Lampa.SettingsApi.addComponent({
                             		},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/management/hot_buttons.js', 'Горячие Кнопки');
+							itemON('https://nnmdd.github.io/lampa_hotkeys/hotkeys.js', 'Горячие Кнопки');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "https://nnmdd.github.io/lampa_hotkeys/hotkeys.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('https://nnmdd.github.io/lampa_hotkeys/hotkeys.js')
+						setTimeout(function() {	
+							$('div[data-name="Hot_Buttons"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Hot_Buttons"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Hot_Buttons"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);			  
+					}
 		});
        
 		Lampa.SettingsApi.addParam({
@@ -394,14 +424,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/management/dlna.js', 'DLNA');
+							itemON('http://cub.watch/plugin/dlna', 'DLNA');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/dlna";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://cub.watch/plugin/dlna')
+						setTimeout(function() {	
+							$('div[data-name="DLNA"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="DLNA"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="DLNA"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);			  
+					}
 		});
 
         Lampa.Settings.listener.follow('open', function (e) {
@@ -450,14 +490,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/online/modss.js', 'Modss');
+							itemON('http://lampa.stream/modss', 'Modss');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://lampa.stream/modss";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://lampa.stream/modss')
+						setTimeout(function() {	
+							$('div[data-name="Modss"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Modss"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Modss"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);		  
+					}
         });
         
 		Lampa.SettingsApi.addParam({
@@ -477,14 +527,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/online/onlinemod.js', 'Online Mod');
+							itemON('https://nb557.github.io/plugins/online_mod.js', 'Online Mod');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "https://nb557.github.io/plugins/online_mod.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('https://nb557.github.io/plugins/online_mod.js')
+						setTimeout(function() {	
+							$('div[data-name="Online_Mod"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Online_Mod"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Online_Mod"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);			  
+					}
         });
         
 		Lampa.SettingsApi.addParam({
@@ -504,14 +564,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/online/prestige.js', 'Онлайн Prestige');
+							itemON('http://jin.energy/newonline.js', 'Онлайн Prestige');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://jin.energy/newonline.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
                },
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://jin.energy/newonline.js')
+						setTimeout(function() {	
+							$('div[data-name="Онлайн Prestige"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Онлайн Prestige"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Онлайн Prestige"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);				  
+					}
         });
         
 		Lampa.SettingsApi.addParam({
@@ -531,14 +601,24 @@ Lampa.SettingsApi.addComponent({
 					},
                            		onChange: function(value) {
 					if (value == '1') {
-						itemON('http://lampa32.ru/addon/online/online.js', 'Онлайн');
+						itemON('http://jin.energy/online.js', 'Онлайн');
 					}
 					if (value == '2') {
 						var pluginToRemoveUrl = "http://jin.energy/online.js";
 						deletePlugin(pluginToRemoveUrl);
 					}
                 },
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://jin.energy/online.js')
+						setTimeout(function() {	
+							$('div[data-name="Онлайн"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);			  
+					}
 		});
          
 		Lampa.SettingsApi.addParam({
@@ -558,14 +638,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
                         			if (value == '1') {
-                          			itemON('http://lampa32.ru/addon/online/ebuland.js', 'Ebu.land');
+                          			itemON('http://ebu.land/online.js', 'Ebu.land');
                         			}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://ebu.land/online.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://ebu.land/online.js')
+						setTimeout(function() {	
+							$('div[data-name="Ebu.land"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Ebu.land"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Ebu.land"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);			  
+					}
 		});
 /* Торрент */
 		Lampa.Settings.listener.follow('open', function (e) {
@@ -614,14 +704,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/torrent/switch_parser.js', 'Переключение парсеров');
+							itemON('http://lampa32.ru/jackett.js', 'Переключение парсеров');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://lampa32.ru/jackett.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://lampa32.ru/jackett.js')
+						setTimeout(function() {	
+							$('div[data-name="Switch_Parser"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Switch_Parser"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Switch_Parser"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);			  
+					}
 		});
          
 		Lampa.SettingsApi.addParam({
@@ -641,14 +741,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/torrent/tracks.js', 'Tracks');
+							itemON('http://cub.watch/plugin/tracks', 'Tracks');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/tracks";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://cub.watch/plugin/tracks')
+						setTimeout(function() {	
+							$('div[data-name="Tracks"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Tracks"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Tracks"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);		  
+					}
 		});
 
 		Lampa.Settings.listener.follow('open', function (e) {
@@ -697,14 +807,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/tv/diesel.js', 'Дизель ТВ');
+							itemON('https://andreyurl54.github.io/diesel5/diesel.js', 'Дизель ТВ');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "https://andreyurl54.github.io/diesel5/diesel.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('https://andreyurl54.github.io/diesel5/diesel.js')
+						setTimeout(function() {	
+							$('div[data-name="Diesel"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Diesel"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Diesel"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
 		
 		Lampa.SettingsApi.addParam({
@@ -724,14 +844,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/tv/kulik.js', 'Kulik TV');
+							itemON('http://cdn.kulik.uz/cors', 'Kulik TV');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cdn.kulik.uz/cors";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://cdn.kulik.uz/cors')
+						setTimeout(function() {	
+							$('div[data-name="Kulik"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Kulik"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Kulik"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
 
 		Lampa.SettingsApi.addParam({
@@ -751,14 +881,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/tv/iptv.js', 'IPTV');
+							itemON('http://cub.watch/plugin/iptv', 'IPTV');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/iptv";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://cub.watch/plugin/iptv')
+						setTimeout(function() {	
+							$('div[data-name="IPTV"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="IPTV"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="IPTV"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
 
 		Lampa.Settings.listener.follow('open', function (e) {
@@ -807,14 +947,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/radio/record.js', 'Радио Record');
+							itemON('http://cub.watch/plugin/radio', 'Радио Record');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/radio";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://cub.watch/plugin/radio')
+						setTimeout(function() {	
+							$('div[data-name="Record"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Record"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Record"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
 		
 		Lampa.SettingsApi.addParam({
@@ -834,14 +984,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
                         			if (value == '1') {
-							itemON('http://lampa32.ru/addon/radio/record_mod.js', 'Радио Record Mod');
+							itemON('https://nemiroff.github.io/lampa/rr.js', 'Радио Record Mod');
                      				}
 						if (value == '2') {
 							var pluginToRemoveUrl = "https://nemiroff.github.io/lampa/rr.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
                     },
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('https://nemiroff.github.io/lampa/rr.js')
+						setTimeout(function() {	
+							$('div[data-name="Record_Mod"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Record_Mod"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Record_Mod"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
 		});
 /* Клубника */
 		Lampa.Settings.listener.follow('open', function (e) {
@@ -890,14 +1050,24 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://lampa32.ru/addon/18+/sisi.js', 'Клубничка');
+							itemON('http://sisi.am/nyam.js', 'Клубничка');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://sisi.am/nyam.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()}
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://sisi.am/nyam.js')
+						setTimeout(function() {	
+							$('div[data-name="Sisi"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);		  
+					}
 		});
 /* Счётчик Яндекса */    
 	(function(m, e, t, r, i, k, a) {
