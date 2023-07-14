@@ -574,11 +574,11 @@ Lampa.SettingsApi.addComponent({
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
 						var myResult = checkPlugin('http://jin.energy/newonline.js')
 						setTimeout(function() {	
-							$('div[data-name="Онлайн Prestige"]').append('<div class="settings-param__status one"></div>')
+							$('div[data-name="Онлайн_Prestige"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
-								$('div[data-name="Онлайн Prestige"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								$('div[data-name="Онлайн_Prestige"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 							} else {
-								$('div[data-name="Онлайн Prestige"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								$('div[data-name="Онлайн_Prestige"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);				  
 					}
@@ -648,11 +648,11 @@ Lampa.SettingsApi.addComponent({
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
 						var myResult = checkPlugin('http://ebu.land/online.js')
 						setTimeout(function() {	
-							$('div[data-name="Ebu.land"]').append('<div class="settings-param__status one"></div>')
+							$('div[data-name="Ebuland"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
-								$('div[data-name="Ebu.land"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								$('div[data-name="Ebuland"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 							} else {
-								$('div[data-name="Ebu.land"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								$('div[data-name="Ebuland"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);			  
 					}
