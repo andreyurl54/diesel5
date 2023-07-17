@@ -36,7 +36,7 @@ function itemON(sourceURL, sourceName, sourceAuthor) {
 		var pluginsArray = Lampa.Storage.get('plugins');
 	// Добавляем новый элемент к списку
 		pluginsArray.push({
-			"": sourceAuthor,
+			"author": sourceAuthor,
 			"url": sourceURL,
 			"status": 1
 		});
