@@ -29,13 +29,14 @@ function itemON(sourceURL, sourceName) {
 };
 --> */
 
-function itemON(sourceURL, sourceName) {
+function itemON(sourceURL, sourceName, sourceAuthor) {
 	// Если перезагрузки не требуется - контроль после удаления плагинов
    if (!Lampa.Storage.get('needReboot')) {
 	// Получаем список плагинов
 		var pluginsArray = Lampa.Storage.get('plugins');
 	// Добавляем новый элемент к списку
 		pluginsArray.push({
+			"": sourceAuthor,
 			"url": sourceURL,
 			"status": 1
 		});
@@ -138,7 +139,7 @@ Lampa.SettingsApi.addComponent({
                             },
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://cub.watch/plugin/tmdb-proxy', 'TMDB Proxy');
+							itemON('http://cub.watch/plugin/tmdb-proxy', 'TMDB Proxy', 'LampaAuthor');
 						}
 						if (value == '2') {
 							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
