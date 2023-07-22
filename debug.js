@@ -612,6 +612,40 @@ Lampa.SettingsApi.addParam({
 	});
 /* end */
 
+/* СЕРВЕР для Дизель Плюс */
+	addSettings('select', {
+		title: 'Сервер трансляции', 								// Название подпункта
+		name: 'token_plus_serv', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
+				SERV_1: 'SERVER_1',
+				SERV_2: 'Россия_KFC',
+				SERV_3: 'Россия_BN',
+				SERV_4: 'Германия',
+				SERV_5: 'Казахстан',
+				SERV_6: 'Польша',
+				SERV_7: 'Россия_OST',
+				SERV_8: 'Россия_Краснодар',
+				SERV_9: 'Беларусь'
+				},
+		default: i ? '' : 'SERV_1', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Укажите токен для доступа к плейлисту',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указан ли?
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'TVTEAM') {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+/* end */
+
 /*
  * Скрыть пароль аккаунта
  */
@@ -1149,7 +1183,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 };
 	*/
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
-	var diesel_playlist = 'https://tv.team/' + Lampa.Storage.field('diesel_iptv_token_plus') + '/' + 'playlist.m3u8';
+	var diesel_playlist = 'http://tv.team/pl/' + Lampa.Storage.field('diesel_iptv_token_plus_serv') + Lampa.Storage.field('diesel_iptv_token_plus') + '/' + 'playlist.m3u8';
 };
 
 
