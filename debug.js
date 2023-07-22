@@ -555,7 +555,7 @@ Lampa.SettingsApi.addParam({
 		onRender: function (item) {
 			$('.settings-param__name', item).css('color','f3d900');
 			setInterval(function() {
-				if (Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN') {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL')&&(Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN')) {
 					item.show();
 				}
 				else {
@@ -578,7 +578,7 @@ Lampa.SettingsApi.addParam({
 		onRender: function (item) {
 			$('.settings-param__name', item).css('color','f3d900');
 			setInterval(function() {
-				if (Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN') {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL')&&(Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN')) {
 					item.show();
 				}
 				else {
