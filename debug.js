@@ -671,7 +671,7 @@ Lampa.SettingsApi.addParam({
 						Lampa.Settings.update();
 					});
 					setInterval(function() {
-						if ((Lampa.Storage.get('diesel_iptv_hide_passwd') == 'true') || (Lampa.Storage.get('DIESEL_AccessVariant') !== 'LOGIN')) {
+						if ((Lampa.Storage.get('diesel_iptv_hide_passwd') == 'true') || (Lampa.Storage.get('DIESEL_PlaylistVariant') !== 'DIESEL')) {
 							item.hide();
 						}
 						else {
