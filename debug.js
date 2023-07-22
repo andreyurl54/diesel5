@@ -614,7 +614,7 @@ Lampa.SettingsApi.addParam({
 
 /* СЕРВЕР для Дизель Плюс */
 	addSettings('select', {
-		title: 'Сервер трансляции', 								// Название подпункта
+		title: 'Сервер-источник трансляции', 								// Название подпункта
 		name: 'token_plus_serv', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
 		values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
 				SERV_1: 'SERVER_1',
@@ -628,7 +628,7 @@ Lampa.SettingsApi.addParam({
 				SERV_9: 'Беларусь'
 				},
 		default: i ? '' : 'SERV_1', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
-		description: 'Укажите токен для доступа к плейлисту',  // Описание подпункта меню
+		description: 'Выбранный сервер трансляции',  // Описание подпункта меню
 		onChange: function (url) {
 			//сообщение и проверка, указан ли?
 		},
