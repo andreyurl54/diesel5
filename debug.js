@@ -1143,9 +1143,15 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 	var deco = window.atob("aHR0cDovL2xhbXBhdHYuc2l0ZS9waWNzL2FscGhhY2hhbm5lbC5wbmc");
 	var diesel_playlist = deco;
 };
+	/*
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 	var diesel_playlist = 'http://lampatv.site/users/' + usermail + '/' + 'tvteam.m3u8';
 };
+	*/
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
+	var diesel_playlist = 'https://tv.team/' + Lampa.Storage.field('diesel_iptv_token_plus') + '/' + 'playlist.m3u8';
+};
+
 
 /* * * * * * * * * * * * * * *
  * Дополнительные Настройки  *
