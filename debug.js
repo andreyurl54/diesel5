@@ -1183,7 +1183,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 };
 	*/
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
-	var diesel_playlist = 'http://tv.team/pl/' + Lampa.Storage.field('diesel_iptv_token_plus_serv') + '/'+ Lampa.Storage.field('diesel_iptv_token_plus') + '/' + 'playlist.m3u8';
+	var diesel_playlist = 'http://tv.team/pl/3/' + Lampa.Storage.field('diesel_iptv_token_plus') + '/' + 'playlist.m3u8';
 };
 
 
