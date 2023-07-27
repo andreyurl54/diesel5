@@ -520,12 +520,12 @@ Lampa.SettingsApi.addParam({
 						name: 'DIESEL_AccessVariant', 		//название в Storage
 						type: 'select', 			//доступно select,input,trigger,title,static
 						values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
-							EMAIL: 	'e-mail',
-							DEMO: 	'тест на сутки',
-							TOKEN: 	'По токену',
+							//EMAIL: 	'e-mail',
+							//DEMO: 	'тест на сутки',
 							LOGIN:  'Логин/пароль',
+							TOKEN: 	'По токену',
 						},
-						default: 'EMAIL'			//Здесь прописываем вариант по-умолчанию, а именно левую часть в VALUES (не значение, а имя параметра - слева!), иначе - undefined
+						default: 'LOGIN'			//Здесь прописываем вариант по-умолчанию, а именно левую часть в VALUES (не значение, а имя параметра - слева!), иначе - undefined
 					},
 					field: {
 						name: 'Схема доступа', 	//Название подпункта меню
@@ -555,7 +555,7 @@ Lampa.SettingsApi.addParam({
 		onRender: function (item) {
 			$('.settings-param__name', item).css('color','f3d900');
 			setInterval(function() {
-				if (Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN') {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL')&&(Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN')) {
 					item.show();
 				}
 				else {
@@ -578,7 +578,64 @@ Lampa.SettingsApi.addParam({
 		onRender: function (item) {
 			$('.settings-param__name', item).css('color','f3d900');
 			setInterval(function() {
-				if (Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN') {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL')&&(Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN')) {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+/* end */
+
+/* ТОКЕН для Дизель Плюс */
+	addSettings('input', {
+		title: 'Токен плейлиста', 								// Название подпункта
+		name: 'token_plus', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Укажите токен для доступа к плейлисту',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указан ли и токен?
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'TVTEAM') {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+/* end */
+
+/* СЕРВЕР для Дизель Плюс */
+	addSettings('select', {
+		title: 'Сервер-источник трансляции', 								// Название подпункта
+		name: 'token_plus_serv', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
+				SERV_1: 'SERVER_1',
+				SERV_2: 'Россия_KFC',
+				SERV_3: 'Россия_BN',
+				SERV_4: 'Германия',
+				SERV_5: 'Казахстан',
+				SERV_6: 'Польша',
+				SERV_7: 'Россия_OST',
+				SERV_8: 'Россия_Краснодар',
+				SERV_9: 'Беларусь'
+				},
+		default: i ? '' : 'SERV_1', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Выбранный сервер трансляции',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указан ли?
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'TVTEAM') {
 					item.show();
 				}
 				else {
@@ -614,7 +671,7 @@ Lampa.SettingsApi.addParam({
 						Lampa.Settings.update();
 					});
 					setInterval(function() {
-						if (Lampa.Storage.get('diesel_iptv_hide_passwd') == 'true') {
+						if ((Lampa.Storage.get('diesel_iptv_hide_passwd') == 'true') || (Lampa.Storage.get('DIESEL_PlaylistVariant') !== 'DIESEL')) {
 							item.hide();
 						}
 						else {
@@ -1120,9 +1177,15 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 	var deco = window.atob("aHR0cDovL2xhbXBhdHYuc2l0ZS9waWNzL2FscGhhY2hhbm5lbC5wbmc");
 	var diesel_playlist = deco;
 };
+	/*
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 	var diesel_playlist = 'http://lampatv.site/users/' + usermail + '/' + 'tvteam.m3u8';
 };
+	*/
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
+	var diesel_playlist = 'http://tv.team/pl/3/' + Lampa.Storage.field('diesel_iptv_token_plus') + '/' + 'playlist.m3u8';
+};
+
 
 /* * * * * * * * * * * * * * *
  * Дополнительные Настройки  *
