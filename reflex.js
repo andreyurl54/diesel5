@@ -1246,7 +1246,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') {
 if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'HLS_B')) {
 	var diesel_playlist = 'https://reflex.fun/playlist/hls2/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
 };
-if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'MPEG-TS')) {
+if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'MPEG_TS')) {
 	var diesel_playlist = 'https://reflex.fun/playlist/siptv/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
 };
 if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'Enigma2')) {
