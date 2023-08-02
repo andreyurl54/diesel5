@@ -670,6 +670,36 @@ Lampa.SettingsApi.addParam({
 	});
  end */
 
+/* Тип ссылки для REFLEX */
+	addSettings('select', {
+		title: 'Тип ссылки', 								// Название подпункта
+		name: 'REFLEX_link_type', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
+				HLS_A: 		'HLS A',
+				HLS_B: 		'HLS B',
+				MPEG_TS: 	'MPEG-TS',
+				Enigma2: 	'Enigma2'
+				},
+		default: i ? '' : 'SERV_1', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Выбранный тип трансляции',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указан ли?
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'REFLEX') {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+ /* end */
+
+
 /*
  * Скрыть пароль аккаунта
  */
@@ -1209,9 +1239,21 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 	var diesel_playlist = 'http://tv.team/pl/3/' + Lampa.Storage.field('diesel_iptv_token_plus') + '/' + 'playlist.m3u8';
 };
+/* REFLEX PlayList */ 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') {
 	var diesel_playlist = 'https://reflex.fun/playlist/hls/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
 };
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX' && Lampa.Storage.field('DIESEL_REFLEX_link_type') == 'HLS_B') {
+	var diesel_playlist = 'https://reflex.fun/playlist/hls2/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
+};
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX' && Lampa.Storage.field('DIESEL_REFLEX_link_type') == 'MPEG-TS') {
+	var diesel_playlist = 'https://reflex.fun/playlist/siptv/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
+};
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX' && Lampa.Storage.field('DIESEL_REFLEX_link_type') == 'Enigma2') {
+	var diesel_playlist = 'https://reflex.fun/playlist/e2/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
+};
+
+
 
 /* * * * * * * * * * * * * * *
  * Дополнительные Настройки  *
