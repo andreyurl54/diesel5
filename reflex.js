@@ -1,4 +1,4 @@
-/* 
+/*
 	Разобраться с иконками в ряд DONE
 	Вернуть ЮзерАгент - сломает выбор плеера на Android ?
 */
@@ -680,7 +680,7 @@ Lampa.SettingsApi.addParam({
 				MPEG_TS: 	'MPEG-TS',
 				Enigma2: 	'Enigma2'
 				},
-		default: i ? '' : 'SERV_1', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		default: i ? '' : 'HLS_A', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
 		description: 'Выбранный тип трансляции',  // Описание подпункта меню
 		onChange: function (url) {
 			//сообщение и проверка, указан ли?
