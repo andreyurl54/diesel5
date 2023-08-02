@@ -1249,7 +1249,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX' && Lampa.Storage.f
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX' && Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'MPEG-TS') {
 	var diesel_playlist = 'https://reflex.fun/playlist/siptv/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
 };
-if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX' && Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'Enigma2') {
+if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'Enigma2')) {
 	var diesel_playlist = 'https://reflex.fun/playlist/e2/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
 };
 
