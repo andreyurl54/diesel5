@@ -1,4 +1,4 @@
-/* 
+/*
 	Разобраться с иконками в ряд DONE
 	Вернуть ЮзерАгент - сломает выбор плеера на Android ?
 */
@@ -1255,12 +1255,18 @@ if (Lampa.Storage.get('diesel_iptv_hide_passwd') == true) {
 	
 /* Убираем лишние пункты меню Настроек */
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
+	/* Схема доступа 0 */
 	Lampa.Template.add('freeTV_settings0', '<div id="freeTV_settings0"><style>div[data-name="DIESEL_AccessVariant"]{opacity: 0%!important;display: none;}</style></div>');
+	/* Выбор Сервера 1 */
 	Lampa.Template.add('freeTV_settings1', '<div id="freeTV_settings1"><style>div[data-name="TVmenu"]{opacity: 0%!important;display: none;}</style></div>');
+	/* Зарубежные Категории 2 */
 	Lampa.Template.add('freeTV_settings2', '<div id="freeTV_settings2"><style>div[data-name="HidenCategories"]{opacity: 0%!important;display: none;}</style></div>');
+	/* UserAgent 3 */
+	Lampa.Template.add('freeTV_settings3', '<div id="freeTV_settings3"><style>div[data-name="DIESEL_UserAgent"]{opacity: 0%!important;display: none;}</style></div>');
 	$('body').append(Lampa.Template.get('freeTV_settings0', {}, true));
 	$('body').append(Lampa.Template.get('freeTV_settings1', {}, true));
 	$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
+	$('body').append(Lampa.Template.get('freeTV_settings3', {}, true));
 };
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL') {
 	if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
@@ -1279,6 +1285,22 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 	$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
 	if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
 };
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') {
+	if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
+	if (document.querySelector("#freeTV_settings1")) document.querySelector("#freeTV_settings1").remove();
+	if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
+	if (document.querySelector("#freeTV_settings3")) document.querySelector("#freeTV_settings3").remove();
+	Lampa.Template.add('freeTV_settings0', '<div id="freeTV_settings0"><style>div[data-name="DIESEL_AccessVariant"]{opacity: 0%!important;display: none;}</style></div>');
+	Lampa.Template.add('freeTV_settings1', '<div id="freeTV_settings1"><style>div[data-name="TVmenu"]{opacity: 0%!important;display: none;}</style></div>');
+	Lampa.Template.add('freeTV_settings2', '<div id="freeTV_settings2"><style>div[data-name="HidenCategories"]{opacity: 0%!important;display: none;}</style></div>');
+	Lampa.Template.add('freeTV_settings3', '<div id="freeTV_settings3"><style>div[data-name="DIESEL_UserAgent"]{opacity: 0%!important;display: none;}</style></div>');
+	$('body').append(Lampa.Template.get('freeTV_settings0', {}, true));
+	$('body').append(Lampa.Template.get('freeTV_settings1', {}, true));
+	$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
+	$('body').append(Lampa.Template.get('freeTV_settings3', {}, true));
+	if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
+};
+
 
 /* * * СПЕЦИАЛЬНЫЕ РЕЖИМЫ * * */
 
