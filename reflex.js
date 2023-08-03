@@ -699,6 +699,51 @@ Lampa.SettingsApi.addParam({
 	});
  /* end */
 
+/* SpeedTest */
+	    	Lampa.SettingsApi.addParam({
+	    		component: 'diesel_iptv',
+	    		param: {
+	    			name: 'SpeedTest',
+	    			type: 'static', //доступно select,input,trigger,title,static
+	    		},
+	    		field: {
+	    			name: 'SpeedTest',
+	    			description: 'Замер скорости интернет-соединения'
+	    		},
+	    		onRender: function (item) {
+	    			item.on('hover:enter', function(){
+	    			Lampa.Iframe.show({url: 'https://reflex.fun/speed-test',
+	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
+	            		});});}
+				});
+		
+	    	Lampa.SettingsApi.addParam({
+	    		component: 'Multi_Menu_Component',
+	    		param: {
+	    			name: 'OpenSpeedTestParam',
+	    			type: 'static', //доступно select,input,trigger,title,static
+	    		},
+	    		field: {
+	    			name: 'OpenSpeedTest',
+	    			description: 'Замер скорости интернет-соединения'
+	    		},
+	    		onRender: function (item) {
+	    			item.on('hover:enter', function(){
+					var modal = $('<div style="text-align:right;"><div style="min-height:360px;"><div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;background-color: #ffffff;overflow:hidden !important;" src="https://reflex.fun/speed-test"></iframe></div></div></div>');
+		  			Lampa.Modal.open({
+		  				title: '',
+		  				html: modal,
+		  				size: 'medium',
+		  				mask: true, 
+		  				onBack: function onBack() {
+		  					Lampa.Modal.close();
+							Lampa.Controller.toggle('settings_component');
+		  				},
+		  				onSelect: function () {}
+  			});});}
+				});
+	
+/* End SpeedTest */
 
 /*
  * Скрыть пароль аккаунта
