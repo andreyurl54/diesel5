@@ -733,7 +733,7 @@ Lampa.SettingsApi.addParam({
 		  			Lampa.Modal.open({
 		  				title: '',
 		  				html: modal,
-		  				size: 'medium',
+		  				size: 'large',
 		  				mask: true, 
 		  				onBack: function onBack() {
 		  					Lampa.Modal.close();
