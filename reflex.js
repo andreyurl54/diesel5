@@ -740,7 +740,9 @@ Lampa.SettingsApi.addParam({
 							Lampa.Controller.toggle('settings_component');
 		  				},
 		  				onSelect: function () {}
-  			});});}
+  			})
+			setTimeout(function() {$('#startStopBtn').click();}, 2000)
+			;});}
 				});
 	
 /* End SpeedTest */
