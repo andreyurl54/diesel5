@@ -718,7 +718,7 @@ Lampa.SettingsApi.addParam({
 				});
 		
 	    	Lampa.SettingsApi.addParam({
-	    		component: 'Multi_Menu_Component',
+	    		component: 'diesel_iptv',
 	    		param: {
 	    			name: 'OpenSpeedTestParam',
 	    			type: 'static', //доступно select,input,trigger,title,static
