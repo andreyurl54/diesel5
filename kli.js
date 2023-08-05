@@ -1331,10 +1331,10 @@ if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storag
 };
 /* KLI PlayList */ 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') {
-	var diesel_playlist = 'https://reflex.fun/playlist/hls/' + 'playlist.m3u8';
+	var diesel_playlist = 'http://klimedia.space/hls/' + Lampa.Storage.field('diesel_iptv_KLI_login') + '/ ' + Lampa.Storage.field('diesel_iptv_KLI_passwd')') +'/playlist.m3u8';
 };
 if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') && (Lampa.Storage.field('diesel_iptv_KLI_link_type') == 'MPEG_TS')) {
-	var diesel_playlist = 'https://reflex.fun/playlist/mpegts/' + 'playlist.m3u8';
+	var diesel_playlist = 'http://klimedia.space/ts/' + Lampa.Storage.field('diesel_iptv_KLI_login') + '/ ' + Lampa.Storage.field('diesel_iptv_KLI_passwd')') +'/playlist.m3u8';
 };
 
 
