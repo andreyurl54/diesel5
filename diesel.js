@@ -466,9 +466,10 @@ Lampa.SettingsApi.addParam({
 						type: 'select', 			//доступно select,input,trigger,title,static
 						values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
 							FREETV: 'FreeTV',
-							REFLEX: 'Reflex TV',
 							DIESEL: 'Дизель',
-							TVTEAM: 'Дизель Плюс'
+							TVTEAM: 'Дизель Плюс',
+							REFLEX: 'Reflex TV',
+							KLI:	'KLI Media'
 						},
 						default: 'FREETV'			//Здесь прописываем вариант по-умолчанию, а именно левую часть в VALUES (не значение, а имя параметра - слева!), иначе - undefined
 					},
@@ -533,8 +534,8 @@ Lampa.SettingsApi.addParam({
 						description: 'Способ получения плейлиста' //Комментарий к подпункту
 					},
 					onChange: function (value) {
-						if (Lampa.Storage.field('DIESEL_AccessVariant') == 'EMAIL') {};
-						if (Lampa.Storage.field('DIESEL_AccessVariant') == 'DEMO') {};
+						//if (Lampa.Storage.field('DIESEL_AccessVariant') == 'EMAIL') {};
+						//if (Lampa.Storage.field('DIESEL_AccessVariant') == 'DEMO') {};
 						if (Lampa.Storage.field('DIESEL_AccessVariant') == 'TOKEN') {};
 						if (Lampa.Storage.field('DIESEL_AccessVariant') == 'LOGIN') {};
 						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!");
@@ -670,6 +671,55 @@ Lampa.SettingsApi.addParam({
 	});
  end */
 
+/* ЛОГИН для плейлиста KLI */
+	addSettings('input', {
+		title: 'Логин Аккаунта', 								// Название подпункта
+		name: 'KLI_login', 											// Название для Storage (diesel_iptv_login), 'diesel_iptv_' подставляется само
+		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_login) пусто
+		description: 'Укажите логин для доступа к плейлисту',   // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указаны ли и логин, и пароль? 
+			if (Lampa.Storage.get('diesel_iptv_passwd') == '') {
+				Lampa.Noty.show("Укажите пароль!");
+			};
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI')&&(Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN')) {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+/* end */
+
+/* ПАРОЛЬ для плейлиста KLI */
+	addSettings('input', {
+		title: 'Пароль Аккаунта', 								// Название подпункта
+		name: 'KLI_passwd', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Укажите пароль для доступа к плейлисту',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указаны ли и логин, и пароль?
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI')&&(Lampa.Storage.field('DIESEL_AccessVariant') === 'LOGIN')) {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+/* end */
+
 /* Тип ссылки для REFLEX */
 	addSettings('select', {
 		title: 'Тип ссылки', 								// Название подпункта
@@ -689,6 +739,33 @@ Lampa.SettingsApi.addParam({
 			$('.settings-param__name', item).css('color','f3d900');
 			setInterval(function() {
 				if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'REFLEX') {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+ /* end */
+
+/* Тип ссылки для KLI */
+	addSettings('select', {
+		title: 'Тип вещания', 								// Название подпункта
+		name: 'KLI_link_type', 										// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
+				HLS: 		'HLS',
+				MPEG_TS: 	'MPEG-TS'
+				},
+		default: i ? '' : 'HLS', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Выбранный тип трансляции',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указан ли?
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'KLI') {
 					item.show();
 				}
 				else {
@@ -1252,7 +1329,13 @@ if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storag
 if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'Enigma2')) {
 	var diesel_playlist = 'https://reflex.fun/playlist/e2/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
 };
-
+/* KLI PlayList */ 
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') {
+	var diesel_playlist = 'http://klimedia.space/hls/' + Lampa.Storage.field('diesel_iptv_KLI_login') + '/' + Lampa.Storage.field('diesel_iptv_KLI_passwd') +'/playlist.m3u8';
+};
+if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') && (Lampa.Storage.field('diesel_iptv_KLI_link_type') == 'MPEG_TS')) {
+	var diesel_playlist = 'http://klimedia.space/ts/' + Lampa.Storage.field('diesel_iptv_KLI_login') + '/' + Lampa.Storage.field('diesel_iptv_KLI_passwd') +'/playlist.m3u8';
+};
 
 
 /* * * * * * * * * * * * * * *
