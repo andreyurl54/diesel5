@@ -845,6 +845,9 @@ Lampa.SettingsApi.addParam({
 						name: 'Источник', 			//Название подпункта меню
 						description: 'Выбранный сервер трансляции' //Комментарий к подпункту
 					},
+					onRender: function (item) {
+						if (Lampa.Storage.field('DIESEL_PlaylistVariant') !== 'DIESEL') {item.hide()} else {item.show()}
+					},
 					onChange: function (value) { 	//Действия при изменении подпункта
 						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
 						Lampa.Settings.update();
