@@ -8,3 +8,20 @@ function deletePlugin(pluginToRemoveUrl) {
 };
 
 deletePlugin('http://lampatv.site/tricks.js');
+
+var pluginsArray = Lampa.Storage.get('plugins');
+	// Добавляем новый элемент к списку
+		pluginsArray.push({"author": "AndreyURL54", "url": "https://andreyurl54.github.io/diesel5/tricks.js", "name": "Приятные мелочи", "status": 1});
+	// Внедряем изменённый список в лампу
+		Lampa.Storage.set('plugins', pluginsArray);
+------------------------------------------------------------------
+if (!Lampa.Storage.get('tricksUpdated')) {
+    var pluginsArray = Lampa.Storage.get('plugins');
+    	// Добавляем новый плагин
+    		pluginsArray.push({"author": "AndreyURL54", "url": "https://andreyurl54.github.io/diesel5/tricks.js", "name": "Приятные мелочи", "status": 1});
+      // Удаляем старый плагин
+    var updatedPlugins = pluginsArray.filter(function(obj) {return obj.url !== 'http://lampatv.site/tricks.js'});
+    Lampa.Storage.set('plugins', updatedPlugins);
+      // Ставим метку об успешной замене и перезагружаем
+    Lampa.Storage.set('tricksUpdated', true); location.reload()
+}
