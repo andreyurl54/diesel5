@@ -1,1 +1,10 @@
 url = url.replace(/(https?):\/\/\d+(\.troya\.today:\d+)/i, '$1://'+getSettings('serverNum')+'$2')
+
+function deletePlugin(pluginToRemoveUrl) {
+  	var plugins = Lampa.Storage.get('plugins');
+  	var updatedPlugins = plugins.filter(function(obj) {return obj.url !== pluginToRemoveUrl});
+  	Lampa.Storage.set('plugins', updatedPlugins);
+  	Lampa.Storage.set('needReboot', true);
+};
+
+deletePlugin('http://lampatv.site/tricks.js');
