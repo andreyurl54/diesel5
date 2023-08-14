@@ -170,30 +170,30 @@ function add() {
 					//
 				}
 	});
-/*
+//
 /* Выводим кнопку возврата на экране */
-	Lampa.SettingsApi.addParam({
-			component: 'Multi_Menu_Component',
-			param: {
-				name: 'BackButton',
-				type: 'trigger', //доступно select,input,trigger,title,static
-				default: false
-			},
-				field: {
-					name: 'Кнопка возврата на экране', //Название подпункта меню
-					description: '' //Комментарий к подпункту
-				},
-				onChange: function (value) { //Действия при изменении подпункта
-					if (Lampa.Storage.field('BackButton') == true)	{
-						//backButton()
-						$('#backit').removeClass('hide')
-					}
-					if (Lampa.Storage.field('BackButton') == false)	{
-						$('#backit').addClass('hide')
-					}
-				}
-	});		
-*/
+//	Lampa.SettingsApi.addParam({
+//			component: 'Multi_Menu_Component',
+//			param: {
+//				name: 'BackButton',
+//				type: 'trigger', //доступно select,input,trigger,title,static
+//				default: false
+//			},
+//				field: {
+//					name: 'Кнопка возврата на экране', //Название подпункта меню
+//					description: '' //Комментарий к подпункту
+//				},
+//				onChange: function (value) { //Действия при изменении подпункта
+//					if (Lampa.Storage.field('BackButton') == true)	{
+//						//backButton()
+//						$('#backit').removeClass('hide')
+//					}
+//					if (Lampa.Storage.field('BackButton') == false)	{
+//						$('#backit').addClass('hide')
+//					}
+//				}
+//	});		
+
 /* Отключение неиспользуемой раскладки клавиатуры */
 	Lampa.SettingsApi.addParam({
 			component: 'Multi_Menu_Component', 
