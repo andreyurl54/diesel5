@@ -170,7 +170,7 @@ function add() {
 					//
 				}
 	});
-	
+/*
 /* Выводим кнопку возврата на экране */
 	Lampa.SettingsApi.addParam({
 			component: 'Multi_Menu_Component',
@@ -193,7 +193,7 @@ function add() {
 					}
 				}
 	});		
-		
+*/
 /* Отключение неиспользуемой раскладки клавиатуры */
 	Lampa.SettingsApi.addParam({
 			component: 'Multi_Menu_Component', 
