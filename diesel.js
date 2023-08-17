@@ -1263,17 +1263,17 @@ var diesel_server_selected = Lampa.Storage.field('diesel_source'); //извле�
 
 
 if 	(Lampa.Storage.field('DIESEL_AccessVariant') == 'EMAIL') {
-	var diesel_playlist = 'http://lampatv.site/users/' + usermail + '/' + diesel_server_selected;
+	var diesel_playlist = 'http://95.215.8.180/users/' + usermail + '/' + diesel_server_selected;
 }
 if 	(Lampa.Storage.field('DIESEL_AccessVariant')) {
-	var diesel_playlist = 'http://lampatv.site/users/' + usermail + '/' + diesel_server_selected; //полный путь до плейлиста по выбранному серверу (из трёх частей)
-	//if (Lampa.Storage.field('DIESEL_GEO_BLOCK') == true) diesel_playlist = 'http://lampatv.site/users/' + usermail + '/' + diesel_server_selected;
+	var diesel_playlist = 'http://95.215.8.180/users/' + usermail + '/' + diesel_server_selected; //полный путь до плейлиста по выбранному серверу (из трёх частей)
+	//if (Lampa.Storage.field('DIESEL_GEO_BLOCK') == true) diesel_playlist = 'http://95.215.8.180/users/' + usermail + '/' + diesel_server_selected;
 }
 if 	(Lampa.Storage.field('DIESEL_AccessVariant') == 'DEMO') {
-	var diesel_playlist = 'http://lampatv.site/users/test/' + usermail + '/' + diesel_server_selected;
+	var diesel_playlist = 'http://95.215.8.180/users/test/' + usermail + '/' + diesel_server_selected;
 }
 if 	(Lampa.Storage.field('DIESEL_AccessVariant') == 'TOKEN') {
-	var diesel_playlist = 'http://lampatv.site/tokens/' + Lampa.Storage.field('diesel_iptv_uid') + '/' + diesel_server_selected;
+	var diesel_playlist = 'http://95.215.8.180/tokens/' + Lampa.Storage.field('diesel_iptv_uid') + '/' + diesel_server_selected;
 }
 /* Выставляем путь сервера для получения плейлиста по логину */
 	if (Lampa.Storage.field('TVmenu') == 'RU_1')		Lampa.Storage.set('diesel_source_server', '/');
@@ -1313,7 +1313,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 };
 	/*
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
-	var diesel_playlist = 'http://lampatv.site/users/' + usermail + '/' + 'tvteam.m3u8';
+	var diesel_playlist = 'http://95.215.8.180/users/' + usermail + '/' + 'tvteam.m3u8';
 };
 	*/
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
