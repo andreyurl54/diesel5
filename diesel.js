@@ -1308,7 +1308,7 @@ if 	(Lampa.Storage.field('DIESEL_AccessVariant') == 'LOGIN') {
 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL') {};
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
-	var deco = window.atob("aHR0cDovL2xhbXBhdHYuc2l0ZS9waWNzL2FscGhhY2hhbm5lbC5wbmc");
+	var deco = window.atob("aHR0cDovLzk1LjIxNS44LjE4MC9waWNzL2FscGhhY2hhbm5lbC5wbmc");
 	var diesel_playlist = deco;
 };
 	/*
