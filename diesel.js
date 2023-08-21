@@ -471,7 +471,6 @@ Lampa.SettingsApi.addParam({
 							FREETV: 'FreeTV',
 							DIESEL: 'Дизель',
 							TVTEAM: 'Дизель Плюс',
-							REFLEX: 'Reflex TV',
 							KLI:	'KLI Media'
 						},
 						default: 'FREETV'			//Здесь прописываем вариант по-умолчанию, а именно левую часть в VALUES (не значение, а имя параметра - слева!), иначе - undefined
@@ -481,7 +480,7 @@ Lampa.SettingsApi.addParam({
 						description: 'Какой тип плейлиста загружать' //Комментарий к подпункту
 					},
 					onChange: function (value) {
-						
+						Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');
 						if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 							/* Убираем лишние пункты меню Настроек для FreeTV */
 							if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
@@ -852,6 +851,7 @@ Lampa.SettingsApi.addParam({
 						if (Lampa.Storage.field('DIESEL_PlaylistVariant') !== 'DIESEL') {item.hide()} else {item.show()}
 					},
 					onChange: function (value) { 	//Действия при изменении подпункта
+						Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');
 						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
 						Lampa.Settings.update();
 
