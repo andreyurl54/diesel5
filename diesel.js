@@ -480,7 +480,7 @@ Lampa.SettingsApi.addParam({
 						description: 'Какой тип плейлиста загружать' //Комментарий к подпункту
 					},
 					onChange: function (value) {
-						Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');$('.focus').removeClass('focus'); $(".settings-param.selector").addClass('focus');
+						//Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');$('.focus').removeClass('focus'); $(".settings-param.selector").addClass('focus');
 						if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 							/* Убираем лишние пункты меню Настроек для FreeTV */
 							if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
@@ -851,7 +851,7 @@ Lampa.SettingsApi.addParam({
 						if (Lampa.Storage.field('DIESEL_PlaylistVariant') !== 'DIESEL') {item.hide()} else {item.show()}
 					},
 					onChange: function (value) { 	//Действия при изменении подпункта
-						Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');$('.focus').removeClass('focus'); $(".settings-param.selector").addClass('focus');
+						//Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');$('.focus').removeClass('focus'); $(".settings-param.selector").addClass('focus');
 						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
 						Lampa.Settings.update();
 
