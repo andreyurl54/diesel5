@@ -587,6 +587,14 @@ Lampa.SettingsApi.addParam({
 		description: 'Укажите пароль для доступа к плейлисту',  // Описание подпункта меню
 		onChange: function (url) {
 			//сообщение и проверка, указаны ли и логин, и пароль?
+			Lampa.Noty.show("Перезагрузите Lampa для применения настроек!");
+			var interval = setInterval(function() {
+			var elementSE = $('#app > div.settings > div.settings__content.layer--height > div.settings__body > div');
+				if (!elementSE.length > 0){
+					Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click'); 
+					clearInterval(interval);
+				}
+			}, 1000);
 		},
 		onRender: function (item) {
 			$('.settings-param__name', item).css('color','f3d900');
