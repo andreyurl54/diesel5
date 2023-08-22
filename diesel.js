@@ -488,6 +488,8 @@ Lampa.SettingsApi.addParam({
 										Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click'); 
 										// Lampa.Activity.push({component: 'main'});
 										clearInterval(interval);
+										// принудительный ребут - забывают
+										setTimeout(function() {location.reload()}, 1000);
 									}
 								}, 1000);
 						if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
@@ -876,8 +878,11 @@ Lampa.SettingsApi.addParam({
 										Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');
 										// Lampa.Activity.push({component: 'main'});
 										clearInterval(interval);
+										// принудительный ребут - забывают
+										setTimeout(function() {location.reload()}, 1000);
 									}
 								}, 1000);
+
 						Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!"); //Уведомление
 						Lampa.Settings.update();
 
