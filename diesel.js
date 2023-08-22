@@ -485,7 +485,8 @@ Lampa.SettingsApi.addParam({
 						var interval = setInterval(function() {
 									var elementSE = $('#app > div.settings > div.settings__content.layer--height > div.settings__body > div');
 									if (!elementSE.length > 0){
-										Lampa.Activity.push({component: 'main'});
+										Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click'); 
+										// Lampa.Activity.push({component: 'main'});
 										clearInterval(interval);
 									}
 								}, 1000);
@@ -864,7 +865,8 @@ Lampa.SettingsApi.addParam({
 						var interval = setInterval(function() {
 									var elementSE = $('#app > div.settings > div.settings__content.layer--height > div.settings__body > div');
 									if (!elementSE.length > 0){
-										Lampa.Activity.push({component: 'main'});
+										Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');
+										// Lampa.Activity.push({component: 'main'});
 										clearInterval(interval);
 									}
 								}, 1000);
