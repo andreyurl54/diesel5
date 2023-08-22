@@ -481,6 +481,14 @@ Lampa.SettingsApi.addParam({
 					},
 					onChange: function (value) {
 						//Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');$('.focus').removeClass('focus'); $(".settings-param.selector").addClass('focus');
+						// переход на главную 
+						var interval = setInterval(function() {
+									var elementSE = $('#app > div.settings > div.settings__content.layer--height > div.settings__body > div');
+									if (!elementSE.length > 0){
+										Lampa.Activity.push({component: 'main'});
+										clearInterval(interval);
+									}
+								}, 1000);
 						if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 							/* Убираем лишние пункты меню Настроек для FreeTV */
 							if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
@@ -510,7 +518,7 @@ Lampa.SettingsApi.addParam({
 							$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
 							if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
 						};
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!");
+						Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");
 					}
 				});
 
@@ -852,7 +860,15 @@ Lampa.SettingsApi.addParam({
 					},
 					onChange: function (value) { 	//Действия при изменении подпункта
 						//Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');$('.focus').removeClass('focus'); $(".settings-param.selector").addClass('focus');
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						// переход на главную 
+						var interval = setInterval(function() {
+									var elementSE = $('#app > div.settings > div.settings__content.layer--height > div.settings__body > div');
+									if (!elementSE.length > 0){
+										Lampa.Activity.push({component: 'main'});
+										clearInterval(interval);
+									}
+								}, 1000);
+						Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!"); //Уведомление
 						Lampa.Settings.update();
 
 					}
