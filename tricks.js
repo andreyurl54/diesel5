@@ -294,7 +294,7 @@ function add() {
 	    		onRender: function (item) {
 	    			item.on('hover:enter', function(){
 	    			//Lampa.Iframe.show({url: 'http://zamerka.com/',
-				Lampa.Iframe.show({url: 'https://de.testmy.net/b/dl-204800&nfw=1',
+				Lampa.Iframe.show({url: 'https://cll-east-speedtest.cisco.com/?run=5',
 	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
 	            		});});}
 				});
