@@ -281,6 +281,7 @@ function add() {
 /*End Торренты */
 
 /* SpeedTest */
+	/* Отключенный сегмент */
 	    	Lampa.SettingsApi.addParam({
 	    		component: 'Multi_Menu_Component',
 	    		param: {
@@ -294,11 +295,12 @@ function add() {
 	    		onRender: function (item) {
 	    			item.on('hover:enter', function(){
 	    			//Lampa.Iframe.show({url: 'http://zamerka.com/',
-				Lampa.Iframe.show({url: 'https://cll-east-speedtest.cisco.com/?run=5',
+				Lampa.Iframe.show({url: 'http://cll-east-speedtest.cisco.com/?run=5',
 	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
 	            		});});}
 				});
-		
+	/* End Отключаемый сегмент  */	
+	
 	    	Lampa.SettingsApi.addParam({
 	    		component: 'Multi_Menu_Component',
 	    		param: {
