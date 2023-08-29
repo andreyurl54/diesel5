@@ -285,12 +285,12 @@ function add() {
 	    	Lampa.SettingsApi.addParam({
 	    		component: 'Multi_Menu_Component',
 	    		param: {
-	    			name: 'SpeedTest для Skaz',
+	    			name: 'SpeedTest',
 	    			type: 'static', //доступно select,input,trigger,title,static
 	    		},
 	    		field: {
 	    			name: 'SpeedTest',
-	    			description: 'Замер скорости интернет-соединения'
+	    			description: 'Замер скорости интернет-соединения для Skaz'
 	    		},
 	    		onRender: function (item) {
 	    			item.on('hover:enter', function(){
