@@ -285,7 +285,7 @@ function add() {
 	    	Lampa.SettingsApi.addParam({
 	    		component: 'Multi_Menu_Component',
 	    		param: {
-	    			name: 'SpeedTest',
+	    			name: 'SpeedTest для Skaz',
 	    			type: 'static', //доступно select,input,trigger,title,static
 	    		},
 	    		field: {
@@ -295,7 +295,7 @@ function add() {
 	    		onRender: function (item) {
 	    			item.on('hover:enter', function(){
 	    			//Lampa.Iframe.show({url: 'http://zamerka.com/',
-				Lampa.Iframe.show({url: 'http://cll-east-speedtest.cisco.com/?run=5',
+				Lampa.Iframe.show({url: 'http://62.84.100.7/speed.php',
 	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
 	            		});});}
 				});
