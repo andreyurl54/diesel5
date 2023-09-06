@@ -2,6 +2,6 @@
     'use strict';
 
 If (Lampa.Platform.is('android')) {
-Lampa.Noty.show('android!')} Else {Lampa.Noty.show('Not Android')}
+Lampa.Noty.show('android!')} else {Lampa.Noty.show('Not Android')}
 
 })();
