@@ -280,7 +280,7 @@ function catchupUrl(url, type, source) {
 			// stream:  http://list.tv:8888/325/live?token=my_token
 			// catchup: http://list.tv:8888/325/{utc}.ts?token=my_token
 			return url
-				.replace(/\/video\.(m3u8|ts)/, '/video-\${start}-\${duration}.$1')
+				.replace(/\/(video|mono)\.(m3u8|ts)/, '/$1-\${start}-\${duration}.$2')
 				.replace(/\/(index|playlist)\.(m3u8|ts)/, '/archive-\${start}-\${duration}.$2')
 				.replace(/\/mpegts/, '/timeshift_abs-\${start}.ts')
 			;
