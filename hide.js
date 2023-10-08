@@ -1,5 +1,5 @@
 (async function() { 
-	'use strict';
+	'use strict'; 
 function startMe() {
 
 /* Activity */
