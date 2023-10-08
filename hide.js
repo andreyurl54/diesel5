@@ -18,7 +18,7 @@ function startMe() {
             }
     });
 
-if (Lampa.Storage.get('hide_cards') == true) {$('.icon--history').parent().parent().parent().parent().css('display','none')} else {$('.icon--history').parent().parent().parent().parent().css('display','block')}
+if (Lampa.Storage.get('hide_cards') == true) {$('.icon--history').parent().parent().parent().parent().css('display','none')};
 
 /* Компонент */
 		Lampa.SettingsApi.addComponent({
