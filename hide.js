@@ -18,7 +18,12 @@ function startMe() {
             }
     });
 
-if (Lampa.Storage.get('hide_cards') == true) {$('.icon--history').parent().parent().parent().parent().css('display','none')};
+if (Lampa.Storage.get('hide_cards') == true) {
+	setInterval(function(){
+	var multitarget = $('.icon--history').parent().parent().parent().parent();
+	$(multitarget).hide();
+	}, 1000)
+};
 
 /* Компонент */
 		Lampa.SettingsApi.addComponent({
