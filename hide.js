@@ -18,7 +18,7 @@ function startMe() {
             }
     });
 
-if (Lampa.Storage.get('hide_cards') == true) {$('.icon--history').parent().parent().parent().parent().css('display','none')} else {$('.icon--history').parent().parent().parent().parent().css('display','none')}
+if (Lampa.Storage.get('hide_cards') == true) {$('.icon--history').parent().parent().parent().parent().css('display','none')} else {$('.icon--history').parent().parent().parent().parent().css('display','block')}
 
 /* Компонент */
 		Lampa.SettingsApi.addComponent({
@@ -40,7 +40,7 @@ if (Lampa.Storage.get('hide_cards') == true) {$('.icon--history').parent().paren
 						name: 'Скрывать карточки просмотренного',
 					},
 					onChange: function(value) {
-						if (Lampa.Storage.get('hide_cards') == true) {$('.icon--history').parent().parent().parent().parent().css('display','none')} else {$('.icon--history').parent().parent().parent().parent().css('display','none')}
+						if (Lampa.Storage.get('hide_cards') == true) {$('.icon--history').parent().parent().parent().parent().css('display','none')} else {$('.icon--history').parent().parent().parent().parent().css('display','block')}
 					},
 					onRender: function (item) {
 						setTimeout(function() {
