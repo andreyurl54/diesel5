@@ -28,5 +28,5 @@ if(window.appready) startMe();
 			}
 		});
 	}
-
+}
  })(); 
