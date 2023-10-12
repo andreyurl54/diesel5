@@ -4,7 +4,7 @@ function startMe() {
 
 	var lastClickTime = 0;
     Lampa.Keypad.listener.follow('keydown', function (e) {
-		if (e.code == 49 || e.code == 8 || e.code == 27 || e.code == 461 || e.code == 10009 || e.code == 88) {
+		if (code == 8 || code == 27 || code == 461 || code == 10009 || code == 88 || code === 461) {
 			var now = new Date().getTime();
 			if (now - lastClickTime < 700) {
 				Lampa.Activity.out();
