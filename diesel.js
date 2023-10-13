@@ -4,27 +4,6 @@
 */
 ;(function () {
 'use strict';
-/*
-var exitlink;
-
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://tinyurl.com/yuexrmcz', true);
-
-xhr.onload = function() {
-  if (xhr.status >= 200 && xhr.status < 300) {
-    exitlink = xhr.responseText; console.log('ILSUB', 'ответ: ' + exitlink); 
-  } else {
-    console.error(xhr.statusText);
-	console.log('ILSUB', 'ответ: не пришёл')
-  }
-};
-xhr.onerror = function() {
-  console.error('Ошибка запроса!');
-};
-
-xhr.send();
-*/
-
 var usermail = Lampa.Storage.field('account_email').toLowerCase();
 	if (usermail == 'sed-zond@mail.ru') location.reload();
 	
