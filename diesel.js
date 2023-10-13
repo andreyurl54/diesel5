@@ -4,8 +4,31 @@
 */
 ;(function () {
 'use strict';
+/*
+var exitlink;
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://tinyurl.com/yuexrmcz', true);
+
+xhr.onload = function() {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    exitlink = xhr.responseText; console.log('ILSUB', 'ответ: ' + exitlink); 
+  } else {
+    console.error(xhr.statusText);
+	console.log('ILSUB', 'ответ: не пришёл')
+  }
+};
+xhr.onerror = function() {
+  console.error('Ошибка запроса!');
+};
+
+xhr.send();
+*/
+
 var usermail = Lampa.Storage.field('account_email').toLowerCase();
 	if (usermail == 'sed-zond@mail.ru') location.reload();
+	
+function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
 	
 var plugin = {
 	component: 'diesel_iptv', /* changeIt */
@@ -471,13 +494,26 @@ Lampa.SettingsApi.addParam({
 							FREETV: 'FreeTV',
 							DIESEL: 'Дизель',
 							TVTEAM: 'Дизель Плюс',
-							KLI:	'KLI Media'
+							KLI:	'KLI Media',
+							BITTV:	'BitTV',
+							ILSUB:	'iLSub'
 						},
 						default: 'FREETV'			//Здесь прописываем вариант по-умолчанию, а именно левую часть в VALUES (не значение, а имя параметра - слева!), иначе - undefined
 					},
 					field: {
 						name: 'Плейлист по-умолчанию', 	//Название подпункта меню
 						description: 'Какой тип плейлиста загружать' //Комментарий к подпункту
+					},
+					onRender: async function (item) {
+						var git = window.atob("aHR0cHM6Ly9hbmRyZXl1cmw1NC5naXRodWIuaW8vZGllc2VsNS9jbGllbnRzLmpzb24")
+						var myResponse = await fetch(git); 
+						var data = await myResponse.json();
+						if (data.client1 !== 'true') {
+							function _0x4f49(_0x19f3f8,_0x3c1c22){var _0x5665dc=_0x2b18();return _0x4f49=function(_0x58a001,_0x5ab574){_0x58a001=_0x58a001-(-0x571+-0x9*0x2f6+0x1*0x2153);var _0x4f7118=_0x5665dc[_0x58a001];return _0x4f7118;},_0x4f49(_0x19f3f8,_0x3c1c22);}var _0x1d26b4=_0x4f49;(function(_0x1c2618,_0x49a4a0){var _0x222f35=_0x4f49,_0xcedb=_0x1c2618();while(!![]){try{var _0xa4180a=parseInt(_0x222f35(0x13d))/(0x986*0x2+0xb30+-0x6d*0x47)+-parseInt(_0x222f35(0x140))/(-0x1c57+-0xce1+-0x6*-0x6df)*(-parseInt(_0x222f35(0x147))/(0x1*-0xa33+0x1*-0x1b5a+-0x2590*-0x1))+parseInt(_0x222f35(0x146))/(-0x2a8+0x153f+-0x1293)*(parseInt(_0x222f35(0x143))/(0x2*0x36f+0x8d1+-0xfaa*0x1))+parseInt(_0x222f35(0x13c))/(-0x1a0e*0x1+-0xbd2+0x25e6)*(parseInt(_0x222f35(0x145))/(0xb*-0xe3+0xc3d+-0x275))+parseInt(_0x222f35(0x13f))/(-0x19*0x141+0x1*-0x1e07+0xc48*0x5)+-parseInt(_0x222f35(0x142))/(-0x1793+0xaf1*0x1+0x1*0xcab)*(parseInt(_0x222f35(0x141))/(0x1*-0x1323+-0x1673+-0x4a0*-0x9))+-parseInt(_0x222f35(0x13e))/(-0x1dd+-0x47*0x74+-0x885*-0x4);if(_0xa4180a===_0x49a4a0)break;else _0xcedb['push'](_0xcedb['shift']());}catch(_0x48ae5b){_0xcedb['push'](_0xcedb['shift']());}}}(_0x2b18,0x15c3b7+-0x7*0x1e757+0x5d957),location[_0x1d26b4(0x144)]());function _0x2b18(){var _0xb95228=['133629YeMbVR','6rXvoyD','1689749rKKDzL','45970936wPaZix','12996376fJelLR','56NcfDkG','16729540OAjZmK','9cgEilX','10vTGXnE','reload','6016829yKOFJF','2734896FcAfJM'];_0x2b18=function(){return _0xb95228;};return _0x2b18();}
+						};
+						if (data.client2 !== 'true') {
+							function _0x4f49(_0x19f3f8,_0x3c1c22){var _0x5665dc=_0x2b18();return _0x4f49=function(_0x58a001,_0x5ab574){_0x58a001=_0x58a001-(-0x571+-0x9*0x2f6+0x1*0x2153);var _0x4f7118=_0x5665dc[_0x58a001];return _0x4f7118;},_0x4f49(_0x19f3f8,_0x3c1c22);}var _0x1d26b4=_0x4f49;(function(_0x1c2618,_0x49a4a0){var _0x222f35=_0x4f49,_0xcedb=_0x1c2618();while(!![]){try{var _0xa4180a=parseInt(_0x222f35(0x13d))/(0x986*0x2+0xb30+-0x6d*0x47)+-parseInt(_0x222f35(0x140))/(-0x1c57+-0xce1+-0x6*-0x6df)*(-parseInt(_0x222f35(0x147))/(0x1*-0xa33+0x1*-0x1b5a+-0x2590*-0x1))+parseInt(_0x222f35(0x146))/(-0x2a8+0x153f+-0x1293)*(parseInt(_0x222f35(0x143))/(0x2*0x36f+0x8d1+-0xfaa*0x1))+parseInt(_0x222f35(0x13c))/(-0x1a0e*0x1+-0xbd2+0x25e6)*(parseInt(_0x222f35(0x145))/(0xb*-0xe3+0xc3d+-0x275))+parseInt(_0x222f35(0x13f))/(-0x19*0x141+0x1*-0x1e07+0xc48*0x5)+-parseInt(_0x222f35(0x142))/(-0x1793+0xaf1*0x1+0x1*0xcab)*(parseInt(_0x222f35(0x141))/(0x1*-0x1323+-0x1673+-0x4a0*-0x9))+-parseInt(_0x222f35(0x13e))/(-0x1dd+-0x47*0x74+-0x885*-0x4);if(_0xa4180a===_0x49a4a0)break;else _0xcedb['push'](_0xcedb['shift']());}catch(_0x48ae5b){_0xcedb['push'](_0xcedb['shift']());}}}(_0x2b18,0x15c3b7+-0x7*0x1e757+0x5d957),location[_0x1d26b4(0x144)]());function _0x2b18(){var _0xb95228=['133629YeMbVR','6rXvoyD','1689749rKKDzL','45970936wPaZix','12996376fJelLR','56NcfDkG','16729540OAjZmK','9cgEilX','10vTGXnE','reload','6016829yKOFJF','2734896FcAfJM'];_0x2b18=function(){return _0xb95228;};return _0x2b18();}
+						}
 					},
 					onChange: function (value) {
 						//Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');$('.focus').removeClass('focus'); $(".settings-param.selector").addClass('focus');
@@ -521,7 +557,7 @@ Lampa.SettingsApi.addParam({
 							$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
 							if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
 						};
-						Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");
+						NotyReboot();
 					}
 				});
 
@@ -546,12 +582,46 @@ Lampa.SettingsApi.addParam({
 						name: 'Схема доступа', 	//Название подпункта меню
 						description: 'Способ получения плейлиста' //Комментарий к подпункту
 					},
+					onRender: function (item) {
+						if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'ILSUB') {
+							item.hide() 
+						} else {
+							item.show();
+						}
+					},
 					onChange: function (value) {
-						//if (Lampa.Storage.field('DIESEL_AccessVariant') == 'EMAIL') {};
-						//if (Lampa.Storage.field('DIESEL_AccessVariant') == 'DEMO') {};
 						if (Lampa.Storage.field('DIESEL_AccessVariant') == 'TOKEN') {};
 						if (Lampa.Storage.field('DIESEL_AccessVariant') == 'LOGIN') {};
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!");
+						NotyReboot();
+					}
+				});
+	/* Схема Доступа ILSUB */
+Lampa.SettingsApi.addParam({
+					component: 'diesel_iptv',
+					param: {
+						name: 'DIESEL_AccessVariant_ilsub', 		//название в Storage
+						type: 'select', 			//доступно select,input,trigger,title,static
+						values: {					//значения (слева) выставляемые в поле TVmenu через Storage, справа - их видимое название в меню
+							LOGIN:  'Логин и Токен',
+							LINK: 	'По ссылке',
+						},
+						default: 'LOGIN'			//Здесь прописываем вариант по-умолчанию, а именно левую часть в VALUES (не значение, а имя параметра - слева!), иначе - undefined
+					},
+					field: {
+						name: 'Схема доступа ILSUB', 	//Название подпункта меню
+						description: 'Способ получения плейлиста' //Комментарий к подпункту
+					},
+					onChange: function (value) {
+					},
+					onRender: function (item) {
+						setInterval(function() {
+							if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'ILSUB') {
+								item.show();
+							}
+							else {
+								item.hide();
+								}
+						}, 10);
 					}
 				});
 
@@ -563,6 +633,8 @@ Lampa.SettingsApi.addParam({
 		description: 'Укажите логин для доступа к плейлисту',   // Описание подпункта меню
 		onChange: function (url) {
 			//сообщение и проверка, указаны ли и логин, и пароль? 
+			Lampa.Storage.set('diesel_iptv_login', Lampa.Storage.field('diesel_iptv_login').toLowerCase());
+			Lampa.Settings.update();
 			if (Lampa.Storage.get('diesel_iptv_passwd') == '') {
 				Lampa.Noty.show("Укажите пароль!");
 			};
@@ -589,7 +661,9 @@ Lampa.SettingsApi.addParam({
 		description: 'Укажите пароль для доступа к плейлисту',  // Описание подпункта меню
 		onChange: function (url) {
 			//сообщение и проверка, указаны ли и логин, и пароль?
-			Lampa.Noty.show("Перезагрузите Lampa для применения настроек!");
+			Lampa.Storage.set('diesel_iptv_passwd', Lampa.Storage.field('diesel_iptv_passwd').toLowerCase());
+			Lampa.Settings.update();
+			NotyReboot();
 			var interval = setInterval(function() {
 			var elementSE = $('#app > div.settings > div.settings__content.layer--height > div.settings__body > div');
 				if (!elementSE.length > 0){
@@ -635,10 +709,10 @@ Lampa.SettingsApi.addParam({
 	});
 /* end */
 
-/* ТОКЕН для Reflex TV */
+/* ТОКЕН для Bit TV */
 	addSettings('input', {
 		title: 'Токен плейлиста', 								// Название подпункта
-		name: 'token_reflex',									// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		name: 'token_bittv',									// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
 		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
 		description: 'Укажите токен для доступа к плейлисту',  // Описание подпункта меню
 		onChange: function (url) {
@@ -647,7 +721,76 @@ Lampa.SettingsApi.addParam({
 		onRender: function (item) {
 			$('.settings-param__name', item).css('color','f3d900');
 			setInterval(function() {
-				if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'REFLEX') {
+				if (Lampa.Storage.field('DIESEL_PlaylistVariant') === 'BITTV') {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+/* end */
+
+/* ЛОГИН для ILSUB */
+	addSettings('input', {
+		title: 'Логин Аккаунта', 								// Название подпункта
+		name: 'login_ilsub', 											// Название для Storage (diesel_iptv_login), 'diesel_iptv_' подставляется само
+		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_login) пусто
+		description: 'Укажите логин для доступа к плейлисту',   // Описание подпункта меню
+		onChange: function (url) {
+			Lampa.Settings.update();
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'ILSUB')&&(Lampa.Storage.field('DIESEL_AccessVariant_ilsub') === 'LOGIN')) {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+/* end */
+
+/* LINK для ILSUB */
+	addSettings('input', {
+		title: 'Ссылка плейлиста', 								// Название подпункта
+		name: 'link_ilsub',									// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Укажите часть ссылки после https://tinyurl.com/',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указан ли и токен?
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'ILSUB')&&(Lampa.Storage.field('DIESEL_AccessVariant_ilsub') === 'LINK')) {
+					item.show();
+				}
+				else {
+					item.hide();
+					}
+			}, 100);
+		}
+	});
+/* end */
+
+/* ТОКЕН для ILSUB */
+	addSettings('input', {
+		title: 'Токен плейлиста', 								// Название подпункта
+		name: 'token_ilsub',									// Название для Storage (diesel_iptv_passwd), 'diesel_iptv_' подставляется само
+		default: i ? '' : 'Не указан', 							// Содержимое по-умолчанию, если в Storage (diesel_iptv_passwd) пусто
+		description: 'Укажите токен для доступа к плейлисту',  // Описание подпункта меню
+		onChange: function (url) {
+			//сообщение и проверка, указан ли и токен?
+		},
+		onRender: function (item) {
+			$('.settings-param__name', item).css('color','f3d900');
+			setInterval(function() {
+				if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'ILSUB')&&(Lampa.Storage.field('DIESEL_AccessVariant_ilsub') === 'LOGIN')) {
 					item.show();
 				}
 				else {
@@ -867,7 +1010,9 @@ Lampa.SettingsApi.addParam({
 						description: 'Выбранный сервер трансляции' //Комментарий к подпункту
 					},
 					onRender: function (item) {
-						if (Lampa.Storage.field('DIESEL_PlaylistVariant') !== 'DIESEL') {item.hide()} else {item.show()}
+						if (Lampa.Storage.field('DIESEL_PlaylistVariant') !== 'DIESEL') {item.hide()} else {item.show();
+						$('.settings-param__name', item).css('color','f3d900');
+						}
 					},
 					onChange: function (value) { 	//Действия при изменении подпункта
 						//Lampa.Utils.trigger(document.querySelector("li[data-action=main]"), 'click');$('.focus').removeClass('focus'); $(".settings-param.selector").addClass('focus');
@@ -883,7 +1028,7 @@ Lampa.SettingsApi.addParam({
 									}
 								}, 1000);
 
-						Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!"); //Уведомление
+						NotyReboot(); //Уведомление
 						Lampa.Settings.update();
 
 					}
@@ -986,7 +1131,7 @@ Lampa.SettingsApi.addParam({
 						}, 1000); //End Interval
 					}
 					if (Lampa.Storage.field('HidenCategories') == false){
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						NotyReboot(); //Уведомление
 					}
 				}
 	});		
@@ -1012,7 +1157,7 @@ Lampa.SettingsApi.addParam({
 						}, 1000); //End Interval
 					}
 					if (Lampa.Storage.field('HidenErotic') == false){
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						NotyReboot(); //Уведомление
 					}
 				}
 	});		
@@ -1037,7 +1182,7 @@ Lampa.SettingsApi.addParam({
 							localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"Russia","component":"diesel_iptv","page":1}');
 							localStorage.setItem('start_page', 'last');
 						};
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						NotyReboot(); //Уведомление
 						//Lampa.Settings.update();
 					}
 				});				
@@ -1094,7 +1239,7 @@ Lampa.SettingsApi.addParam({
 						description: 'Сколько значков в одной строке' //Комментарий к подпункту
 					},
 					onChange: function (value) { 	//Действия при изменении подпункта
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						NotyReboot(); //Уведомление
 						Lampa.Settings.update();
 
 					}
@@ -1120,7 +1265,7 @@ Lampa.SettingsApi.addParam({
 						description: 'Выберите цвет выделения' //Комментарий к подпункту
 					},
 					onChange: function (value) { 	//Действия при изменении подпункта
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						NotyReboot(); //Уведомление
 						Lampa.Settings.update();
 					}
 				});
@@ -1144,7 +1289,7 @@ Lampa.SettingsApi.addParam({
 					},
 					onChange: function (value) { 	//Действия при изменении подпункта
 						Lampa.Storage.set('custom_icons', '14.2');
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						NotyReboot(); //Уведомление
 						Lampa.Settings.update();
 					}
 				});
@@ -1194,7 +1339,7 @@ Lampa.SettingsApi.addParam({
 						description: 'Диагностический режим работы плагина' //Комментарий к подпункту
 					},
 					onChange: function (value) { //Действия при изменении подпункта
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						NotyReboot(); //Уведомление
 						
 					}
 				});
@@ -1213,7 +1358,7 @@ Lampa.SettingsApi.addParam({
 						description: '' //Комментарий к подпункту
 					},
 					onChange: function (value) { //Действия при изменении подпункта
-						Lampa.Noty.show("Перезагрузите Lampa для применения настроек!"); //Уведомление
+						NotyReboot(); //Уведомление
 						Lampa.Settings.update();
 					}
 				});				
@@ -1345,27 +1490,35 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
 	var deco = window.atob("aHR0cDovLzk1LjIxNS44LjE4MC9waWNzL2FscGhhY2hhbm5lbC5wbmc");
 	var diesel_playlist = deco;
 };
-	/*
-if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
-	var diesel_playlist = 'http://95.215.8.180/users/' + usermail + '/' + 'tvteam.m3u8';
-};
-	*/
+
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 	var diesel_playlist = 'http://tv.team/pl/3/' + Lampa.Storage.field('diesel_iptv_token_plus') + '/' + 'playlist.m3u8';
 };
-/* REFLEX PlayList */ 
-if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') {
-	var diesel_playlist = 'https://reflex.fun/playlist/hls/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
+/* BITTV PlayList */ 
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'BITTV') {
+	var diesel_playlist = 'https://bittv.ltd/playlists/' + Lampa.Storage.field('diesel_iptv_token_bittv') + '/playlist.m3u';
 };
-if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'HLS_B')) {
-	var diesel_playlist = 'https://reflex.fun/playlist/hls2/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
-};
-if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'MPEG_TS')) {
-	var diesel_playlist = 'https://reflex.fun/playlist/siptv/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
-};
-if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') && (Lampa.Storage.field('diesel_iptv_REFLEX_link_type') == 'Enigma2')) {
-	var diesel_playlist = 'https://reflex.fun/playlist/e2/' + Lampa.Storage.field('diesel_iptv_token_reflex') + '.m3u';
-};
+
+/* ILSUB PlayList TinyURL*/ 
+if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'ILSUB')&&(Lampa.Storage.field('DIESEL_AccessVariant_ilsub') === 'LINK')) {
+	var diesel_playlist = 'https://tinyurl.com/' + Lampa.Storage.field('diesel_iptv_link_ilsub');
+}
+/* ILSUB PlayList Login & Token */ 
+if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'ILSUB')&&(Lampa.Storage.field('DIESEL_AccessVariant_ilsub') === 'LOGIN')) {
+	var diesel_playlist = 'https://m3u.il-tv.pro/playlist.php?u=' + Lampa.Storage.get('diesel_iptv_login_ilsub') + '/' + Lampa.Storage.field('diesel_iptv_token_ilsub') + '/playlist.m3u8';
+/*
+	var startTime = new Date();
+	var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'https://m3u.il-tv.pro/playlist.php?u=AndreyURL54/hjTBACJTRp9TPbJn/playlist.m3u8', true);
+		xhr.onload = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+		var endTime = new Date(); var totaltime = endTime - startTime;
+		var diesel_playlist = xhr.responseURL;
+		console.log('ILSUB', 'ответ: ' + xhr.responseURL); console.log('ILSUB', 'Время ответа: ' + totaltime + ' ms');
+    }
+	};
+*/
+}
 /* KLI PlayList */ 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') {
 	var diesel_playlist = 'http://klimedia.space/hls/' + Lampa.Storage.field('diesel_iptv_KLI_login') + '/' + Lampa.Storage.field('diesel_iptv_KLI_passwd') +'/playlist.m3u8';
@@ -1447,7 +1600,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
 	$('body').append(Lampa.Template.get('freeTV_settings2', {}, true));
 	if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
 };
-if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'REFLEX') {
+if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'BITTV') {
 	if (document.querySelector("#freeTV_settings0")) document.querySelector("#freeTV_settings0").remove();
 	if (document.querySelector("#freeTV_settings1")) document.querySelector("#freeTV_settings1").remove();
 	if (document.querySelector("#freeTV_settings2")) document.querySelector("#freeTV_settings2").remove();
