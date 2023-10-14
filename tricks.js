@@ -161,6 +161,9 @@ function add() {
 						$('#searchReturnButton').remove();
 						$('#app > div.head > div > div.head__actions').append(searchReturnButton);
 						$('#searchReturnButton').on('hover:enter hover:click hover:touch', function() {Lampa.Search.open();});
+						$('.menu__item').on('click', function () {
+							this.removeClass('focus'); this.addClass('focus');
+						});
 					}						
 					if (Lampa.Storage.field('NavyBar') == false) {
 						$('.open--search').show();
