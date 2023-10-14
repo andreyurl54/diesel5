@@ -815,6 +815,9 @@ if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 
 /* Стиль скрытия панели навигации при старте */
 			if (Lampa.Storage.field('NavyBar') == true)	{
+				$('.menu__item').on('click', function () {
+					this.removeClass('focus'); this.addClass('focus');
+				});
 				Lampa.Template.add('no_bar', '<div id="no_bar"><style>.navigation-bar{display: none!important;}</style></div>');
 				$('body').append(Lampa.Template.get('no_bar', {}, true));
 				
