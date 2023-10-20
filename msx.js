@@ -9,9 +9,10 @@ var agentFilter = userAgent.match(/Android/i);
 if ((!Lampa.Platform.is('android')) && (agentFilter = 'Android')) {
 		Lampa.Noty.show('Установите АРК')
 	} 
-}
+};
+
 if (Lampa.Platform.is('android')) {
 		Lampa.Noty.show('Android')
-}
+};
 
 })();
