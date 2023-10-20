@@ -13,4 +13,5 @@ if (Lampa.Platform.is('noname'){
 } else {
 	Lampa.Noty.show('notAndroid')
 }
+}
 })();
