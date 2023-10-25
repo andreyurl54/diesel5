@@ -28,46 +28,7 @@ function add() {
 		}
 	} /* End updateT */
 
-/* Определяем MSX на Android */
-setTimeout(function() { 
-	var userAgent = navigator.userAgent;
-	var agentFilter = userAgent.match(/Android/i);
-	var result = Lampa.Platform.is('android')
 
-	if (!result) {
-		if (agentFilter = 'Android') {
-			var isMSX_text = $("<div class=\"about\">" + '\n' +
-								'<div>Мы заметили, что для запуска Lampa на Android Вы используете MediaStationX. Рекомендуем вам удалить MediaStationX и установить Lampa как APK-приложение. Скачать последнюю версию приложения Вы можете:</div>\n\n\n' +
-								'<div class=\"overhide\">\n' +
-									'<div class=\"about__contacts\">\n' +
-										'<div>\n' +
-											'<small>TELEGRAM</small><br>\n' +
-											'@lampa_android\n' +
-										'</div>\n\n' +
-										'<div>\n' +
-											'<small>Прямой Ссылкой</small><br>\n' +
-											'https://cub.watch/download/lampa.apk' + '\n' +
-										'</div>\n\n' +
-									'</div>\n' +
-								'</div>\n\n' +
-							"</div>");
-
-			Lampa.Modal.open({
-			  title: 'Важная информация!',
-			  html: isMSX_text,
-			  size: 'medium',
-			  onBack: function onBack() {
-				Lampa.Modal.close();
-				Lampa.Controller.toggle('content');
-			  }
-			});		
-		};
-	}
-
-	if (Lampa.Platform.is('android')) {
-			Lampa.Noty.show('Android');
-	}
-}, 5000);
 	
 /* Скрываем ленту трейлеров на Главной */
 	Lampa.SettingsApi.addParam({
