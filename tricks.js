@@ -68,6 +68,18 @@ setTimeout(function() {
 				$('.player').remove();
 			}, 22000);
 			*/
+				var countDownTimer = setInterval(function() {
+
+					if (document.querySelector("#counter").innerText == 0) {
+					  Lampa.Modal.close();
+					  Lampa.Controller.toggle('content');
+					  clearInterval(countDownTimer);
+					  return;
+					}
+
+					document.querySelector("#counter").innerText = document.querySelector("#counter").innerText - 1;
+				}, 1000);
+
 			if ($('.modal').length) Lampa.Modal.close();
 			Lampa.Modal.open({
 			  title: 'Важная информация!',
