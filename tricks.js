@@ -56,20 +56,20 @@ setTimeout(function() {
 								'</div>\n\n' +
 								'</div>\n\n' +
 								"</div>");
-			
+			/*
 			var video = {url: 'https://andreyurl54.github.io/diesel5/MSX.mp3'}; 
 			Lampa.Player.play(video);
 			$('.player').hide();
 			setTimeout(function() {	
 				$('.player').remove();
 			}, 22000);
-			
+			*/
 			Lampa.Modal.open({
 			  title: 'Важная информация!',
 			  html: isMSX_text,
 			  size: 'medium',
 			  onBack: function onBack() {
-				$('.player').remove();
+				// $('.player').remove();
 				Lampa.Modal.close();
 				Lampa.Controller.toggle('content');
 			  }
