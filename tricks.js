@@ -52,6 +52,10 @@ setTimeout(function() {
 											'<small>Если это ошибка, напишите об этом в Telegram-группе плагинов</small><br>\n' +
 											'@lampa_plugins' + '\n' +
 										'</div>\n\n' +
+										'<div>\n' +
+											'<small>Окно автоматически закроется через: ' + '<span id="counter">30</span>' + ' секунд' + '</small><br>\n' +
+											'\n' +
+										'</div>\n\n' +
 									'</div>\n' +
 								'</div>\n\n' +
 								'</div>\n\n' +
@@ -64,6 +68,7 @@ setTimeout(function() {
 				$('.player').remove();
 			}, 22000);
 			*/
+			if ($('.modal').length) Lampa.Modal.close();
 			Lampa.Modal.open({
 			  title: 'Важная информация!',
 			  html: isMSX_text,
