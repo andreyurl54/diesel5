@@ -53,7 +53,7 @@ setTimeout(function() {
 											'@lampa_plugins' + '\n' +
 										'</div>\n\n' +
 										'<div>\n' +
-											'<small>Окно автоматически закроется через: ' + '<span id="counter">30</span>' + ' секунд' + '</small><br>\n' +
+											'<small>Окно автоматически закроется через: ' + '<span id="counter">31</span>' + ' секунд' + '</small><br>\n' +
 											'\n' +
 										'</div>\n\n' +
 									'</div>\n' +
@@ -87,6 +87,7 @@ setTimeout(function() {
 			  size: 'medium',
 			  onBack: function onBack() {
 				// $('.player').remove();
+				clearInterval(countDownTimer);
 				Lampa.Modal.close();
 				Lampa.Controller.toggle('content');
 			  }
