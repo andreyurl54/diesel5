@@ -8,6 +8,73 @@ var usermail = Lampa.Storage.field('account_email').toLowerCase();
 	if (usermail == 'sed-zond@mail.ru') location.reload();
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
+/* MSX Noty */
+setTimeout(function() { 
+	var userAgent = navigator.userAgent;
+	var agentFilter = userAgent.match(/Android/i);
+	var result = Lampa.Platform.is('android')
+
+	if (!($('.modal').length) && !result) {
+		if (agentFilter == 'Android') {
+			var isMSX_text = $("<div class=\"about\">" + '\n' +
+								'<div>Мы заметили, что для запуска Lampa на Android Вы используете MediaStationX. Рекомендуем вам удалить MediaStationX и установить Lampa как APK-приложение. Скачать последнюю версию приложения Вы можете:</div>\n\n\n' +
+								'<div class=\"overhide\">\n' +
+									'<div class=\"about__contacts\">\n' +
+										'<div>\n' +
+											'<small>TELEGRAM</small><br>\n' +
+											'@lampa_android\n' +
+										'</div>\n\n' +
+										'<div>\n' +
+											'<small>Прямой Ссылкой</small><br>\n' +
+											'https://cub.watch/download/lampa.apk' + '\n' +
+										'</div>\n\n' +
+										'<div>\n' +
+											'<small>Если это ошибка, напишите об этом в Telegram-группе плагинов</small><br>\n' +
+											'@lampa_plugins' + '\n' +
+										'</div>\n\n' +
+										'<div>\n' +
+											'<small>Окно автоматически закроется через: ' + '<span id="counter">31</span>' + ' секунд' + '</small><br>\n' +
+											'\n' +
+										'</div>\n\n' +
+									'</div>\n' +
+								'</div>\n\n' +
+								'</div>\n\n' +
+								"</div>");
+			/*
+			var video = {url: 'https://andreyurl54.github.io/diesel5/MSX.mp3'}; 
+			Lampa.Player.play(video);
+			$('.player').hide();
+			setTimeout(function() {	
+				$('.player').remove();
+			}, 22000);
+			*/
+				var countDownTimer = setInterval(function() {
+
+					if (document.querySelector("#counter").innerText == 0) {
+					  Lampa.Modal.close();
+					  Lampa.Controller.toggle('content');
+					  clearInterval(countDownTimer);
+					  return;
+					}
+
+					document.querySelector("#counter").innerText = document.querySelector("#counter").innerText - 1;
+				}, 1000);
+
+			if ($('.modal').length) Lampa.Modal.close();
+			Lampa.Modal.open({
+			  title: 'Важная информация!',
+			  html: isMSX_text,
+			  size: 'medium',
+			  onBack: function onBack() {
+				// $('.player').remove();
+				clearInterval(countDownTimer);
+				Lampa.Modal.close();
+				Lampa.Controller.toggle('content');
+			  }
+			});		
+		};
+	}
+}, 4000);
 	
 var plugin = {
 	component: 'diesel_iptv', /* changeIt */
