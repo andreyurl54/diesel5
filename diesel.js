@@ -1554,18 +1554,6 @@ if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'ILSUB')&&(Lampa.Storage.f
 /* ILSUB PlayList Login & Token */ 
 if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'ILSUB')&&(Lampa.Storage.field('DIESEL_AccessVariant_ilsub') === 'LOGIN')) {
 	var diesel_playlist = 'https://m3u.il-tv.pro/playlist.php?u=' + Lampa.Storage.get('diesel_iptv_login_ilsub') + '/' + Lampa.Storage.field('diesel_iptv_token_ilsub') + '/playlist.m3u8';
-/*
-	var startTime = new Date();
-	var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'https://m3u.il-tv.pro/playlist.php?u=AndreyURL54/hjTBACJTRp9TPbJn/playlist.m3u8', true);
-		xhr.onload = function() {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-		var endTime = new Date(); var totaltime = endTime - startTime;
-		var diesel_playlist = xhr.responseURL;
-		console.log('ILSUB', 'ответ: ' + xhr.responseURL); console.log('ILSUB', 'Время ответа: ' + totaltime + ' ms');
-    }
-	};
-*/
 }
 /* KLI PlayList */ 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') {
