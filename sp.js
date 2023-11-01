@@ -6,8 +6,8 @@ function hidePorn() {
 		$('.full-start__button').on('hover:enter', function () {
 			$('.selectbox-item.selector > div:contains("VIP")').parent().hide() // remove();
 			if (Lampa.Storage.field('noporn') == '0') {
-				clearInterval(hideInterval);
 				$('.selectbox-item.selector > div:contains("VIP")').parent().show();
+				clearInterval(hideInterval);
 			}
 		})
 	}, 1000);
