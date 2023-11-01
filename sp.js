@@ -5,6 +5,7 @@ function hidePorn() {
 	var hideInterval = setInterval(function() {
 		$('.full-start__button').on('hover:enter', function () {
 			$('.selectbox-item.selector > div:contains("VIP")').parent().remove();
+			if (Lampa.Storage.field('noporn') == '0') clearInterval(hideInterval);
 		})
 	}, 1000);
 }
@@ -14,14 +15,25 @@ function notyWrong() {
 }
 
 function notyOK() {
-	localStorage.removeItem("noporn");
-	clearInterval(hideInterval);
+	localStorage.setItem("noporn", "0");
 	var page = Lampa.Activity.active();
 	Lampa.Activity.push(page);
 	// setTimeout(function() {location.reload()},3000)
 }
 
-
+function callInput() {	
+	Lampa.Input.edit({
+		value: "",
+		title: "Введите пароль",
+		free: true,
+		nosave: true
+		}, function (t) {
+			// верный
+			if (t == "666")	notyOK();
+			else notyWrong();
+		});
+}
+	
 function Start(){
     if (Lampa.Storage.field('noporn') == '1') hidePorn();
 	Lampa.Storage.listener.follow('change', function (event) {
@@ -36,18 +48,7 @@ function Start(){
 	});
 }	
 
-function callInput() {	
-	Lampa.Input.edit({
-		value: "",
-		title: "Введите пароль",
-		free: true,
-		nosave: true
-		}, function (t) {
-			// верный
-			if (t == "666")	notyOK();
-			else notyWrong();
-		});
-}
+
 
 if (!!window.appready) Start();
 else Lampa.Listener.follow('app', function(e){if (e.type === 'ready') Start()});
