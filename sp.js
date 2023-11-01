@@ -23,7 +23,7 @@ function notyOK() {
 	//Lampa.Activity.back();
 	var page = Lampa.Activity.active();
 	Lampa.Activity.push(page);
-	$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})
+	$('.full-start__button').unbind('hover:enter').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})
 	// setTimeout(function() {location.reload()},3000)
 }
 
