@@ -16,6 +16,7 @@ function notyWrong() {
 
 function notyOK() {
 	localStorage.setItem("noporn", "0");
+	Lampa.Controller.toggle('settings_component');
 	var page = Lampa.Activity.active();
 	Lampa.Activity.push(page);
 	// setTimeout(function() {location.reload()},3000)
