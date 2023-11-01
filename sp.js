@@ -14,7 +14,7 @@ function notyWrong() {
 }
 
 function notyOK() {
-	Lampa.Storage.set('noporn', '0');
+	localStorage.removeItem("noporn");
 	setTimeout(function() {location.reload()},3000)
 }
 
@@ -41,7 +41,7 @@ function callInput() {
 		nosave: true
 		}, function (t) {
 			// верный
-			if (t == "666")	Lampa.Storage.set('noporn', '0') && notyOK();
+			if (t == "666")	notyOK();
 			else notyWrong();
 		});
 }
