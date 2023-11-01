@@ -26,7 +26,6 @@ function Start(){
 				hidePorn();
             }
             if (event.name == 'noporn' && Lampa.Storage.field('noporn') == '0') {
-				Lampa.Storage.set('noporn', '1');
 				callInput();
 				//location.reload();
             }
@@ -42,7 +41,7 @@ function callInput() {
 		}, function (t) {
 			// верный
 			if (t == "666")	notyOK();
-			else notyWrong();
+			else Lampa.Storage.set('noporn', '1') && notyWrong();
 		});
 }
 
