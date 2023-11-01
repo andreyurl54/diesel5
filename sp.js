@@ -9,8 +9,19 @@ function hidePorn() {
 	}, 1000);
 }
 
+function notyWrong() {
+	Lampa.Noty.show('Пароль неверный: повторите попытку');
+}
+
+function notyOK() {
+	Lampa.Storage.set('noporn', '0');
+	setTimeout(function() {location.reload()},3000)
+}
+
+
 function Start(){
-    Lampa.Storage.listener.follow('change', function (event) {
+    if (Lampa.Storage.field('noporn') == '1') hidePorn();
+	Lampa.Storage.listener.follow('change', function (event) {
             if (event.name == 'noporn' && Lampa.Storage.field('noporn') == '1') {
 				hidePorn();
             }
@@ -29,19 +40,9 @@ function callInput() {
 		free: true,
 		nosave: true
 		}, function (t) {
-			// неверный
-			if (t !== "666") {
-				Lampa.Noty.show('Пароль неверный: повторите попытку');
-				// повтор ввода
-				//callInput();
 			// верный
-			}
-			if (t == "666") {
-				// меняем флаг
-				Lampa.Storage.set('noporn', '0');
-				// перезагрузка для применения
-				location.reload();
-			}
+			if (t == "666")	notyOK();
+			else notyWrong();
 		});
 }
 
