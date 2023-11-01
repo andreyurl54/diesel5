@@ -5,9 +5,9 @@ function hidePorn() {
 	var hideInterval = setInterval(function() {
 		$('.full-start__button').on('hover:enter', function () {
 			$('.selectbox-item.selector > div:contains("VIP")').parent().hide() // remove();
-			if (Lampa.Storage.field('noporn') == '0') {
-				$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})
+			if (localStorage.getItem('noporn') == '0') {
 				clearInterval(hideInterval);
+				$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})
 			}
 		})
 	}, 1000);
