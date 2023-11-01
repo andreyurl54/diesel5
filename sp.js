@@ -7,7 +7,7 @@ function hidePorn() {
 			$('.selectbox-item.selector > div:contains("VIP")').parent().hide() // remove();
 			if (localStorage.getItem('noporn') == '0') {
 				clearInterval(hideInterval);
-				$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})
+				//$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})
 			}
 		})
 	}, 1000);
@@ -23,6 +23,7 @@ function notyOK() {
 	//Lampa.Activity.back();
 	var page = Lampa.Activity.active();
 	Lampa.Activity.push(page);
+	$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})
 	// setTimeout(function() {location.reload()},3000)
 }
 
