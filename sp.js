@@ -2,7 +2,7 @@
 	'use strict';
 
 function hidePorn() {
-	setInterval(function() {
+	var hideInterval = setInterval(function() {
 		$('.full-start__button').on('hover:enter', function () {
 			$('.selectbox-item.selector > div:contains("VIP")').parent().remove();
 		})
@@ -15,7 +15,10 @@ function notyWrong() {
 
 function notyOK() {
 	localStorage.removeItem("noporn");
-	setTimeout(function() {location.reload()},3000)
+	clearInterval(hideInterval);
+	var page = Lampa.Activity.active();
+	Lampa.Activity.push(page);
+	// setTimeout(function() {location.reload()},3000)
 }
 
 
