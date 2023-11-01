@@ -26,7 +26,7 @@ setTimeout(function() {
 										'</div>\n\n' +
 										'<div>\n' +
 											'<small>Прямой Ссылкой</small><br>\n' +
-											'https://cub.watch/download/lampa.apk' + '\n' +
+											'https://cub.red/download/lampa.apk' + '\n' +
 										'</div>\n\n' +
 										'<div>\n' +
 											'<small>Если это ошибка, напишите об этом в Telegram-группе плагинов</small><br>\n' +
