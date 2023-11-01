@@ -2,11 +2,11 @@
 	'use strict';
 
 function hidePorn() {
-	setTimeout(function() {
+	setInterval(function() {
 		$('.full-start__button').on('hover:enter', function () {
 			$('.selectbox-item.selector > div:contains("VIP")').parent().remove();
 		})
-	}, 50);
+	}, 1000);
 }
 
 function Start(){
@@ -33,9 +33,10 @@ function callInput() {
 			if (t !== "666") {
 				Lampa.Noty.show('Пароль неверный: повторите попытку');
 				// повтор ввода
-				callInput();
+				//callInput();
 			// верный
-			} else {
+			}
+			if (t == "666") {
 				// меняем флаг
 				Lampa.Storage.set('noporn', '0');
 				// перезагрузка для применения
