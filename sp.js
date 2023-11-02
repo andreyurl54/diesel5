@@ -11,6 +11,7 @@ function hidePorn() {
 			}
 		var pornElement = $('.selectbox-item.selector > div:contains("Ночные")');
 		if (pornElement.length > 0) $('.selectbox-item.selector > div:contains("Ночные")').parent().hide();
+		if (localStorage.getItem('noporn') == '0') {$('.selectbox-item.selector > div:contains("Ночные")').parent().show(); clearInterval(hideInterval)}
 		})
 	}, 1000);
 }
