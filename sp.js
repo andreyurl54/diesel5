@@ -6,6 +6,7 @@ function hidePorn() {
 		$('.full-start__button').on('hover:enter', function () {
 			$('.selectbox-item.selector > div:contains("VIP")').parent().hide() // remove();
 			if (localStorage.getItem('noporn') == '0') {
+				$('.selectbox-item.selector > div:contains("VIP")').parent().show()
 				clearInterval(hideInterval);
 				//$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})
 			}
@@ -22,8 +23,8 @@ function notyOK() {
 	Lampa.Controller.toggle('settings');
 	//Lampa.Activity.back();
 	var page = Lampa.Activity.active();
-	Lampa.Activity.push(page);
-	setTimeout(function() {$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})}, 2000)
+	Lampa.Activity.push({url: 'http://skaztv.online/ch.json?ua=' + Lampa.Storage.cache("skazua") + '&email=',title: 'ТВ by skaz',component: 'iptvskaz_n',page: 1});
+	//setTimeout(function() {$('.full-start__button').on('hover:enter', function () {$('.selectbox-item.selector > div:contains("VIP")').parent().show()})}, 2000)
 	// setTimeout(function() {location.reload()},3000)
 }
 
