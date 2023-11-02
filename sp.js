@@ -42,9 +42,11 @@ function Start(){
     if (Lampa.Storage.field('noporn') == '1') hidePorn();
 	Lampa.Storage.listener.follow('change', function (event) {
             if (event.name == 'noporn' && Lampa.Storage.field('noporn') == '1') {
+		    		Lampa.Settings.update();
 				hidePorn();
             }
             if (event.name == 'noporn' && Lampa.Storage.field('noporn') == '0') {
+		    		Lampa.Settings.update();
 				Lampa.Storage.set('noporn', '1');
 				callInput();
             }
