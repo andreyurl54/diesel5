@@ -45,7 +45,7 @@ function Start(){
 				hidePorn();
             }
             if (event.name == 'noporn' && Lampa.Storage.field('noporn') == '0') {
-				//Lampa.Storage.set('noporn', '1');
+				Lampa.Storage.set('noporn', '1');
 				callInput();
             }
 	});
