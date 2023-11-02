@@ -35,6 +35,7 @@ function callInput() {
 			if (t == "666")	notyOK();
 			else notyWrong();
 		});
+Lampa.Utils.trigger(document.querySelector('.simple-keyboard')), 'click');
 }
 	
 function Start(){
@@ -44,7 +45,7 @@ function Start(){
 				hidePorn();
             }
             if (event.name == 'noporn' && Lampa.Storage.field('noporn') == '0') {
-				Lampa.Storage.set('noporn', '1');
+				//Lampa.Storage.set('noporn', '1');
 				callInput();
             }
 	});
