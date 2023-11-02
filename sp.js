@@ -9,6 +9,8 @@ function hidePorn() {
 				clearInterval(hideInterval);
 				$('.selectbox-item.selector > div:contains("Ночные")').parent().show();
 			}
+		var pornElement = $('.selectbox-item.selector > div:contains("Ночные")');
+		if (pornElement.length > 0) $('.selectbox-item.selector > div:contains("Ночные")').parent().hide();
 		})
 	}, 1000);
 }
