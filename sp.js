@@ -6,7 +6,7 @@ function hidePorn() {
 		$('.full-start__button').on('hover:enter', function () {
 			$('.selectbox-item.selector > div:contains("Ночные")').parent().hide();
 			if (localStorage.getItem('noporn') == '0') {
-				clearInterval(hideInterval); Lampa.Noty.show('clear');
+				clearInterval(hideInterval);
 				$('.selectbox-item.selector > div:contains("Ночные")').parent().show();
 			}
 		})
