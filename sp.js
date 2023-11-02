@@ -35,7 +35,7 @@ function callInput() {
 			if (t == "666")	notyOK();
 			else notyWrong();
 		});
-Lampa.Utils.trigger((document.querySelector('.simple-keyboard')), 'click');
+setTimeout(function() {Lampa.Utils.trigger(document.querySelector("#orsay-keyboard"), 'click');}, 2000);
 }
 	
 function Start(){
