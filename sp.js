@@ -4,7 +4,7 @@
 function hidePorn() {
 	var hideInterval = setInterval(function() {
 		$('.full-start__button').on('hover:enter', function () {
-			$('.selectbox-item.selector > div:contains("VIP")').parent().hide();
+			$('.selectbox-item.selector > div:contains("Ночные")').parent().hide();
 			if (localStorage.getItem('noporn') == '0') {
 				$('.selectbox-item.selector > div:contains("Ночные")').parent().show();
 				clearInterval(hideInterval);
