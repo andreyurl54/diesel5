@@ -14,6 +14,12 @@ function hidePorn() {
 		if (localStorage.getItem('noporn') == '0') {$('.selectbox-item.selector > div:contains("Ночные")').parent().show(); clearInterval(hideInterval)}
 		})
 	}, 1000);
+	var hideInterval2 = setInterval(function() {
+		var pornElement = $('.selectbox-item.selector > div:contains("Ночные")');
+		if (pornElement.length > 0 && localStorage.getItem('noporn') == '1') $('.selectbox-item.selector > div:contains("Ночные")').parent().hide();
+		if (localStorage.getItem('noporn') == '0') {$('.selectbox-item.selector > div:contains("Ночные")').parent().show(); // clearInterval(hideInterval)
+							   }
+	}, 1000);
 }
 
 function notyWrong() {
