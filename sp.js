@@ -6,8 +6,8 @@ function hidePorn() {
 		$('.full-start__button').on('hover:enter', function () {
 			$('.selectbox-item.selector > div:contains("Ночные")').parent().hide();
 			if (localStorage.getItem('noporn') == '0') {
+				clearInterval(hideInterval); Lampa.Noty.show('clear');
 				$('.selectbox-item.selector > div:contains("Ночные")').parent().show();
-				clearInterval(hideInterval);
 			}
 		})
 	}, 1000);
@@ -35,7 +35,7 @@ function callInput() {
 			if (t == "666")	notyOK();
 			else notyWrong();
 		});
-setTimeout(function() {Lampa.Utils.trigger(document.querySelector("#orsay-keyboard"), 'click');}, 2000);
+setTimeout(function() {Lampa.Utils.trigger(document.querySelector("#orsay-keyboard"), 'click');}, 1000);
 }
 	
 function Start(){
