@@ -6,6 +6,7 @@
 'use strict';
 var usermail = Lampa.Storage.field('account_email').toLowerCase();
 	if (usermail == 'sed-zond@mail.ru') location.reload();
+localStorage.setItem('Diesel_startGroup', 'Russia');
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
 /* MSX Noty */
@@ -1227,8 +1228,11 @@ Lampa.SettingsApi.addParam({
 					},
 					onChange: function (value) { //Действия при изменении подпункта
 				        if (Lampa.Storage.field('Diesel_Auto_Start') == true) {  
-							var startGroup = Lampa.Activity.active().currentGroup
-							localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"' + startGroup +'","component":"diesel_iptv","page":1}');
+							if (Lampa.Activity.active().component === plugin.component && Lampa.Activity.active().currentGroup !== 'undefined') {
+							    	var startGroup = Lampa.Activity.active().currentGroup;
+								localStorage.setItem('Diesel_startGroup', startGroup);
+							}
+							localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"' + localStorage.getItem('Diesel_startGroup') +'","component":"diesel_iptv","page":1}');
 							localStorage.setItem('start_page', 'last');
 						};
 						NotyReboot(); //Уведомление
@@ -1672,7 +1676,10 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'BITTV') {
      Lampa.Storage.listener.follow('change', function (event) {
         if (Lampa.Storage.field('Diesel_Auto_Start') == true) {       
             if (event.name == 'start_page' || 'activity') {
-		var startGroup = Lampa.Activity.active().currentGroup; localStorage.setItem('Diesel_startGroup', startGroup);
+		if (Lampa.Activity.active().component === plugin.component && Lampa.Activity.active().currentGroup !== 'undefined') {
+		    	var startGroup = Lampa.Activity.active().currentGroup;
+			localStorage.setItem('Diesel_startGroup', startGroup);
+		}
 		localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"' + localStorage.getItem('Diesel_startGroup') +'","component":"diesel_iptv","page":1}');
                 localStorage.setItem('start_page', 'last');
             };
