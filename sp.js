@@ -17,7 +17,7 @@ function notyWrong() {
 function notyOK() {
 	localStorage.setItem("noporn", "0");
 	Lampa.Controller.toggle('settings');
-	var page = Lampa.Activity.active();
+	// var page = Lampa.Activity.active();
 	Lampa.Activity.push({url: 'http://skaztv.online/ch.json?ua=' + Lampa.Storage.cache("skazua") + '&email=',title: 'ТВ by skaz',component: 'iptvskaz_n',page: 1});
 }
 
