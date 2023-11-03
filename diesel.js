@@ -1,11 +1,15 @@
 /*
-	Разобраться с иконками в ряд DONE
+	Замер скорости
+ 	Доп. EPG
+  	Скрытие каналов
+   	Родительский контроль универсальный
 	Вернуть ЮзерАгент - сломает выбор плеера на Android ?
 */
 ;(function () {
 'use strict';
 var usermail = Lampa.Storage.field('account_email').toLowerCase();
 	if (usermail == 'sed-zond@mail.ru') location.reload();
+if (!localStorage.getItem('Diesel_startGroup')) localStorage.setItem('Diesel_startGroup', 'Russia');
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
 /* MSX Noty */
@@ -1226,8 +1230,12 @@ Lampa.SettingsApi.addParam({
 						description: 'Открывает раздел ТВ при запуске Lampa' //Комментарий к подпункту
 					},
 					onChange: function (value) { //Действия при изменении подпункта
-				        if (Lampa.Storage.field('Diesel_Auto_Start') == true) {       
-							localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"Russia","component":"diesel_iptv","page":1}');
+				        if (Lampa.Storage.field('Diesel_Auto_Start') == true) {  
+							if (Lampa.Activity.active().component === plugin.component && Lampa.Activity.active().currentGroup !== 'undefined') {
+							    	var startGroup = Lampa.Activity.active().currentGroup;
+								localStorage.setItem('Diesel_startGroup', startGroup);
+							}
+							localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"' + localStorage.getItem('Diesel_startGroup') +'","component":"diesel_iptv","page":1}');
 							localStorage.setItem('start_page', 'last');
 						};
 						NotyReboot(); //Уведомление
@@ -1671,7 +1679,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'BITTV') {
      Lampa.Storage.listener.follow('change', function (event) {
         if (Lampa.Storage.field('Diesel_Auto_Start') == true) {       
             if (event.name == 'start_page' || 'activity') {
-                localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"Russia","component":"diesel_iptv","page":1}');
+		localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"' + localStorage.getItem('Diesel_startGroup') +'","component":"diesel_iptv","page":1}');
                 localStorage.setItem('start_page', 'last');
             };
 			/*
