@@ -2172,7 +2172,7 @@ function pluginPage(object) {
 			card.on('hover:focus hover:hover touchstart', function (event) {
 				if (event.type && event.type !== 'touchstart' && event.type !== 'hover:hover') scroll.update(card, !true);
 				last = card[0];
-				console.log(plugin.name, event.type);
+				//console.log(plugin.name, event.type);
 				// info.find('.info__title-original').text(channel['Group']);
 				info.find('.info__title').text(channel.Title);
 				var ec = $('#' + plugin.component + '_epg');
