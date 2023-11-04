@@ -1154,6 +1154,23 @@ Lampa.SettingsApi.addParam({
 				}
 			});
 
+/* Открываем каналы с Избранного */
+	Lampa.SettingsApi.addParam({
+			component: 'diesel_iptv',
+			param: {
+				name: 'startFAV',
+				type: 'trigger', //доступно select,input,trigger,title,static
+				default: false
+			},
+				field: {
+					name: 'Всегда с Избранного', //Название подпункта меню
+					description: 'Открывает плагин с категории Избранное' //Комментарий к подпункту
+				},
+				onChange: function (value) { //Действия при изменении подпункта
+					if (Lampa.Storage.get('startFAV') == false) location.reload();
+				}
+	});		
+/* End Открываем каналы с Избранного */
 
 /* Прячем зарубежные каналы в списке категорий */
 	Lampa.SettingsApi.addParam({
@@ -2158,7 +2175,7 @@ function pluginPage(object) {
 			card.on('hover:focus hover:hover touchstart', function (event) {
 				if (event.type && event.type !== 'touchstart' && event.type !== 'hover:hover') scroll.update(card, !true);
 				last = card[0];
-				console.log(plugin.name, event.type);
+				/* console.log(plugin.name, event.type); <--changeIt */
 				// info.find('.info__title-original').text(channel['Group']);
 				info.find('.info__title').text(channel.Title);
 				var ec = $('#' + plugin.component + '_epg');
@@ -2898,7 +2915,9 @@ function configurePlaylist(i) {
 			if (Lampa.Activity.active().component === plugin.component) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
-				Lampa.Activity.push(Lampa.Arrays.clone(activity));
+				if (Lampa.Storage.get('startFAV') == true) {
+				Lampa.Activity.push({"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"","component":"diesel_iptv","page":1}) }
+				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
 		});
 	if (/^https?:\/\/./i.test(url)) {
