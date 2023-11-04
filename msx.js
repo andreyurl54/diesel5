@@ -1151,7 +1151,25 @@ Lampa.SettingsApi.addParam({
 				}
 			});
 
-
+/* Открываем каналы с Избранного */
+	Lampa.SettingsApi.addParam({
+			component: 'diesel_iptv',
+			param: {
+				name: 'startFAV',
+				type: 'trigger', //доступно select,input,trigger,title,static
+				default: false
+			},
+				field: {
+					name: 'Всегда с Избранного', //Название подпункта меню
+					description: 'Открывает плагин с категории Избранное' //Комментарий к подпункту
+				},
+				onChange: function (value) { //Действия при изменении подпункта
+					if (Lampa.Storage.get('diesel_iptv_startFAV') == '1') Lampa.Storage.set('DIESEL_startFAV', '1');
+					if (Lampa.Storage.get('diesel_iptv_startFAV') == '0') Lampa.Storage.set('DIESEL_startFAV', '0') && location.reload();
+				}
+	});		
+/* End Открываем каналы с Избранного */
+	
 /* Прячем зарубежные каналы в списке категорий */
 	Lampa.SettingsApi.addParam({
 			component: 'diesel_iptv',
@@ -2895,7 +2913,7 @@ function configurePlaylist(i) {
 			if (Lampa.Activity.active().component === plugin.component) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
-				if (Lampa.Storage.get('startFAV') == '1') {
+				if (Lampa.Storage.get('DIESEL_startFAV') == '1') {
 				Lampa.Activity.push({"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"","component":"diesel_iptv","page":1}) }
 				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
