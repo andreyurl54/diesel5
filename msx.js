@@ -1164,8 +1164,7 @@ Lampa.SettingsApi.addParam({
 					description: 'Открывает плагин с категории Избранное' //Комментарий к подпункту
 				},
 				onChange: function (value) { //Действия при изменении подпункта
-					if (Lampa.Storage.get('startFAV') == true) Lampa.Storage.set('DIESEL_startFAV', '1');
-					if (Lampa.Storage.get('startFAV') == false) Lampa.Storage.set('DIESEL_startFAV', '0') && location.reload();
+					if (Lampa.Storage.get('startFAV') == false) location.reload();
 				}
 	});		
 /* End Открываем каналы с Избранного */
@@ -2913,7 +2912,7 @@ function configurePlaylist(i) {
 			if (Lampa.Activity.active().component === plugin.component) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
-				if (Lampa.Storage.get('DIESEL_startFAV') == '1') {
+				if (Lampa.Storage.get('startFAV') == true) {
 				Lampa.Activity.push({"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"","component":"diesel_iptv","page":1}) }
 				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
