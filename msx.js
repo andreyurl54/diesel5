@@ -2895,7 +2895,7 @@ function configurePlaylist(i) {
 			if (Lampa.Activity.active().component === plugin.component) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
-				if Lampa.Storage.get('startFAV') == '1' {
+				if (Lampa.Storage.get('startFAV') == '1') {
 				Lampa.Activity.push({"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"","component":"diesel_iptv","page":1}) }
 				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
