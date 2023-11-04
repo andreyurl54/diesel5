@@ -1164,8 +1164,8 @@ Lampa.SettingsApi.addParam({
 					description: 'Открывает плагин с категории Избранное' //Комментарий к подпункту
 				},
 				onChange: function (value) { //Действия при изменении подпункта
-					if (Lampa.Storage.get('startFAV') == '1') Lampa.Storage.set('DIESEL_startFAV', '1');
-					if (Lampa.Storage.get('startFAV') == '0') Lampa.Storage.set('DIESEL_startFAV', '0') && location.reload();
+					if (Lampa.Storage.get('startFAV') == true) Lampa.Storage.set('DIESEL_startFAV', '1');
+					if (Lampa.Storage.get('startFAV') == false) Lampa.Storage.set('DIESEL_startFAV', '0') && location.reload();
 				}
 	});		
 /* End Открываем каналы с Избранного */
