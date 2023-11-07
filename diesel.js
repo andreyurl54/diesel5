@@ -2916,7 +2916,8 @@ function configurePlaylist(i) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
 				if (Lampa.Storage.get('startFAV') == true) {
-				Lampa.Activity.push({"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ", "groups": Array(0),"currentGroup":"","component":"diesel_iptv","page":1}) }
+				var proxyActivity = '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ", "groups": Array(0),"currentGroup":"","component":"diesel_iptv","page":1}'
+				Lampa.Activity.push(proxyActivity) }
 				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
 		});
