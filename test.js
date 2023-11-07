@@ -2916,9 +2916,9 @@ function configurePlaylist(i) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
 				if (Lampa.Storage.get('startFAV') == true) {
-				
-				var proxyActivity = '{"id":0,"url":"' + localStorage.getItem('diesel_activity_url') + '","title":"Дизель ТВ", "groups": [],"currentGroup":"","component":"diesel_iptv","page":1}'
-				Lampa.Activity.push(proxyActivity) } 
+					var proxyActivity = JSON.parse('{"id":0,"url":"' + localStorage.getItem('diesel_activity_url') + '","title":"Дизель ТВ", "groups": [],"currentGroup":"","component":"diesel_iptv","page":1}');
+					// var proxyActivityJSON = JSON.parse(proxyActivity)
+					Lampa.Activity.push(proxyActivityJSON) } 
 				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
 		});
