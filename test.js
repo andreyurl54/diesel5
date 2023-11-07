@@ -1587,7 +1587,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') {
 if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') && (Lampa.Storage.field('diesel_iptv_KLI_link_type') == 'MPEG_TS')) {
 	var diesel_playlist = 'http://klimedia.space/ts/' + Lampa.Storage.field('diesel_iptv_KLI_login') + '/' + Lampa.Storage.field('diesel_iptv_KLI_passwd') +'/playlist.m3u8';
 };
-localStorage.setItem('diesel_activity_url', diesel_playlist);
+Lampa.Storage.set('diesel_activity_url', diesel_playlist);
 
 /* * * * * * * * * * * * * * *
  * Дополнительные Настройки  *
