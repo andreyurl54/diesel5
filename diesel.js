@@ -2915,10 +2915,11 @@ function configurePlaylist(i) {
 			if (Lampa.Activity.active().component === plugin.component) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
-				if (Lampa.Storage.get('startFAV') == true) {
+				/* if (Lampa.Storage.get('startFAV') == true) {
 				var proxyActivity = '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ", "groups": Array(0),"currentGroup":"","component":"diesel_iptv","page":1}'
-				Lampa.Activity.push(proxyActivity) }
-				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
+				Lampa.Activity.push(proxyActivity) } 
+				else */
+    				Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
 		});
 	if (/^https?:\/\/./i.test(url)) {
