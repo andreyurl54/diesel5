@@ -2916,10 +2916,10 @@ function configurePlaylist(i) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
 				if (Lampa.Storage.get('startFAV') == true) {
-				Lampa.Storage.set('diesel_iptv_last_catalog0', '!!');
-				Lampa.Activity.active().currentGroup = '';
-				//var proxyActivity = '{"id":0,"url":"' + url + '","title":"Дизель ТВ", "groups": [],"currentGroup":"","component":"diesel_iptv","page":1}'
-				Lampa.Activity.push(Lampa.Arrays.clone(activity)) } 
+				//Lampa.Storage.set('diesel_iptv_last_catalog0', '!!');
+				//Lampa.Activity.active().currentGroup = '';
+				var proxyActivity = '{"id":0,"url":"' + url + '","title":"Дизель ТВ", "groups": [],"currentGroup":"","component":"diesel_iptv","page":1}'
+				Lampa.Activity.push(proxyActivity) } 
 				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
 		});
