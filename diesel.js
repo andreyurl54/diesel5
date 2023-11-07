@@ -1587,7 +1587,7 @@ if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') {
 if ((Lampa.Storage.field('DIESEL_PlaylistVariant') == 'KLI') && (Lampa.Storage.field('diesel_iptv_KLI_link_type') == 'MPEG_TS')) {
 	var diesel_playlist = 'http://klimedia.space/ts/' + Lampa.Storage.field('diesel_iptv_KLI_login') + '/' + Lampa.Storage.field('diesel_iptv_KLI_passwd') +'/playlist.m3u8';
 };
-// localStorage.setItem('diesel_activity_url', Lampa.Activity.active().url);
+Lampa.Storage.set('diesel_activity_url', diesel_playlist);
 
 /* * * * * * * * * * * * * * *
  * Дополнительные Настройки  *
@@ -2915,11 +2915,11 @@ function configurePlaylist(i) {
 			if (Lampa.Activity.active().component === plugin.component) {
 				Lampa.Activity.replace(Lampa.Arrays.clone(activity));
 			} else {
-				/* if (Lampa.Storage.get('startFAV') == true) {
-				var proxyActivity = '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ", "groups": Array(0),"currentGroup":"","component":"diesel_iptv","page":1}'
-				Lampa.Activity.push(proxyActivity) } 
-				else */
-    				Lampa.Activity.push(Lampa.Arrays.clone(activity));
+				if (Lampa.Storage.get('startFAV') == true) {
+					var proxyActivity = JSON.parse('{"id":0,"url":"' + localStorage.getItem('diesel_activity_url') + '","title":"Дизель ТВ", "groups": [],"currentGroup":"","component":"diesel_iptv","page":1}');
+					// var proxyActivityJSON = JSON.parse(proxyActivity)
+					Lampa.Activity.push(proxyActivity) } 
+				else Lampa.Activity.push(Lampa.Arrays.clone(activity));
 			}
 		});
 	if (/^https?:\/\/./i.test(url)) {
