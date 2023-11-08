@@ -2426,12 +2426,12 @@ function pluginPage(object) {
 							}
 							Lampa.Controller.toggle('content');
 						} 
-						  else if (!!startTest) {
+						  /* else if (!!startTest) {
 							Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html',
 	            							onBack: function onBack() {
 										Lampa.Controller.toggle('content');}
 									});
-							}
+							} */
 						  else {
 							var favGroup = lists[object.id].groups[0];
 							if (!!sel.favToggle) {
