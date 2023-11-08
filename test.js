@@ -2273,7 +2273,7 @@ function pluginPage(object) {
 					});
 				}
 				menu.push({
-					title: title: 'Тест скорости',
+					title: 'Тест скорости',
 					restartProgram: true,
 					startTest: true
 				});
