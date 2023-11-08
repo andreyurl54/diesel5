@@ -2284,6 +2284,12 @@ function pluginPage(object) {
 					title: Lampa.Lang.translate('title_action'),
 					items: menu,
 					onSelect: function (sel) {
+						if (!!sel.startTest){
+							Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html',
+	            					onBack: function onBack() {
+								Lampa.Controller.toggle('content');}
+							})
+						}
 						if (!!sel.archive) {
 							var t = unixtime();
 							var m = Math.floor(t/60);
