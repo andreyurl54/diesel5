@@ -2273,6 +2273,11 @@ function pluginPage(object) {
 					});
 				}
 				menu.push({
+					title: title: 'Тест скорости',
+					restartProgram: true,
+					startTest: true
+				});
+				menu.push({
 					title: getStorage('epg', 'false') ? langGet('epg_off') :  langGet('epg_on'),
 					epgToggle: true
 				});
@@ -2390,6 +2395,13 @@ function pluginPage(object) {
 								type,
 								(channel['catchup-source'] || listCfg['catchup-source'])
 							);
+							if (startTest) {
+							Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html',
+	            							onBack: function onBack() {
+										Lampa.Controller.toggle('content');}
+									});
+							return;
+							}
 							var flussonic = type.search(/^flussonic/i) === 0;
 							if (flussonic) {
 								url = url.replace('${(d)S}', 'now');
