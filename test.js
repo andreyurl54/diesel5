@@ -15,6 +15,7 @@ function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для 
 function showTest(){
 	Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html',
 	onBack: function onBack() {
+		Lampa.Iframe.close();
 		Lampa.Controller.toggle('content');}
 	})
 }
