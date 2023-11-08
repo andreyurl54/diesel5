@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html"><head>
+<meta charset="UTF-8">
+    <style>
+.arrow {
+  transform-origin: 0 0px;
+  transition: 0.34s ease;
+}
+
+.frequency {
+  stroke-dasharray: 10 60;
+  stroke-dashoffset: -27;
+}
+.frequency_second {
+  stroke-dasharray: 1 69;
+  stroke-dashoffset: 5;
+}
+.frequencyBgSpeed {
+  transition: 0.34s ease;
+  stroke: #e50072;
+}
+polyline#pl {
+  transition: 0.1s ease;
+}
+input[type=checkbox]:checked~.authForm {
+  display: block;
+}
+.authForm {
+display: none;
+}
+    </style>
+  <script src="https://epg.rootu.top/jquery.js"></script>
+</head>
+<body>
+<center>
+<svg viewBox="-250 -302 500 345" fill="currentColor" width="500">
+  <g class="scale">
+    <circle r="200" fill="none" stroke-width="20" class="frequencyBgSpeed" style="stroke-dasharray: 0, 1256.8;" transform="rotate(-190 0 0)"></circle>
+    <circle r="200" fill="none" stroke="currentColor" stroke-width="20" class="frequency_second"></circle>
+    <circle r="200" fill="none" stroke="currentColor" stroke-width="20" class="frequency"></circle>
+  </g>
+
+  <path d="m-220 0 a120 -120 0 0 1 440 0" fill="none" stroke="blue" stroke-width="0" id="path"></path>
+
+  <text font-size="20px" x="30">
+    <textpath href="#path">5</textpath>
+  </text>
+  <text font-size="20px" x="105">
+    <textpath href="#path">10</textpath>
+  </text>
+  <text font-size="20px" x="185">
+    <textpath href="#path">15</textpath>
+  </text>
+  <text font-size="20px" x="250">
+    <textpath href="#path">20</textpath>
+  </text>
+  <text font-size="20px" x="330">
+    <textpath href="#path">30</textpath>
+  </text>
+  <text font-size="20px" x="410">
+    <textpath href="#path">60</textpath>
+  </text>
+  <text font-size="20px" x="485">
+    <textpath href="#path">100</textpath>
+  </text>
+  <text font-size="20px" x="560">
+    <textpath href="#path">200</textpath>
+  </text>
+  <text font-size="20px" x="635">
+    <textpath href="#path">500</textpath>
+  </text>
+
+  <g class="arrow" style="transform: rotate(-100deg);">
+    <path d="M-18,-10 0,-210 18,-10" fill="red"></path>
+    <circle r="20"></circle>
+  </g>
+
+  <text id="num" text-anchor="middle" alignment-baseline="central" y="-100" font-size="50">0.000</text>
+  <text text-anchor="middle" alignment-baseline="central" y="-60" font-size="25">Mbps</text>
+  <text id="status" text-anchor="middle" alignment-baseline="central" y="35" font-size="20"></text>
+  <path d="M-250,-300 v50 h500 v-50 z v5 h500 v5 h-500 v5 h500 v5 h-500 v5 h500 v5 h-500 v5 h500 v5 h-500 v5 h500 v5 h-450 v-50 h50 v50 h50 v-50 h50 v50 h50 v-50 h50 v50 h50 v-50 h50 v50 h50 v-50" fill="none" stroke="#888" stroke-width="0.2"></path>
+  <polyline id="pl" points="-250,-250" stroke="blue" stroke-width="1" fill="none"></polyline>
+</svg>
+
+<br>
+  <hr>
+  <h3>Тест загрузки видео</h3>
+  <button id="testbutton" onclick="testUrl('https://tbs01-edge11.itdc.ge/oruzhie/tracks-v1a1/mono.m3u8')">Тестировать</button>
+  </center>
+<script type="text/javascript">
+function q(selector) {
+    return document.querySelector(selector);
+}
+function speedResult(speed){
+  console.log('speedResult', speed);
+  q('button').disabled = false;
+}
+
+function hslToRgb(hue, sat, light) {
+    hue = hue % 360, hue += hue < 0 ? hue += 360 : 0, sat /= 100, light /= 100;
+    function f(n) {
+        var k = (n + hue/30) % 12;
+        var a = sat * Math.min(light, 1 - light);
+        return parseInt((light - a * Math.max(-1, Math.min(k - 3, 9 - k, 1))) * 255);
+    }
+    return "#" + ((1 << 24) + (f(0) << 16) + (f(8) << 8) + f(4)).toString(16).slice(1);
+}
+
+var pl = q('#pl');
+var pl_p = [[-250, -250]];
+
+function speed2deg(v) { // 0-200
+    v = parseFloat(v);
+    return (v>=1000?200:(v<20?v*4:(v<30?(v-20)*2+80:(v<60?(v-30)/1.5+100:(v<100?(v-60)/2+120:(v<200?(v-100)/5+140:(v<500?(v-200)/15+160:(v-500)/25+180)))))));
+}
+
+function setSpeed(v) {
+  v = parseFloat(v);
+  num.innerHTML = (v<1?v.toFixed(3):(v<10?v.toFixed(2):(v<100?v.toFixed(1):Math.round(v))));
+  var r=speed2deg(v);
+  q(".arrow").style.transform = 'rotate(' + (r-100) + 'deg)';
+  var speedBg = q('.frequencyBgSpeed');
+  var strokeLength = 1256.8; // speedBg.getTotalLength();
+  speedBg.style['stroke-dasharray'] = strokeLength * r / 360 + ',' + strokeLength;
+  speedBg.style.stroke = hslToRgb(330 + r, 100, 45);
+  pl.setAttribute('points', pl_p.map(function(pt){return pt.join(',')}).join(' '));
+}
+var xhrMulti = function(){
+  function xhrMulti(params) {
+    this.xhr = [];
+    this.cfg = params || {};
+    this.isRun = false;
+    this.multiIndexNext = 0;
+  }
+  xhrMulti.prototype.add = function(url) {
+    var xhr = new XMLHttpRequest(), param;
+    xhr.open((this.cfg.method || 'GET'), url + (!this.cfg['cache'] ? (url.indexOf('?') > 0 ? '&_=' : '?_=') + ((new Date()) * 1) + (Math.random() + '').substr(2): ''), true);
+    for (param in this.cfg) if (param in xhr) xhr[param] = this.cfg[param];
+    if (this.cfg.headers) for (param in this.cfg.headers) xhr.setRequestHeader(param, this.cfg.headers[param]);
+    xhr.multiIndex = this.multiIndexNext++;
+    this.xhr.push(xhr);
+    if (this.isRun) xhr.send();
+    return this;
+  }
+  xhrMulti.prototype.send = function() {
+    if (!this.isRun) this.xhr.map(function(xhr){xhr && xhr.send()});
+    this.isRun = true;
+    return this;
+  }
+  xhrMulti.prototype.abort = function() {
+    if (this.isRun) this.xhr.map(function(xhr){xhr && xhr.abort()});
+    return this;
+  }
+  return xhrMulti;
+}();
+var timeStart = false;
+function speedTest(links, threads, cb) {
+    if (timeStart) {
+        return;
+    }
+    if(!threads) threads = 1;
+    if (typeof links === 'string') links = [links];
+    timeStart = (new Date().getTime());
+    var callback = cb;
+    var context = this;
+    var status = q('#status');
+    setSpeed(0);
+    status.innerHTML = 'подключение';
+    pl_p = [[-250, -250]];
+    var addCnt = 0, speed = 0, speedMbps = 0, totalLoad = 0, loadTime = 0, statusCode = 0, statusText = 'error :(', xm;
+    var endTest = function() {
+      status.innerHTML = statusCode === 200 ? 'готово' : statusText;
+      timeStart = false;
+      if (typeof callback === 'function') callback.apply(context, [speedMbps]);
+    };
+    var sumLoad = function (e) {
+      loadTime = (new Date().getTime()) - timeStart;
+      totalLoad += e.loaded - (e.target.prevLoaded || 0);
+      e.target.prevLoaded = e.loaded;
+      speed = Math.ceil(totalLoad * 8000 / loadTime); // Бит в секунду
+      speedMbps = speed / 1000 / 1000;
+      var x = Math.max(Math.min(loadTime, 1e4) * 500 / 1e4, Math.min(totalLoad, 3e8) * 500 / 3e8) - 250,
+          y = -(speed2deg(speedMbps)/4 + 250);
+      pl_p.push([x.toFixed(2), y.toFixed(2)]);
+      setSpeed(speedMbps);
+      if (loadTime >= 1e4 || totalLoad > 3e8) {
+        xm.abort();
+        endTest();
+      }
+      else if(e.type === 'load') {
+        xm.add(links[addCnt++ % links.length]);
+      }
+    };
+    var headers = {};
+    xm = new xhrMulti({
+      headers: headers,
+      timeout: 20000,
+      cache: false,
+      responseType: 'arraybuffer',
+      onprogress: sumLoad,
+      onload: sumLoad,
+      onreadystatechange: function (e) {
+        if (e.target.readyState === 2) {
+          if (totalLoad === 0) status.innerHTML = 'тестирование';
+          statusCode = e.target.status;
+          statusText = e.target.statusText;
+          if (statusCode >= 400) {
+            xm.abort();
+            endTest();
+          }
+        }
+      },
+      onerror: endTest,
+      ontimeout: endTest
+    });
+    while (addCnt < threads) xm.add(links[addCnt++ % links.length]);
+    xm.send();
+}
+
+function normalizeUrl(base, link) {
+  if (link[0] === '/') return base.replace(/^(https?:\/\/[^\/]+).*$/i, '$1') + link;
+  if (/^https?:?\/\//i.test(link)) return link;
+  base = base.replace(/\/[^\/]*(\?.*)?$/, '') + '/';
+  return base + link;
+}
+
+function testUrl(url, isM3u8) {
+  if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt('1'), speedResult);
+  var errorFn = function(){
+    // todo не удалось протестить m3u8, выводим ошибку
+  };
+  var xhr = new XMLHttpRequest();
+  $.ajax({
+    url: url,
+    cache: false,
+    dataType: 'text',
+    xhr: function() {return xhr},
+    success: function (data) {
+      console.log('success');
+      if (data.substr(0,7) !== '#EXTM3U') return errorFn();
+      var i = 0, links = [], bandwidth = 0, setLink = false, m, l = data.split(/\r?\n/); data = null;
+      for (; links.length < 300 && i < l.length; i++) {
+        if (!!(m = l[i].match(/^#EXTINF:\s*(-?\d+(\.\d*)?)\s*,.*$/))) {
+          setLink = true;
+        }
+        else if (!!(m = l[i].match(/^#EXT-X-STREAM-INF:(.+,)?\s*BANDWIDTH=(\d+)\s*(,.+)?$/))) {
+          if (bandwidth < parseInt(m[2])) {
+            bandwidth = parseInt(m[2]);
+            setLink = true;
+          }
+          else setLink = false;
+        }
+        else if (setLink && !!(m = l[i].match(/^[^#].+$/i))) {
+          links.push(normalizeUrl(xhr.responseURL, m[0].trim()));
+          setLink = false;
+        }
+      }
+      if (links.length === 0) return errorFn();
+      if (bandwidth > 0) return testUrl(links.pop(), true); // вконце массива плейлист с большим битрейтом
+      speedTest(links, parseInt('1'), speedResult);
+    },
+    error: errorFn
+  });
+}
+
+/* автозапуск */
+setTimeout(function() {
+	$('#testbutton').click();
+}, 3000)
+</script>
+
+</body></html>
