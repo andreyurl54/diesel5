@@ -42,10 +42,14 @@ var modal = $("<div class=\"about\">" + '\n' +
 		html: modal,
 		size: 'medium',
 		mask: true, 
+		onSelect: function onSelect(a) {
+			Lampa.Modal.close(); 
+			Lampa.Controller.toggle('content')
+		},
 		onBack: function onBack() {
 		  	Lampa.Modal.close();
 			// $('.modal').remove();
-			Lampa.Controller.toggle('settings_component');
+			Lampa.Controller.toggle('content');
 		}
   	})
 	/*
