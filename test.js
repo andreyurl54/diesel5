@@ -47,9 +47,10 @@ var modal = $("<div class=\"about\">" + '\n' +
 			Lampa.Controller.toggle('content')
 		},
 		onBack: function onBack() {
-		  	Lampa.Modal.close();
+		  	Lampa.Noty.show('Close')
+			Lampa.Modal.close();
 			// $('.modal').remove();
-			Lampa.Controller.toggle('content');
+			//Lampa.Controller.toggle('content');
 		}
   	})
 	/*
