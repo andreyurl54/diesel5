@@ -13,7 +13,7 @@ if (!localStorage.getItem('Diesel_startGroup')) localStorage.setItem('Diesel_sta
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
 function showTest(){
-var modal = $('<div class=\"about\">" + '\n' +
+var modal = $("<div class=\"about\">" + '\n' +
 								'<div>Мы заметили, что для запуска Lampa на Android Вы используете MediaStationX. Рекомендуем вам удалить MediaStationX и установить Lampa как APK-приложение. Скачать последнюю версию приложения Вы можете:</div>\n\n\n' +
 								'<div class=\"overhide\">\n' +
 									'<div class=\"about__contacts\">\n' +
@@ -36,7 +36,7 @@ var modal = $('<div class=\"about\">" + '\n' +
 									'</div>\n' +
 								'</div>\n\n' +
 								'</div>\n\n' +
-								"</div>');
+								"</div>");
 	Lampa.Modal.open({
 		title: '',
 		html: modal,
