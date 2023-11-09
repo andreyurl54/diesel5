@@ -43,7 +43,8 @@ var modal = $("<div class=\"about\">" + '\n' +
 		size: 'medium',
 		mask: true, 
 		onBack: function onBack() {
-		  	$('.modal').remove();
+		  	Lampa.Modal.close();
+			// $('.modal').remove();
 			Lampa.Controller.toggle('settings_component');
 		}
   	})
