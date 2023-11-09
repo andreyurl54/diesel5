@@ -2334,7 +2334,7 @@ function pluginPage(object) {
 					items: menu,
 					onSelect: function (sel) {
 						if (!!sel.startTest){
-							showTest();
+							Lampa.Noty.show(channel.Url) // showTest();
 						}
 						if (!!sel.archive) {
 							var t = unixtime();
