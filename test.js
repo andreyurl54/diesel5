@@ -2289,6 +2289,7 @@ function pluginPage(object) {
 					items: menu,
 					onSelect: function (sel) {
 						if (!!sel.startTest){
+							Lampa.Controller.toggle('content');
 							Lampa.Speedtest.start({url:channel.Url});
 							//Lampa.Controller.toggle('content');
 							//Lampa.Noty.show(channel.Url);
