@@ -18,7 +18,7 @@ function showTest(link){
 					$('.iframe').remove();
 					Lampa.Controller.toggle('settings_component');}
 	            	});
-			setTimeout(function() { $('.iframe').remove(); Lampa.Controller.toggle('content'); }, 10000)
+			setTimeout(function() { $('.iframe').remove(); Lampa.Controller.toggle('content'); }, 15000)
 }
 	
 /* MSX Noty */
