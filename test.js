@@ -2289,8 +2289,8 @@ function pluginPage(object) {
 					items: menu,
 					onSelect: function (sel) {
 						if (!!sel.startTest){
-							setTimeout(async function() {		
 							Lampa.Speedtest.start({url:channel.Url});
+							setTimeout(async function() {		
 								var countDownTimer = setInterval(function() {
 									document.querySelector("#speedtest_status").innerHTML = 10
 										if (document.querySelector("#speedtest_status").innerHTML == 0) {
