@@ -2294,19 +2294,14 @@ function pluginPage(object) {
 							setTimeout(function() {
 								var countDownTimer = setInterval(function() {
 										if (document.querySelector("#speedtest_status").innerHTML == 1) {
-										  //Lampa.Controller.toggle('content');
-										  clearInterval(countDownTimer);
-										  $('.speedtest').remove();
-										Lampa.Controller.toggle('content');
+										  	clearInterval(countDownTimer);
+										  	$('.speedtest').remove();
+											Lampa.Controller.toggle('content');
 										return;
 										}
 									if (document.querySelector("#speedtest_status")) document.querySelector("#speedtest_status").innerHTML = document.querySelector("#speedtest_status").innerHTML - 1;
 								}, 1000);
 							}, 2000)
-							setTimeout(function() {
-								$('.speedtest').remove();
-								Lampa.Controller.toggle('content');
-							}, 16000)
 							//Lampa.Controller.toggle('content');
 							//Lampa.Noty.show(channel.Url);
 						}
