@@ -2292,13 +2292,13 @@ function pluginPage(object) {
 							setTimeout(async function() {		
 							Lampa.Speedtest.start({url:channel.Url});
 								var countDownTimer = setInterval(function() {
-									document.querySelector("#speedtest_status").innerText = 10
-										if (document.querySelector("#speedtest_status").innerText == 0) {
+									document.querySelector("#speedtest_status").innerHTML = 10
+										if (document.querySelector("#speedtest_status").innerHTML == 0) {
 										  //Lampa.Controller.toggle('content');
 										  clearInterval(countDownTimer);
 										  return;
 										}
-									document.querySelector("#speedtest_status").innerText = document.querySelector("#speedtest_status").innerText - 1;
+									document.querySelector("#speedtest_status").innerHTML = document.querySelector("#speedtest_status").innerHTML - 1;
 								}, 1000);
 							}, 2000)
 							setTimeout(async function() {
