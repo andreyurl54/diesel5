@@ -12,13 +12,8 @@ var usermail = Lampa.Storage.field('account_email').toLowerCase();
 if (!localStorage.getItem('Diesel_startGroup')) localStorage.setItem('Diesel_startGroup', 'Russia');
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
-function showTest(){
-	var enabled = Lampa.Controller.enabled().name
-	Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html',
-	onBack: function onBack() {
-		Lampa.Iframe.close();
-		Lampa.Controller.toggle(enabled);}
-	}) 
+function showTest(link){
+      Lampa.Speedtest.start({url:link}); 
 }
 	
 /* MSX Noty */
@@ -2294,7 +2289,7 @@ function pluginPage(object) {
 					items: menu,
 					onSelect: function (sel) {
 						if (!!sel.startTest){
-							showTest();
+							showTest(channel.Url);
 							//Lampa.Noty.show(channel.Url);
 						}
 						if (!!sel.archive) {
