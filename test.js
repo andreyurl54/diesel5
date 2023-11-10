@@ -17,7 +17,8 @@ function showTest(link){
 	              		onBack: function onBack() {
 					$('.iframe').remove();
 					Lampa.Controller.toggle('settings_component');}
-	            	})
+	            	});
+			Lampa.Controller.toggle($('.iframe'))
 }
 	
 /* MSX Noty */
