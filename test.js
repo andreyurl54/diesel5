@@ -2289,16 +2289,12 @@ function pluginPage(object) {
 					items: menu,
 					onSelect: function (sel) {
 						if (!!sel.startTest){
-								Lampa.Select.show({
-									title: 'Тест',
-									onSelect: function (sel) {
-										Lampa.Controller.toggle('content');
-										Lampa.Speedtest.start({url:channel.Url});
-									},
-									onBack: function () {
-										Lampa.Controller.toggle('content');
-									}
-								})
+										
+							Lampa.Speedtest.start({url:channel.Url});
+							setTimeout(function() {
+								$('.speedtest').remove();
+								Lampa.Controller.toggle('content');
+							}, 10000)
 							//Lampa.Controller.toggle('content');
 							//Lampa.Noty.show(channel.Url);
 						}
