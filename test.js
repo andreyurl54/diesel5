@@ -13,52 +13,12 @@ if (!localStorage.getItem('Diesel_startGroup')) localStorage.setItem('Diesel_sta
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
 function showTest(){
-var modal = $("<div class=\"about\">" + '\n' +
-								'<div>Мы заметили, что для запуска Lampa на Android Вы используете MediaStationX. Рекомендуем вам удалить MediaStationX и установить Lampa как APK-приложение. Скачать последнюю версию приложения Вы можете:</div>\n\n\n' +
-								'<div class=\"overhide\">\n' +
-									'<div class=\"about__contacts\">\n' +
-										'<div>\n' +
-											'<small>TELEGRAM</small><br>\n' +
-											'@lampa_android\n' +
-										'</div>\n\n' +
-										'<div>\n' +
-											'<small>Прямой Ссылкой</small><br>\n' +
-											'https://cub.red/download/lampa.apk' + '\n' +
-										'</div>\n\n' +
-										'<div>\n' +
-											'<small>Если это ошибка, напишите об этом в Telegram-группе плагинов</small><br>\n' +
-											'@lampa_plugins' + '\n' +
-										'</div>\n\n' +
-										'<div>\n' +
-											'<small>Окно автоматически закроется через: ' + '<span id="counter">31</span>' + ' секунд' + '</small><br>\n' +
-											'\n' +
-										'</div>\n\n' +
-									'</div>\n' +
-								'</div>\n\n' +
-								'</div>\n\n' +
-								"</div>");
-	Lampa.Modal.open({
-		title: '',
-		html: modal,
-		size: 'medium',
-		mask: true, 
-		onSelect: function onSelect(a) {
-			Lampa.Modal.close(); 
-			Lampa.Controller.toggle('content')
-		},
-		onBack: function onBack() {
-		  	Lampa.Noty.show('Close')
-			Lampa.Modal.close();
-			// $('.modal').remove();
-			//Lampa.Controller.toggle('content');
-		}
-  	})
-	/*
+	var enabled = Lampa.Controller.enabled().name
 	Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html',
 	onBack: function onBack() {
 		Lampa.Iframe.close();
-		Lampa.Controller.toggle('content');}
-	}) */
+		Lampa.Controller.toggle(enabled);}
+	}) 
 }
 	
 /* MSX Noty */
@@ -2334,7 +2294,8 @@ function pluginPage(object) {
 					items: menu,
 					onSelect: function (sel) {
 						if (!!sel.startTest){
-							Lampa.Noty.show(channel.Url) // showTest();
+							showTest();
+							//Lampa.Noty.show(channel.Url);
 						}
 						if (!!sel.archive) {
 							var t = unixtime();
