@@ -2295,6 +2295,16 @@ function pluginPage(object) {
 								$('.speedtest').remove();
 								Lampa.Controller.toggle('content');
 							}, 10000)
+							
+							var countDownTimer = setInterval(function() {
+								document.querySelector("#speedtest_status").innerText = 10
+									if (document.querySelector("#speedtest_status").innerText == 0) {
+									  //Lampa.Controller.toggle('content');
+									  clearInterval(countDownTimer);
+									  return;
+									}
+								document.querySelector("#speedtest_status").innerText = document.querySelector("#speedtest_status").innerText - 1;
+							}, 1000);
 							//Lampa.Controller.toggle('content');
 							//Lampa.Noty.show(channel.Url);
 						}
