@@ -86,7 +86,7 @@ display: none;
 <br>
   <hr>
   <h3>Тест загрузки видео</h3>
-  <button id="testbutton" onclick="testUrl('https://tbs01-edge11.itdc.ge/oruzhie/tracks-v1a1/mono.m3u8')">Тестировать</button>
+  <button id="testbutton" onclick="testUrl()">Тестировать</button>
   </center>
 <script type="text/javascript">
 function q(selector) {
@@ -226,6 +226,10 @@ function normalizeUrl(base, link) {
 }
 
 function testUrl(url, isM3u8) {
+  /* читаем плейлист */
+  var search = new URLSearchParams(window.location.search);
+  var url = search.get('myLink');
+  
   if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt('1'), speedResult);
   var errorFn = function(){
     // todo не удалось протестить m3u8, выводим ошибку
@@ -264,6 +268,8 @@ function testUrl(url, isM3u8) {
   });
 }
 
+
+	
 /* автозапуск */
 setTimeout(function() {
 	$('#testbutton').click();
