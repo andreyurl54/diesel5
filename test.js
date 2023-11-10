@@ -2291,6 +2291,7 @@ function pluginPage(object) {
 						if (!!sel.startTest){
 							Lampa.Controller.toggle('content');
 							Lampa.Speedtest.start({url:channel.Url});
+							Lampa.Noty.show('1');
 							//Lampa.Controller.toggle('content');
 							//Lampa.Noty.show(channel.Url);
 						}
