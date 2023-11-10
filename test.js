@@ -13,7 +13,11 @@ if (!localStorage.getItem('Diesel_startGroup')) localStorage.setItem('Diesel_sta
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
 function showTest(link){
-      Lampa.Speedtest.start({url:link}); 
+      			Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html',
+	              		onBack: function onBack() {
+					$('.iframe').remove();
+					Lampa.Controller.toggle('settings_component');}
+	            	})
 }
 	
 /* MSX Noty */
@@ -2289,8 +2293,9 @@ function pluginPage(object) {
 					items: menu,
 					onSelect: function (sel) {
 						if (!!sel.startTest){
+						/*
 							Lampa.Speedtest.start({url:channel.Url});
-							setTimeout(function() {if (document.querySelector("#speedtest_status")) document.querySelector("#speedtest_status").innerHTML = 10;}, 1000)
+							setTimeout(function() {if (document.querySelector("#speedtest_status")) document.querySelector("#speedtest_status").innerHTML = 7;}, 1000)
 							setTimeout(function() {
 								var countDownTimer = setInterval(function() {
 										if (document.querySelector("#speedtest_status").innerHTML == 1) {
@@ -2302,8 +2307,8 @@ function pluginPage(object) {
 									if (document.querySelector("#speedtest_status")) document.querySelector("#speedtest_status").innerHTML = document.querySelector("#speedtest_status").innerHTML - 1;
 								}, 1000);
 							}, 2000)
-							//Lampa.Controller.toggle('content');
-							//Lampa.Noty.show(channel.Url);
+						*/
+							showTest(channel.Url);
 						}
 						if (!!sel.archive) {
 							var t = unixtime();
