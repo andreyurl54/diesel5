@@ -2291,7 +2291,6 @@ function pluginPage(object) {
 						if (!!sel.startTest){
 								Lampa.Select.show({
 									title: 'Тест',
-									items: 'Начать',
 									onSelect: function (sel) {
 										Lampa.Controller.toggle('content');
 										Lampa.Speedtest.start({url:channel.Url});
