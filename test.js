@@ -2290,17 +2290,17 @@ function pluginPage(object) {
 					onSelect: function (sel) {
 						if (!!sel.startTest){
 							Lampa.Speedtest.start({url:channel.Url});
-							if (document.querySelector("#speedtest_status")) document.querySelector("#speedtest_status").innerHTML = 10;
+							setTimeout(function() {if (document.querySelector("#speedtest_status")) document.querySelector("#speedtest_status").innerHTML = 10;}, 1000)
 							setTimeout(function() {
 								var countDownTimer = setInterval(function() {
-										if (document.querySelector("#speedtest_status").innerHTML == 0) {
+										if (document.querySelector("#speedtest_status").innerHTML == 1) {
 										  //Lampa.Controller.toggle('content');
 										  clearInterval(countDownTimer);
 										  $('.speedtest').remove();
 										Lampa.Controller.toggle('content');
 										return;
 										}
-									document.querySelector("#speedtest_status").innerHTML = document.querySelector("#speedtest_status").innerHTML - 1;
+									if (document.querySelector("#speedtest_status")) document.querySelector("#speedtest_status").innerHTML = document.querySelector("#speedtest_status").innerHTML - 1;
 								}, 1000);
 							}, 2000)
 							setTimeout(function() {
