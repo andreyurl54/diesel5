@@ -13,7 +13,7 @@ if (!localStorage.getItem('Diesel_startGroup')) localStorage.setItem('Diesel_sta
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
 function showTest(link){
-      			Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html',
+      			Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html' + '?myLink=' + link,
 	              		onBack: function onBack() {
 					$('.iframe').remove();
 					Lampa.Controller.toggle('settings_component');}
