@@ -2290,13 +2290,15 @@ function pluginPage(object) {
 					onSelect: function (sel) {
 						if (!!sel.startTest){
 							Lampa.Speedtest.start({url:channel.Url});
-							setTimeout(function() {document.querySelector("#speedtest_status").innerHTML = 10}, 1000)
+							if (document.querySelector("#speedtest_status")) document.querySelector("#speedtest_status").innerHTML = 10;
 							setTimeout(function() {
 								var countDownTimer = setInterval(function() {
 										if (document.querySelector("#speedtest_status").innerHTML == 0) {
 										  //Lampa.Controller.toggle('content');
 										  clearInterval(countDownTimer);
-										  return;
+										  $('.speedtest').remove();
+										Lampa.Controller.toggle('content');
+										return;
 										}
 									document.querySelector("#speedtest_status").innerHTML = document.querySelector("#speedtest_status").innerHTML - 1;
 								}, 1000);
@@ -2304,7 +2306,7 @@ function pluginPage(object) {
 							setTimeout(function() {
 								$('.speedtest').remove();
 								Lampa.Controller.toggle('content');
-							}, 13000)
+							}, 16000)
 							//Lampa.Controller.toggle('content');
 							//Lampa.Noty.show(channel.Url);
 						}
