@@ -2290,9 +2290,9 @@ function pluginPage(object) {
 					onSelect: function (sel) {
 						if (!!sel.startTest){
 							Lampa.Speedtest.start({url:channel.Url});
-							setTimeout(async function() {		
+							document.querySelector("#speedtest_status").innerHTML = 10
+							setTimeout(async function() {
 								var countDownTimer = setInterval(function() {
-									document.querySelector("#speedtest_status").innerHTML = 10
 										if (document.querySelector("#speedtest_status").innerHTML == 0) {
 										  //Lampa.Controller.toggle('content');
 										  clearInterval(countDownTimer);
@@ -2300,7 +2300,7 @@ function pluginPage(object) {
 										}
 									document.querySelector("#speedtest_status").innerHTML = document.querySelector("#speedtest_status").innerHTML - 1;
 								}, 1000);
-							}, 2000)
+							}, 1000)
 							setTimeout(async function() {
 								$('.speedtest').remove();
 								Lampa.Controller.toggle('content');
