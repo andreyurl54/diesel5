@@ -15,7 +15,7 @@
     <option value="3">3</option>
     <option value="2">2</option>
     <option value="1">1</option>
-  </select> потоков
+  </select>
 
 <input id="tors" placeholder="http://192.168.X.X:8090" value="" style="display: none;"><br>
 <input id="auth" type="checkbox" value="1" style="display: none;"> <label for="auth" style="display: none;">Нужна авторизация</label><br>
@@ -23,7 +23,7 @@
 <input id="pass" class="authForm" type="password" placeholder="password" value="" style="display: none;"><br>
 <button onclick="test();" style="display: none;">Тестировать</button>
   <hr>
-  <h3>Протестируйте загрузку видео (поддерживается m3u8)</h3>
+  <h3>Тест загрузки видео</h3>
   <input id="testurl" placeholder="http://example.com/video.m3u8" value=""><br>
   <button onclick="if(/^https?:\/\/.+/i.test(q('#testurl').value)){testUrl(q('#testurl').value)} else {alert('Укажите http[s] ссылку для тестирования')}">Тестировать</button>
 </center>
@@ -176,7 +176,7 @@ function normalizeUrl(base, link) {
 }
 
 function testUrl(url, isM3u8) {
-  if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt(q('#threads').value), speedResult);
+  if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt('1'), speedResult);
   var errorFn = function(){
     // todo не удалось протестить m3u8, выводим ошибку
   };
@@ -208,7 +208,7 @@ function testUrl(url, isM3u8) {
       }
       if (links.length === 0) return errorFn();
       if (bandwidth > 0) return testUrl(links.pop(), true); // вконце массива плейлист с большим битрейтом
-      speedTest(links, parseInt(q('#threads').value), speedResult);
+      speedTest(links, parseInt('1'), speedResult);
     },
     error: errorFn
   });
