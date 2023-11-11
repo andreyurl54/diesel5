@@ -1,37 +1,10 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html"><head>
 <meta charset="UTF-8">
-    <style>
-.arrow {
-  transform-origin: 0 0px;
-  transition: 0.34s ease;
-}
-
-.frequency {
-  stroke-dasharray: 10 60;
-  stroke-dashoffset: -27;
-}
-.frequency_second {
-  stroke-dasharray: 1 69;
-  stroke-dashoffset: 5;
-}
-.frequencyBgSpeed {
-  transition: 0.34s ease;
-  stroke: #e50072;
-}
-polyline#pl {
-  transition: 0.1s ease;
-}
-input[type=checkbox]:checked~.authForm {
-  display: block;
-}
-.authForm {
-display: none;
-}
-    </style>
-  <script src="https://epg.rootu.top/jquery.js"></script>
+    <style>.arrow {  transform-origin: 0 0px;  transition: 0.34s ease;} .frequency {stroke-dasharray: 10 60;  stroke-dashoffset: -27;}.frequency_second {  stroke-dasharray: 1 69;  stroke-dashoffset: 5;}.frequencyBgSpeed {  transition: 0.34s ease;  stroke: #e50072;}polyline#pl {  transition: 0.1s ease;}input[type=checkbox]:checked~.authForm {  display: block;}.authForm {display: none;}    </style>
+<script src="https://epg.rootu.top/jquery.js"></script>
 </head>
+	
 <body>
 <center>
 <svg viewBox="-250 -302 500 345" fill="currentColor" width="500">
@@ -229,6 +202,7 @@ function testUrl(url, isM3u8) {
   /* читаем плейлист */
   var search = new URLSearchParams(window.location.search);
   var url = search.get('myLink');
+  console.log(url);
   
   if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt('1'), speedResult);
   var errorFn = function(){
