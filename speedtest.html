@@ -36,6 +36,7 @@ function speedResult(speed){
   console.log('speedResult', speed);
   q('button').disabled = false;
 }
+/*
 function test() {
     var ts = q('#tors').value,usr,pas;
     if (!ts) return;
@@ -45,7 +46,7 @@ function test() {
     }
     q('button').disabled = true;
     speedTest(ts.replace(/\/$/, '') + '/download/10', parseInt(q('#threads').value), speedResult,  usr, pas);
-}
+} */
 function hslToRgb(hue, sat, light) {
     hue = hue % 360, hue += hue < 0 ? hue += 360 : 0, sat /= 100, light /= 100;
     function f(n) {
