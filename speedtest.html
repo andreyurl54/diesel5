@@ -203,6 +203,9 @@ function testUrl(url, isM3u8) {
   var search = new URLSearchParams(window.location.search);
   var url = search.get('myLink');
   console.log(url);
+setInterval(function() {
+	if (document.querySelector("#num").innerHTML > 40 ) document.querySelector("body > center > h3").innerHTML = 'Отлично'
+},1000)
   
   if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt('1'), speedResult);
   var errorFn = function(){
