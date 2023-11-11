@@ -204,7 +204,10 @@ function testUrl(url, isM3u8) {
   var url = search.get('myLink');
   console.log(url);
 setInterval(function() {
-	if (document.querySelector("#num").innerHTML > 40 ) document.querySelector("body > center > h3").innerHTML = 'Отлично'
+	if (document.querySelector("#num").innerHTML < 10 ) document.querySelector("body > center > h3").innerHTML = 'Ваш результат: Всё печально ((('
+	if (document.querySelector("#num").innerHTML < 30 ) document.querySelector("body > center > h3").innerHTML = 'Ваш результат: Хватает впритык, могло быть и лучше'
+	if (document.querySelector("#num").innerHTML > 40 ) document.querySelector("body > center > h3").innerHTML = 'Ваш результат: Отлично'
+	
 },1000)
   
   if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt('1'), speedResult);
