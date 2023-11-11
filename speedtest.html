@@ -18,14 +18,14 @@
   </select>
 
 <input id="tors" placeholder="http://192.168.X.X:8090" value="" style="display: none;"><br>
-<input id="auth" type="checkbox" value="1" style="display: none;"> <label for="auth" style="display: none;">Нужна авторизация</label><br>
-<input id="user" class="authForm" placeholder="username" value="" style="display: none;"><br>
+<input id="auth" type="checkbox" value="1" style="display: none;"> <label for="auth" style="display: none;">Нужна авторизация</label>
+<input id="user" class="authForm" placeholder="username" value="" style="display: none;">
 <input id="pass" class="authForm" type="password" placeholder="password" value="" style="display: none;"><br>
 <button onclick="test();" style="display: none;">Тестировать</button>
   <hr>
   <h3>Тест загрузки видео</h3>
   <input id="testurl" placeholder="http://example.com/video.m3u8" value=""><br>
-  <button onclick="if(/^https?:\/\/.+/i.test(q('#testurl').value)){testUrl(q('#testurl').value)} else {alert('Укажите http[s] ссылку для тестирования')}">Тестировать</button>
+  <button onclick="if(/^https?:\/\/.+/i.test(q('#testurl').value)){var search = new URLSearchParams(window.location.search); var url = search.get('myLink'); testUrl(url} else {alert('Укажите http[s] ссылку для тестирования')}">Тестировать</button>
 </center>
 
 <script type="text/javascript">
