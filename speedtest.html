@@ -204,8 +204,8 @@ function testUrl(url, isM3u8) {
   var url = search.get('myLink');
   console.log(url);
 setInterval(function() {
-	if (document.querySelector("#num").innerHTML < 10 ) document.querySelector("body > center > h3").innerHTML = 'Ваш результат: Всё печально ((('
-	if (document.querySelector("#num").innerHTML < 30 ) document.querySelector("body > center > h3").innerHTML = 'Ваш результат: Хватает впритык, могло быть и лучше'
+	if (document.querySelector("#num").innerHTML < 10 && document.querySelector("#num").innerHTML > 1) document.querySelector("body > center > h3").innerHTML = 'Ваш результат: Всё печально ((('
+	if (document.querySelector("#num").innerHTML < 30 && document.querySelector("#num").innerHTML > 20) document.querySelector("body > center > h3").innerHTML = 'Ваш результат: Хватает впритык, могло быть и лучше'
 	if (document.querySelector("#num").innerHTML > 40 ) document.querySelector("body > center > h3").innerHTML = 'Ваш результат: Отлично'
 	
 },1000)
