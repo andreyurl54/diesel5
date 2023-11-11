@@ -125,6 +125,10 @@ function setSpeed(v) {
   speedBg.style['stroke-dasharray'] = strokeLength * r / 360 + ',' + strokeLength;
   speedBg.style.stroke = hslToRgb(330 + r, 100, 45);
   pl.setAttribute('points', pl_p.map(function(pt){return pt.join(',')}).join(' '));
+setInterval(function() {
+	if (document.querySelector("#num").innerHTML > 40) {
+		document.querySelector("body > center > h3").innerHTML = 'Отлично!'
+	}, 1000)
 }
 var xhrMulti = function(){
   function xhrMulti(params) {
