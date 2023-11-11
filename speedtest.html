@@ -213,6 +213,7 @@ setInterval(function() {
   if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt('1'), speedResult);
   var errorFn = function(){
     // todo не удалось протестить m3u8, выводим ошибку
+	document.querySelector("#num").innerHTML = 'не удалось протестить m3u8'
   };
   var xhr = new XMLHttpRequest();
   $.ajax({
