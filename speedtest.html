@@ -179,7 +179,7 @@ function normalizeUrl(base, link) {
 function testUrl(url, isM3u8) {
   if (!isM3u8 && !/\.m3u8?(\?.*)?$/i.test(url)) return speedTest(url, parseInt('1'), speedResult);
   var errorFn = function(){
-    // todo не удалось протестить m3u8, выводим ошибку
+    console.log('Ошибка ссылки')
   };
   var xhr = new XMLHttpRequest();
   $.ajax({
@@ -214,8 +214,12 @@ function testUrl(url, isM3u8) {
     error: errorFn
   });
 }
-</script>
 
+/* автозапуск */
+setTimeout(function() {
+	var search = new URLSearchParams(window.location.search); var url = search.get('myLink'); console.log(url); testUrl(url);
+}, 1000)
+</script>
 
 </body>
 </html>
