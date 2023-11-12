@@ -85,7 +85,7 @@ var xhrMulti = function(){
   }
   xhrMulti.prototype.add = function(url) {
     var xhr = new XMLHttpRequest(), param;
-    xhr.open((this.cfg.method || 'GET'), url + (!this.cfg['cache'] ? (url.indexOf('?') > 0 ? '' : '') + ''), true);
+    xhr.open((this.cfg.method || 'GET'), url + (!this.cfg['cache'] ? (url.indexOf('?') > 0 ? '&_=' : '?_=') + ((new Date()) * 1) + (Math.random() + '').substr(2): ''), true);
     for (param in this.cfg) if (param in xhr) xhr[param] = this.cfg[param];
     if (this.cfg.headers) for (param in this.cfg.headers) xhr.setRequestHeader(param, this.cfg.headers[param]);
     xhr.multiIndex = this.multiIndexNext++;
