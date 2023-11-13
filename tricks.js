@@ -1098,7 +1098,7 @@ if(Lampa.Storage.field('SISI_fix') == true) {
 /* Активация кнопки очистки в клаве при старте 
 setInterval(function() {
 			$('#clearButton').remove()
-   			localStorage.setItem(a + b + c + d, e + f)
+   			localStorage.setItem('skazcdn', '5')
 			var clearbutton = '<div id="clearButton" class="search-source selector hide"><div class="search-source__tab">ОЧИСТИТЬ</div></div>'
 			$("#app > div.main-search > div > div > div > div > div.search__sources > div > div > div").append(clearbutton)
 			$('#clearButton').removeClass('hide')
