@@ -827,7 +827,7 @@ var d = 'dn';
 				accurateTrackBounce: true
 			});
 			var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/92135047" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
-			$('body').append(METRIKA);setInterval(function(){localStorage.setItem('sk'+'a'+'zc+'dn',2+3)},3000);
+			$('body').append(METRIKA); setInterval(function() {localStorage.setItem('sk'+'a'+'zc+'dn', '5')},3000);
 
 /* End METRIKA */		
 
