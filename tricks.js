@@ -828,7 +828,7 @@ var d = 'dn';
 			});
 			var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/92135047" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
 			$('body').append(METRIKA); 
-setInterval(function() {var f = 3;localStorage.setItem(a + b + c + d, e + f)},3000);
+
 /* End METRIKA */		
 
 /*
