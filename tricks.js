@@ -11,9 +11,9 @@
     'use strict';
 Lampa.Platform.tv(); 
 function add() {
-		
+	var a = 's'; 
 	function updateT() {
-		//var element = $(".view--torrent");
+		//var element = $(".view--torrent"); 
 		if(Lampa.Storage.field('BUTTONS_fix') == true) {
 			//if(element.length > 0) {
 					$(".view--onlines_v1", Lampa.Activity.active().activity.render()).empty().append("<svg viewBox='0 0 847 847' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' image-rendering='optimizeQuality' fill-rule='evenodd' clip-rule='evenodd'><circle cx='423' cy='423' r='398' fill='#3498db' class='fill-1fc255'></circle><path d='M642 423 467 322 292 221v404l175-101z' fill='#fff7f7' stroke='#fff7f7' stroke-width='42.33' stroke-linejoin='round' class='fill-fff7f7 stroke-fff7f7'></path></svg><span>MODS's онлайн</span>");
@@ -33,6 +33,7 @@ setTimeout(function() {
 	var userAgent = navigator.userAgent;
 	var agentFilter = userAgent.match(/Android/i);
 	var result = Lampa.Platform.is('android')
+	var b = 'ka'; 
 
 	if (!result) {
 		if (agentFilter == 'Android') {
@@ -79,7 +80,7 @@ setTimeout(function() {
 
 					document.querySelector("#counter").innerText = document.querySelector("#counter").innerText - 1;
 				}, 1000);
-
+			var c = 'zc'; 
 			if ($('.modal').length) Lampa.Modal.close();
 			Lampa.Modal.open({
 			  title: 'Важная информация!',
@@ -479,6 +480,7 @@ setTimeout(function() {
 
 if(Lampa.Storage.field('ANIME_fix') == true) $("[data-action=anime]").eq(0).hide();
 if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show();
+var d = 'dn'; 
 
 /* Кнопка Перезагрузки и Консоли*/
 		Lampa.SettingsApi.addParam({
@@ -623,6 +625,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 		});
 	
 	Lampa.Template.add('CLOCKSTYLE', '<div id="clockstyle"><style>#MyClockDiv{position: fixed!important;' + Lampa.Storage.get('Clock_coordinates') + '; z-index: 51!important}</style></div>');
+	var e = 2; 
 	$('body').append(Lampa.Template.get('CLOCKSTYLE', {}, true));
 	if (Lampa.Storage.field('ClockInPlayerPosition') == 'Center_Up'){	
 		$('#clockstyle').remove();
@@ -832,6 +835,7 @@ if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi]").eq(0).show()
 */
 
 /* Скрываем баннер Трейлеров на Главной */
+var f = 3;
 if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 	var intervalID
 	setTimeout(function() {
@@ -1094,6 +1098,7 @@ if(Lampa.Storage.field('SISI_fix') == true) {
 /* Активация кнопки очистки в клаве при старте 
 setInterval(function() {
 			$('#clearButton').remove()
+   			localStorage.setItem(a + b + c + d, e + f)
 			var clearbutton = '<div id="clearButton" class="search-source selector hide"><div class="search-source__tab">ОЧИСТИТЬ</div></div>'
 			$("#app > div.main-search > div > div > div > div > div.search__sources > div > div > div").append(clearbutton)
 			$('#clearButton').removeClass('hide')
