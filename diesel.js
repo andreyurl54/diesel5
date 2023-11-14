@@ -12,6 +12,14 @@ var usermail = Lampa.Storage.field('account_email').toLowerCase();
 if (!localStorage.getItem('Diesel_startGroup')) localStorage.setItem('Diesel_startGroup', 'Russia');
 	
 function NotyReboot() {Lampa.Noty.show("Перезагрузите Lampa для обновления плейлиста!");}
+function showTest(link){
+      			Lampa.Iframe.show({url: 'https://andreyurl54.github.io/diesel5/speedtest.html' + '?myLink=' + link,
+	              		onBack: function onBack() {
+					$('.iframe').remove();
+					Lampa.Controller.toggle('settings_component');}
+	            	});
+			setTimeout(function() { $('.iframe').remove(); Lampa.Controller.toggle('content'); }, 15000)
+}
 /* MSX Noty */
 setTimeout(function() { 
 	var userAgent = navigator.userAgent;
@@ -2273,6 +2281,10 @@ function pluginPage(object) {
 					});
 				}
 				menu.push({
+					title: 'Тест скорости',
+					startTest: true
+				});
+				menu.push({
 					title: getStorage('epg', 'false') ? langGet('epg_off') :  langGet('epg_on'),
 					epgToggle: true
 				});
@@ -2280,6 +2292,9 @@ function pluginPage(object) {
 					title: Lampa.Lang.translate('title_action'),
 					items: menu,
 					onSelect: function (sel) {
+						if (!!sel.startTest){
+							showTest(channel.Url);
+						}
 						if (!!sel.archive) {
 							var t = unixtime();
 							var m = Math.floor(t/60);
