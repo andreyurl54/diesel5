@@ -30,7 +30,7 @@ var icon_add_local_server = '<div class="settings-folder" style="padding:0!impor
 							if($('div[data-static="true"]').length > 1) item.hide();
 							//$('.settings-param__name', item).css('color','f3d900');
 							$('div[data-static="true"]').insertAfter('div[data-name="torrserver_use_link"]');
-						}, 0); */
+						*/ }, 0); 
 						item.on('hover:enter', function () {
 							Lampa.Settings.create('add_local_server');
 							Lampa.Controller.enabled().controller.back = function(){
