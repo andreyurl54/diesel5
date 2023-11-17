@@ -29,10 +29,10 @@ document.querySelector('div.settings__body > div > div > div > div > div:contain
 						name: icon_add_local_server
 					},
 					onRender: function(item) {
-						setTimeout(function() { /*
-							if($('div[style="padding:0!important"]').length > 1) item.hide();
+						setTimeout(function() { 
+							if($('div[class="settings-folder"]').length > 1) item.hide();
 							//$('.settings-param__name', item).css('color','f3d900');
-							$('div[data-static="true"]').insertAfter('div[style="padding:0!important"]'); */
+							$('div[class="settings-folder"]').parent().parent().insertAfter('div[data-static="true"]')[0]; 
 						}, 0); 
 						item.on('hover:enter', function () {
 							Lampa.Settings.create('add_local_server');
