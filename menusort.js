@@ -20,6 +20,7 @@ var icon_menu_sort = '<div class="settings-folder" style="padding:0!important"><
 					param: {
 						name: 'add_menu_sort',
 						type: 'static',
+						id: 'sort',
 						default: true
 					},
 					field: {
