@@ -40,4 +40,22 @@ var icon_menu_sort = '<div class="settings-folder" style="padding:0!important"><
 						});
 					}
 		});  
- })();
+ 
+	/* Дочерний элемент Пункты*/
+	Lampa.SettingsApi.addParam({
+					component: 'add_menu_sort',
+					param: {
+						name: 'clear_hidden_items',
+						type: 'button'
+					},
+					field: {
+						name: 'Показать все скрытые',
+						description: ''
+					},
+					onRender: function (item) {
+						setTimeout(function() {
+							localStorage.setItem('menu_hide', []);
+						}, 0);
+					}
+	});
+})();
