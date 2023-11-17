@@ -56,6 +56,7 @@ var icon_menu_sort = '<div class="settings-folder" style="padding:0!important"><
 						item.on('hover:enter', function () {
 							setTimeout(function() {
 								localStorage.setItem('menu_hide', []);
+								$(".menu__item").removeClass("hidden");
 							}, 0);
 						});
 					}
