@@ -27,7 +27,7 @@ var icon_menu_sort = '<div class="settings-folder" style="padding:0!important"><
 					},
 					onRender: function(item) {
 						setTimeout(function() { 
-							if($('div[class="settings-folder"]').parent().parent().length > 1) item.hide();
+							if($('div[class="settings-param selector"] > div > div > div:contains("Сортировка")').parent().parent().parent() > 1) item.hide();
 							//$('.settings-param__name', item).css('color','f3d900');
 							$('div[class="settings-folder"]').parent().parent().insertBefore('div[data-static="true"]')[0]; 
 						}, 0); 
