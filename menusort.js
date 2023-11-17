@@ -6,7 +6,7 @@ var icon_add_menu_sort = '<svg viewBox="0 -0.5 29 29" version="1.1" xmlns="http:
 					if (e.name == 'main') {
 						Lampa.SettingsApi.addComponent({
                             component: 'add_menu_sort',
-							name: 'checker'
+							name: 'Сортировка Главного меню'
 						});
 						/*
 						setTimeout(function() {
@@ -27,11 +27,11 @@ var icon_add_menu_sort = '<svg viewBox="0 -0.5 29 29" version="1.1" xmlns="http:
 						name: icon_add_menu_sort
 					},
 					onRender: function(item) {
-						setTimeout(function() {
+						/* setTimeout(function() {
 							if($('div[data-static="true"]').length > 1) item.hide();
 							//$('.settings-param__name', item).css('color','f3d900');
 							$('div[data-static="true"]').insertAfter('div[data-name="torrserver_use_link"]');
-						}, 0);
+						}, 0); */
 						item.on('hover:enter', function () {
 							Lampa.Settings.create('add_menu_sort');
 							Lampa.Controller.enabled().controller.back = function(){
