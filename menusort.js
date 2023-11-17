@@ -30,7 +30,7 @@ var icon_menu_sort = '<div class="settings-folder" style="padding:0!important"><
 						setTimeout(function() { 
 							item.hide();
 							//$('.settings-param__name', item).css('color','f3d900');
-							$('div[class="settings-folder"]').parent().parent().insertBefore('div[data-static="true"]')[0].show(); 
+							$('div[class="settings-folder"]').parent().parent().show().insertBefore('div[data-static="true"]')[0]; 
 						}, 0); 
 						item.on('hover:enter', function () {
 							Lampa.Settings.create('add_menu_sort');
