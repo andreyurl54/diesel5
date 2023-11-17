@@ -8,9 +8,11 @@ var icon_add_menu_sort = '<svg viewBox="0 -0.5 29 29" version="1.1" xmlns="http:
                             component: 'add_menu_sort',
 							name: 'checker'
 						});
+						/*
 						setTimeout(function() {
 							$('div[data-component="add_menu_sort"]').remove();
 						}, 0);
+      						*/
 					}
 		});
 	/* Головной раздел */	
