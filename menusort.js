@@ -1,43 +1,42 @@
 (function () {
 'use strict';
-var icon_add_menu_sort = '<div class="settings-folder" style="padding:0!important"><div style="width:1.8em;height:1.3em;padding-right:.5em"><svg viewBox="0 -0.5 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>sort-by 2</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-520.000000, -207.000000)" fill="#ffffff"> <path d="M547,225 L535,225 C533.896,225 533,225.896 533,227 C533,228.104 533.896,229 535,229 L547,229 C548.104,229 549,228.104 549,227 C549,225.896 548.104,225 547,225 L547,225 Z M547,219 L535,219 C533.896,219 533,219.896 533,221 C533,222.104 533.896,223 535,223 L547,223 C548.104,223 549,222.104 549,221 C549,219.896 548.104,219 547,219 L547,219 Z M547,213 L541,213 C539.896,213 539,213.896 539,215 C539,216.104 539.896,217 541,217 L547,217 C548.104,217 549,216.104 549,215 C549,213.896 548.104,213 547,213 L547,213 Z M535.687,216.697 C536.079,216.303 536.079,215.665 535.687,215.271 L528.745,207.283 C528.535,207.073 528.258,206.983 527.984,206.998 C527.711,206.983 527.434,207.073 527.224,207.283 L520.282,215.271 C519.89,215.665 519.89,216.303 520.282,216.697 C520.674,217.091 521,217 521,217 L527,217 L527,235 L529,235 L529,217 L535,217 C535,217 535.295,217.091 535.687,216.697 L535.687,216.697 Z M535,211 L547,211 C548.104,211 549,210.104 549,209 C549,207.896 548.104,207 547,207 L535,207 C533.896,207 533,207.896 533,209 C533,210.104 533.896,211 535,211 L535,211 Z M547,231 L535,231 C533.896,231 533,231.896 533,233 C533,234.104 533.896,235 535,235 L547,235 C548.104,235 549,234.104 549,233 C549,231.896 548.104,231 547,231 L547,231 Z" id="sort-by-2" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>Сортировка Главного меню</div></div>'
+var icon_add_local_server = '<div class="settings-folder" style="padding:0!important"><div style="width:1.8em;height:1.3em;padding-right:.5em"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#00ff11"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"></g><g id="SVGRepo_iconCarrier"> <path d="M18.5 18.5L22 22" stroke="#ffd505" stroke-width="2.4" stroke-linecap="round"></path> <path d="M9 11.5H11.5M11.5 11.5H14M11.5 11.5V14M11.5 11.5V9" stroke="#00ff11" stroke-width="2.4" stroke-linecap="round"></path> <path d="M6.75 3.27093C8.14732 2.46262 9.76964 2 11.5 2C16.7467 2 21 6.25329 21 11.5C21 16.7467 16.7467 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 9.76964 2.46262 8.14732 3.27093 6.75" stroke="#ffd505" stroke-width="2.4" stroke-linecap="round"></path> </g></svg></div><div style="font-size:1.3em">Локальный TorrServer</div></div>'
+
 /* Компонент */
 		Lampa.Settings.listener.follow('open', function (e) {
 					if (e.name == 'main') {
 						Lampa.SettingsApi.addComponent({
-                            component: 'add_menu_sort',
-							name: 'Сортировка Главного меню'
+                            component: 'add_local_server',
+							name: 'checker'
 						});
-						/*
 						setTimeout(function() {
-							$('div[data-component="add_menu_sort"]').remove();
+							$('div[data-component="add_local_server"]').remove();
 						}, 0);
-      						*/
 					}
 		});
 	/* Головной раздел */	
 		Lampa.SettingsApi.addParam({
 					component: 'interface',
 					param: {
-						name: 'add_menu_sort',
+						name: 'add_local_server',
 						type: 'static',
 						default: true
 					},
 					field: {
-						name: icon_add_menu_sort
+						name: icon_add_local_server
 					},
 					onRender: function(item) {
-						/* setTimeout(function() {
+						setTimeout(function() {
 							if($('div[data-static="true"]').length > 1) item.hide();
 							//$('.settings-param__name', item).css('color','f3d900');
 							$('div[data-static="true"]').insertAfter('div[data-name="torrserver_use_link"]');
-						}, 0); */
+						}, 0);
 						item.on('hover:enter', function () {
-							Lampa.Settings.create('add_menu_sort');
+							Lampa.Settings.create('add_local_server');
 							Lampa.Controller.enabled().controller.back = function(){
 								Lampa.Settings.create('interface');
 							}
 						});
 					}
-		}); 
+		});  
  })();
