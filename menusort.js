@@ -32,7 +32,7 @@ document.querySelector('div.settings__body > div > div > div > div > div:contain
 						setTimeout(function() { 
 							if($('div[class="settings-folder"]').length > 1) item.hide();
 							//$('.settings-param__name', item).css('color','f3d900');
-							$('div[class="settings-folder"]').parent().parent().insertAfter('div[data-static="true"]')[0]; 
+							$('div[class="settings-folder"]').parent().parent().insertBefore('div[data-static="true"]')[0]; 
 						}, 0); 
 						item.on('hover:enter', function () {
 							Lampa.Settings.create('add_local_server');
