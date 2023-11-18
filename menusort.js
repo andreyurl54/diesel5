@@ -61,4 +61,15 @@ var icon_menu_sort = '<div class="settings-folder" style="padding:0!important"><
 						});
 					}
 	});
+
+/*
+$(document).ready(function(){
+	var menuTexts = [];
+	$('.menu__item.binded').each(function(){
+		var text = $(this).find('.menu__text').text();
+		menuTexts.push(text);
+	});
+	console.log(menuTexts);
+})
+*/
 })();
