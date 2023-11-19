@@ -996,12 +996,14 @@ if (Lampa.Storage.field('NoTrailerMainPage') == true) {
 					}
      					
 					if (Lampa.Platform.is('tizen')) {
-						
-						var twitchurl = 'https://tizen.tv.twitch.tv'
+						window.open('https://tizen.tv.twitch.tv', '_blank');
+						/*
+						var twitchurl = 'https://tizen.tv.twitch.tv';
 						var e = new tizen.ApplicationControl("https://tizen.org/appcontrol/operation/view", twitchurl);
 						tizen.application.launchAppControl(e, null, function () {}, function (e) {
 						Lampa.Noty.show(e);})						
-						/*
+						*/
+      						/*
 						var twitchurl = 'https://fgl27.github.io/SmartTwitchTV/release/index.html'
 						window.open(twitchurl, '_blank'); 
       						*/
