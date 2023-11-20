@@ -1,25 +1,40 @@
 (function () {
 'use strict';
-
-function pluginStart() {
-  
-/* АвтоЗапуск */
-     Lampa.Storage.listener.follow('change', function (event) {
-        if (Lampa.Storage.field('Diesel_Auto_Start') == true) {       
-            if (event.name == 'start_page' || 'activity') {
-		localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"' + localStorage.getItem('Diesel_startGroup') +'","component":"diesel_iptv","page":1}');
-                localStorage.setItem('start_page', 'last');
-            };
-			/*
-            if (event.name == 'activity') {
-                localStorage.setItem('activity', '{"id":0,"url":"' + diesel_playlist + '","title":"Дизель ТВ","groups":[],"currentGroup":"Russia","component":"diesel_iptv","page":1}');
-                localStorage.setItem('start_page', 'last');
-            } */
-        }
-    });
-
-
+function pluginPrepare() {
+	if (!localStorage.getItem('autoStart')) localStorage.setItem('autoStart', false);
+	return
 }
- if (!!window.appready) pluginStart();
+	
+function pluginStart() {
+	/* АвтоЗапуск */
+	pluginPrepare();
+	var proxyActivity = JSON.parse(localStorage.getItem('AutoStartActivity');
+	if (localStorage.getItem('AutoStartActivity') !== '') Lampa.Activity.push(proxyActivity)
+
+	/* Меню */
+	Lampa.SettingsApi.addParam({
+						component: 'iptv',
+						param: {
+							name: 'autoStart', 	//название в Storage
+							type: 'trigger', 			//доступно select,input,trigger,title,static
+						},
+						field: {
+							name: 'Автозапуск с открытой категории', 	//Название подпункта меню
+							description: 'Lampa будет запущена с открытой сейчас страницы' //Комментарий к подпункту
+						},
+						onChange: function (value) {
+							var currentActivity = Lampa.Activity.active();
+							localStorage.setItem('AutoStartActivity', currentActivity);
+							Lampa.Settings.update();
+						}
+					});
+}
+	
+if (!!window.appready) pluginStart();
 else Lampa.Listener.follow('app', function(e){if (e.type === 'ready') pluginStart()});
 })();
+
+/*
+var currentActivity = Lampa.Activity.active();
+localStorage.setItem('AutoStartActivity', currentActivity);
+*/
