@@ -1568,8 +1568,7 @@ if 	(Lampa.Storage.field('DIESEL_AccessVariant') == 'LOGIN') {
 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL') {};
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
-	var deco = window.atob("aHR0cHM6Ly9tM3UucGxheS1maWxtLmxpdmUvcGxheWxpc3QubTN1OD9xPWV5SjFjMlZ5U1dRaU9pSnNZVzF3WVhSMkluMC51dlQ4WmhhSU1SVDc4aS03RjE3MmxKWjcyV3hoX0JHZG9yeExqN0w1Z01OSXBVQnhmSVk1UjVJcEZsdU1YanJNZHBvQ2tmeE1TUUM3cEpnelJTLUp3UQaHR0cHM6Ly9tM3UucGxheS1maWxtLmxpdmUvcGxheWxpc3QubTN1OD9xPWV5SjFjMlZ5U1dRaU9pSnNZVzF3WVhSMkluMC51dlQ4WmhhSU1SVDc4aS03RjE3MmxKWjcyV3hoX0JHZG9yeExqN0w1Z01OSXBVQnhmSVk1UjVJcEZsdU1YanJNZHBvQ2tmeE1TUUM3cEpnelJTLUp3UQ");
-	var diesel_playlist = deco;
+    var diesel_playlist = "https://m3u.play-film.live/playlist.m3u8?q=eyJ1c2VySWQiOiJsYW1wYXR2In0.uvT8ZhaIMRT78i-7F172lJZ72Wxh_BGdorxLj7L5gMNIpUBxfIY5R5IpFluMXjrMdpoCkfxMSQC7pJgzRS-JwQ";
 };
 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
