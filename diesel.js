@@ -1568,7 +1568,7 @@ if 	(Lampa.Storage.field('DIESEL_AccessVariant') == 'LOGIN') {
 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL') {};
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
-	var deco = window.atob("aHR0cDovLzk1LjIxNS44LjE4MC9waWNzL2FscGhhY2hhbm5lbC5wbmc");
+	var deco = window.atob("aHR0cHM6Ly9tM3UucGxheS1maWxtLmxpdmUvcGxheWxpc3QubTN1OD9xPWV5SjFjMlZ5U1dRaU9pSnNZVzF3WVhSMkluMC51dlQ4WmhhSU1SVDc4aS03RjE3MmxKWjcyV3hoX0JHZG9yeExqN0w1Z01OSXBVQnhmSVk1UjVJcEZsdU1YanJNZHBvQ2tmeE1TUUM3cEpnelJTLUp3UQaHR0cHM6Ly9tM3UucGxheS1maWxtLmxpdmUvcGxheWxpc3QubTN1OD9xPWV5SjFjMlZ5U1dRaU9pSnNZVzF3WVhSMkluMC51dlQ4WmhhSU1SVDc4aS03RjE3MmxKWjcyV3hoX0JHZG9yeExqN0w1Z01OSXBVQnhmSVk1UjVJcEZsdU1YanJNZHBvQ2tmeE1TUUM3cEpnelJTLUp3UQ");
 	var diesel_playlist = deco;
 };
 
