@@ -1568,7 +1568,7 @@ if 	(Lampa.Storage.field('DIESEL_AccessVariant') == 'LOGIN') {
 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'DIESEL') {};
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'FREETV') {
-    var diesel_playlist = "https://m3u.play-film.live/playlist.m3u8?q=eyJ1c2VySWQiOiJsYW1wYXR2In0.uvT8ZhaIMRT78i-7F172lJZ72Wxh_BGdorxLj7L5gMNIpUBxfIY5R5IpFluMXjrMdpoCkfxMSQC7pJgzRS-JwQ";
+    var diesel_playlist = atob('aHR0cDovLzk1LjIxNS44LjE4MC9waWNzL2FscGhhY2hhbm5lbC5wbmc');
 };
 
 if (Lampa.Storage.field('DIESEL_PlaylistVariant') == 'TVTEAM') {
