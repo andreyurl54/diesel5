@@ -85,6 +85,8 @@ var icon_menu_sort = '<div class="settings-folder" style="padding:0!important"><
 						description: 'Нажмите для выбора пункта'
 					},
 				    onChange: function (value) {
+						var emptyDim = [];
+						if (localStorage.getItem('menu_hide') === (null || undefined || "")) localStorage.setItem('menu_hide', JSON.stringify(emptyDim));
 						var menu_hide = JSON.parse(localStorage.getItem('menu_hide')) || [];
 						menu_hide.push(localStorage.getItem('list_hidden_items'));
 						localStorage.setItem('menu_hide', JSON.stringify(menu_hide));
