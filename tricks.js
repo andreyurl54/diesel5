@@ -28,76 +28,6 @@ function add() {
 		}
 	} /* End updateT */
 	
-/* MediaStationX Attention */
-setTimeout(function() { 
-	var userAgent = navigator.userAgent;
-	var agentFilter = userAgent.match(/Android/i);
-	var result = Lampa.Platform.is('android')
-	var b = 'ka'; 
-
-	if (!result) {
-		if (agentFilter == 'Android') {
-			var isMSX_text = $("<div class=\"about\">" + '\n' +
-								'<div>Мы заметили, что для запуска Lampa на Android Вы используете MediaStationX. Рекомендуем вам удалить MediaStationX и установить Lampa как APK-приложение. Скачать последнюю версию приложения Вы можете:</div>\n\n\n' +
-								'<div class=\"overhide\">\n' +
-									'<div class=\"about__contacts\">\n' +
-										'<div>\n' +
-											'<small>TELEGRAM</small><br>\n' +
-											'@lampa_android\n' +
-										'</div>\n\n' +
-										'<div>\n' +
-											'<small>Прямой Ссылкой</small><br>\n' +
-											'https://cub.red/download/lampa.apk' + '\n' +
-										'</div>\n\n' +
-										'<div>\n' +
-											'<small>Если это ошибка, напишите об этом в Telegram-группе плагинов</small><br>\n' +
-											'@lampa_plugins' + '\n' +
-										'</div>\n\n' +
-										'<div>\n' +
-											'<small>Окно автоматически закроется через: ' + '<span id="counter">31</span>' + ' секунд' + '</small><br>\n' +
-											'\n' +
-										'</div>\n\n' +
-									'</div>\n' +
-								'</div>\n\n' +
-								'</div>\n\n' +
-								"</div>");
-			/*
-			var video = {url: 'https://andreyurl54.github.io/diesel5/MSX.mp3'}; 
-			Lampa.Player.play(video);
-			$('.player').hide();
-			setTimeout(function() {	
-				$('.player').remove();
-			}, 22000);
-			*/
-				var countDownTimer = setInterval(function() {
-
-					if (document.querySelector("#counter").innerText == 0) {
-					  Lampa.Modal.close();
-					  Lampa.Controller.toggle('content');
-					  clearInterval(countDownTimer);
-					  return;
-					}
-
-					document.querySelector("#counter").innerText = document.querySelector("#counter").innerText - 1;
-				}, 1000);
-			var c = 'zc'; 
-			if ($('.modal').length) Lampa.Modal.close();
-			Lampa.Modal.open({
-			  title: 'Важная информация!',
-			  html: isMSX_text,
-			  size: 'medium',
-			  onBack: function onBack() {
-				// $('.player').remove();
-				clearInterval(countDownTimer);
-				Lampa.Modal.close();
-				Lampa.Controller.toggle('content');
-			  }
-			});		
-		};
-	}
-}, 3000);
-
-	
 /* Скрываем ленту трейлеров на Главной */
 	Lampa.SettingsApi.addParam({
 			component: 'Multi_Menu_Component',
@@ -181,7 +111,7 @@ setTimeout(function() {
 			field: {
 				name: 'Свой хранитель экрана',
 				//Название подпункта меню
-				description: 'Меняет скринсейвер на другой' //Комментарий к подпункту
+				description: 'В разработке' //Комментарий к подпункту
 			},
 			onChange: function(value) {
 				//Действия при изменении подпункта
@@ -353,27 +283,6 @@ setTimeout(function() {
 		});
 /*End Торренты */
 
-/* SpeedTest */
-	/* Отключенный сегмент */
-	    	Lampa.SettingsApi.addParam({
-	    		component: 'Multi_Menu_Component',
-	    		param: {
-	    			name: 'SpeedTest',
-	    			type: 'static', //доступно select,input,trigger,title,static
-	    		},
-	    		field: {
-	    			name: 'SpeedTest',
-	    			description: 'Замер скорости интернет-соединения для Skaz'
-	    		},
-	    		onRender: function (item) {
-	    			item.on('hover:enter', function(){
-	    			//Lampa.Iframe.show({url: 'http://zamerka.com/',
-				Lampa.Iframe.show({url: 'http://62.84.100.7/speed.php',
-	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
-	            		});});}
-				});
-	/* End Отключаемый сегмент  */	
-	
 	    	Lampa.SettingsApi.addParam({
 	    		component: 'Multi_Menu_Component',
 	    		param: {
