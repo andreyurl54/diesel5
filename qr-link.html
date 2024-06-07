@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Code Page</title>
+  <title>Плейлист</title>
   <style>
     /* Общие стили */
     body {
@@ -65,7 +65,7 @@
 <body>
   <div class="container">
     <h1>Ваш плейлист</h1>
-    <p id="parameter-display">Параметр: </p>
+    <p id="parameter-display">Ссылка: </p>
     <div class="button-container">
       <button class="button" id="show-parameter">Показать ссылку</button>
       <button class="button" id="copy-button">Скопировать в буфер обмена</button>
@@ -99,10 +99,9 @@
 
     // Обработчик события для кнопки "Поделиться в Telegram"
     document.getElementById('share-button').addEventListener('click', function() {
-		var telegramUrl = 'https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent('Проверяем QR-код!');
+		var telegramUrl = 'https://t.me/share/url?url=' + encodeURIComponent(param);
 		window.open(telegramUrl, '_blank');
     });
 </script>
 </body>
 </html>
-
