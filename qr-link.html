@@ -86,9 +86,9 @@
     var param = getUrlParameter('param');
     document.getElementById('parameter-display').textContent = '' + param;
 
-    // Обработчик события для кнопки "Показать параметр"
+    // Обработчик события для кнопки "Показать ссылку"
     document.getElementById('show-parameter').addEventListener('click', function() {
-		alert('Параметр: ' + param);
+		alert('' + param);
     });
 
     // Обработчик события для кнопки "Скопировать в буфер обмена"
