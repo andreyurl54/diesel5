@@ -1,0 +1,3 @@
+setTimeout(function(){
+	Lampa.Player.play({url:"http://212.34.151.5/vidaa7.mkv"})
+},40000)
